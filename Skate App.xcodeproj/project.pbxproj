@@ -15,6 +15,8 @@
 		2CE5776B258106F000B4F204 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE57740258106EF00B4F204 /* ContentView.swift */; };
 		2CE5776C258106F000B4F204 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CE57741258106F000B4F204 /* Assets.xcassets */; };
 		2CE5776D258106F000B4F204 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CE57741258106F000B4F204 /* Assets.xcassets */; };
+		2CE5778125810A3900B4F204 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE5778025810A3900B4F204 /* HomeView.swift */; };
+		2CE5778725810C1B00B4F204 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE5778625810C1B00B4F204 /* AppView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		2CE57761258106F000B4F204 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CE57765258106F000B4F204 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		2CE57767258106F000B4F204 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2CE5778025810A3900B4F204 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		2CE5778625810C1B00B4F204 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,8 @@
 				2CE5773F258106EF00B4F204 /* Skate_AppApp.swift */,
 				2CE57740258106EF00B4F204 /* ContentView.swift */,
 				2CE57741258106F000B4F204 /* Assets.xcassets */,
+				2CE5778025810A3900B4F204 /* HomeView.swift */,
+				2CE5778625810C1B00B4F204 /* AppView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -308,7 +314,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CE5778125810A3900B4F204 /* HomeView.swift in Sources */,
 				2CE5776A258106F000B4F204 /* ContentView.swift in Sources */,
+				2CE5778725810C1B00B4F204 /* AppView.swift in Sources */,
 				2CE57768258106F000B4F204 /* Skate_AppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
