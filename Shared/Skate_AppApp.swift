@@ -11,7 +11,7 @@ import SwiftUI
 struct Skate_AppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AppView()
         }
     }
 }

@@ -1,5 +1,5 @@
 //
-//  HomeView.swift
+//  ProfileView.swift
 //  Skate App (iOS)
 //
 //  Created by Hubert Rzeminski on 09/12/2020.
@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct HomeView: View {
+struct ProfileView: View {
     var body: some View {
-        Text("Home")
+        Text("Profile")
     }
 }
 
-struct HomeView_Previews: PreviewProvider {
+struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        ProfileView()
     }
 }
