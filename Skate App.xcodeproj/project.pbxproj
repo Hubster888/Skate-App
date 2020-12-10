@@ -95,6 +95,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C721090258266650060EE76 /* Main views */ = {
+			isa = PBXGroup;
+			children = (
+				2CE5778025810A3900B4F204 /* HomeView.swift */,
+				2CE5778625810C1B00B4F204 /* AppView.swift */,
+				2C7E5B5D258118D400B634F5 /* LearnView.swift */,
+				2C7E5B63258118F000B634F5 /* ExploreView.swift */,
+				2C7E5B692581190900B634F5 /* FeedView.swift */,
+				2C7E5B6F2581191800B634F5 /* ProfileView.swift */,
+			);
+			path = "Main views";
+			sourceTree = "<group>";
+		};
+		2C7210912582669A0060EE76 /* Specific views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Specific views";
+			sourceTree = "<group>";
+		};
 		2CE57739258106EF00B4F204 = {
 			isa = PBXGroup;
 			children = (
@@ -110,15 +130,11 @@
 		2CE5773E258106EF00B4F204 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				2C7210912582669A0060EE76 /* Specific views */,
+				2C721090258266650060EE76 /* Main views */,
 				2CE5773F258106EF00B4F204 /* Skate_AppApp.swift */,
 				2CE57740258106EF00B4F204 /* ContentView.swift */,
 				2CE57741258106F000B4F204 /* Assets.xcassets */,
-				2CE5778025810A3900B4F204 /* HomeView.swift */,
-				2CE5778625810C1B00B4F204 /* AppView.swift */,
-				2C7E5B5D258118D400B634F5 /* LearnView.swift */,
-				2C7E5B63258118F000B634F5 /* ExploreView.swift */,
-				2C7E5B692581190900B634F5 /* FeedView.swift */,
-				2C7E5B6F2581191800B634F5 /* ProfileView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
