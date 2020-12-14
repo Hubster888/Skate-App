@@ -89,7 +89,16 @@ struct LearnView: View {
                     Spacer()
                 }
             }
+            
             .navigationBarTitle(Text("Learn"), displayMode: .inline)
+            .navigationBarItems( trailing: NavigationLink(destination: settingsView()) {
+                Image(systemName: "gear")
+                    .resizable()
+                    .imageScale(.large)
+            })
+            .onAppear() {
+                UINavigationBar.appearance().barTintColor = UIColor(red: 0.95, green: 0.32, blue: 0.34, alpha: 1.0)
+            }
         }
     }
 };extension UIScreen{
