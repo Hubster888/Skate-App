@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct LearnView: View {
+
+    init(){
+        UITabBar.appearance().barTintColor = UIColor(red: 0.95, green: 0.32, blue: 0.34, alpha: 1.0)
+    }
+    
     var body: some View {
         NavigationView {
             ZStack{
