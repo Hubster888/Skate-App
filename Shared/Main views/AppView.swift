@@ -19,7 +19,7 @@ struct AppView: View {
                         Image(systemName: "pencil.and.outline")
                         Text("Learn")
                     }
-                    .onTapGesture {
+                    .onAppear {
                             self.selectedTab = 0
                         }
                     .tag(0)
@@ -29,7 +29,7 @@ struct AppView: View {
                         Image(systemName: "perspective")
                         Text("Explore")
                     }
-                    .onTapGesture {
+                    .onAppear {
                             self.selectedTab = 1
                         }
                     .tag(1)
@@ -39,7 +39,7 @@ struct AppView: View {
                         Image(systemName: "house.fill")
                         Text("Home")
                     }
-                    .onTapGesture {
+                    .onAppear {
                             self.selectedTab = 2
                         }
                     .tag(2)
@@ -49,7 +49,7 @@ struct AppView: View {
                         Image(systemName: "person.3.fill")
                         Text("Feed")
                     }
-                    .onTapGesture {
+                    .onAppear {
                             self.selectedTab = 3
                         }
                     .tag(3)
@@ -59,7 +59,7 @@ struct AppView: View {
                         Image(systemName: "person.circle.fill")
                         Text("Profile")
                     }
-                    .onTapGesture {
+                    .onAppear {
                             self.selectedTab = 4
                         }
                     .tag(4)
