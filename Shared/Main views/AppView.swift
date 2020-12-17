@@ -12,7 +12,7 @@ struct AppView: View {
 
     var body: some View{
         ZStack{
-            Color(red: 0, green: 0.96, blue: 0.96)
+            Color(red: 0.13, green: 0.15, blue: 0.22)
             TabView(selection: $selectedTab) {
                 LearnView()
                     .tabItem {
@@ -65,9 +65,9 @@ struct AppView: View {
                     .tag(4)
             }
         }
-        .accentColor(Color(red: 0.13, green: 0.15, blue: 0.22))
+        .accentColor(Color(red: 0.95, green: 0.32, blue: 0.34))
         .onAppear() {
-            UITabBar.appearance().barTintColor = UIColor(red: 0.95, green: 0.32, blue: 0.34, alpha: 1.0)
+            UITabBar.appearance().barTintColor = UIColor(red: 0.13, green: 0.15, blue: 0.22, alpha: 1.00)
         }
     }
 }

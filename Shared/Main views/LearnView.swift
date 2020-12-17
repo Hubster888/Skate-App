@@ -10,99 +10,61 @@ import SwiftUI
 struct LearnView: View {
 
     init(){
-        UITabBar.appearance().barTintColor = UIColor(red: 0.95, green: 0.32, blue: 0.34, alpha: 1.0)
+        let navBarAppearance = UINavigationBar.appearance()
+        navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor(red: 0.96, green: 0.96, blue: 0.96, alpha: 1.0)]
+        navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor(red: 0.96, green: 0.96, blue: 0.96, alpha: 1.0)]
+        navBarAppearance.barTintColor = UIColor(red: 0.13, green: 0.15, blue: 0.22, alpha: 1.0)
     }
     
     var body: some View {
         NavigationView {
             ZStack{
                 Color(red: 0.96, green: 0.96, blue: 0.96).edgesIgnoringSafeArea(.all)
+                Rectangle()
+                    .fill(Color(red: 0.13, green: 0.15, blue: 0.22))
+                    .frame(width: 30, height: UIScreen.screenHeight)
+                    .offset(x: -100, y: 0)
                 VStack{
-                    Text("Where To?")
-                        .font(.system(size: 65))
-                        .fontWeight(.bold)
-                        .font(.title)
-                        .foregroundColor(.black)
-                    Spacer()
-                    NavigationLink(destination: PlanView()) {
-                        ZStack (alignment: .bottomLeading){
-                            Image("learnPlanButton")
-                                .resizable()
-                                .cornerRadius(10)
-                                .frame(width: UIScreen.screenWidth * 0.75, height: UIScreen.screenHeight * 0.2)
-                                .shadow(color: .black, radius: 4, x: 3, y: 3)
-                                
-                            Rectangle()
-                                .fill(Color.black)
-                                .frame(width: UIScreen.screenWidth * 0.75, height: (UIScreen.screenHeight * 0.2) * 0.3)
-                                .cornerRadius(10)
-                            
-                            Text("Plan")
-                                .font(.system(size: 40))
-                                .font(.title)
-                                .fontWeight(.heavy)
-                                .foregroundColor(.white)
-                                .offset(x: 20, y: -(UIScreen.screenHeight * 0.2) * 0.17)
-                        }
-                    }
                     Spacer()
                     
-                    Button(action: {print("gg")}) {
-                        ZStack (alignment: .bottomLeading){
-                            Image("learnTricksButton")
-                                .resizable()
-                                .cornerRadius(10)
-                                .frame(width: UIScreen.screenWidth * 0.75, height: UIScreen.screenHeight * 0.2)
-                                .shadow(color: .black, radius: 4, x: 3, y: 3)
-                                
-                            Rectangle()
-                                .fill(Color.black)
-                                .frame(width: UIScreen.screenWidth * 0.75, height: (UIScreen.screenHeight * 0.2) * 0.3)
-                                .cornerRadius(10)
-                            
-                            Text("Tricks")
-                                .font(.system(size: 40))
-                                .font(.title)
-                                .fontWeight(.heavy)
-                                .foregroundColor(.white)
-                                .offset(x: 20, y: -(UIScreen.screenHeight * 0.2) * 0.17)
-                        }
-                    }
+                    Image("learnPlanButton")
+                        .resizable()
+                        .frame(width: 170, height: 170)
+                        .clipShape(Circle())
+                        .shadow(radius: 10)
+                        .overlay(Circle().stroke(Color(red: 0.13, green: 0.15, blue: 0.22), lineWidth: 8))
+                        .offset(x: -80)
+                    
                     Spacer()
                     
-                    Button(action: {print("gg")}) {
-                        ZStack (alignment: .bottomLeading){
-                            Image("learnGamesButton")
-                                .resizable()
-                                .cornerRadius(10)
-                                .frame(width: UIScreen.screenWidth * 0.75, height: UIScreen.screenHeight * 0.2)
-                                .shadow(color: .black, radius: 4, x: 3, y: 3)
-                                
-                            Rectangle()
-                                .fill(Color.black)
-                                .frame(width: UIScreen.screenWidth * 0.75, height: (UIScreen.screenHeight * 0.2) * 0.3)
-                                .cornerRadius(10)
-                            
-                            Text("Games")
-                                .font(.system(size: 40))
-                                .font(.title)
-                                .fontWeight(.heavy)
-                                .foregroundColor(.white)
-                                .offset(x: 20, y: -(UIScreen.screenHeight * 0.2) * 0.17)
-                        }
-                    }
+                    Image("learnTricksButton")
+                        .resizable()
+                        .frame(width: 170, height: 170)
+                        .clipShape(Circle())
+                        .shadow(radius: 10)
+                        .overlay(Circle().stroke(Color(red: 0.13, green: 0.15, blue: 0.22), lineWidth: 8))
+                        .offset(x: -80)
+                    
+                    Spacer()
+                    
+                    Image("learnGamesButton")
+                        .resizable()
+                        .frame(width: 170, height: 170)
+                        .clipShape(Circle())
+                        .shadow(radius: 10)
+                        .overlay(Circle().stroke(Color(red: 0.13, green: 0.15, blue: 0.22), lineWidth: 8))
+                        .offset(x: -80)
+                    
                     Spacer()
                 }
             }
-            
             .navigationBarTitle(Text("Learn"), displayMode: .inline)
             .navigationBarItems( trailing: NavigationLink(destination: settingsView()) {
                 Image(systemName: "gear")
-                    .resizable()
-                    .imageScale(.large)
+                    .foregroundColor(Color(red: 0.96, green: 0.96, blue: 0.96))
             })
             .onAppear() {
-                UINavigationBar.appearance().barTintColor = UIColor(red: 0.95, green: 0.32, blue: 0.34, alpha: 1.0)
+                UINavigationBar.appearance().barTintColor = UIColor(red: 0.13, green: 0.15, blue: 0.22, alpha: 1.0)
             }
         }
     }
