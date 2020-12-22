@@ -106,8 +106,18 @@ struct TrickSelectView: View {
                                     Spacer()
                                     Group{
                                         NavigationLink(destination: TrickView(trickName: "Shuv It", trickContent: """
-One advanced diverted domestic sex repeated bringing you old. Possible procured her trifling laughter thoughts property she met way. Companions shy had solicitude favourable own. Which could saw guest man now heard but. Lasted my coming uneasy marked so should. Gravity letters it amongst herself dearest an windows by. Wooded ladies she basket season age her uneasy saw. Discourse unwilling am no described dejection incommode no listening of. Before nature his parish boy.
-""")){
+The "shove it" is the lesser-known cousin trick to the "pop shove it." The "shove it" does the same motion as the "pop shove it" without the pop, or the air you get from an "ollie." The "shove it" is an old school, freestyle trick that is sure to impress and involves using your feet to rotate the skateboard 180 degrees (while you hop into the air and land on the board again going the same direction). It is also fun and simple because you do not need to know how to "ollie."
+Steps:
+1) Place your feet as seen on the foot placement diagram.
+2) Do a little hop.
+3) As your feet relive a little weight from the board, flick your back foot backwards to spin the board.
+4) The board should be flicked hard enough to spin 180 degrees.
+5) Try landing with your feet in the same or similar position to how they started. 
+""", footPlacmentDiagram: "ShuvItFeet", tips: """
+            - Weight distribution is very important especially when moving, if your board moves too far away from you this may be the reason. Aim for about a 50/50 weight distribution on your feet.
+            - A good way to get started is to practice flicking the board while not standing on it.
+            - If you're not confident and fail to commit, try building your confidence by simply jumping up and down on the board (hippy jump).
+            """, video: "videoplayback", imageList: ["shoveit1","shoveit2"])){
                                             TrickRowView(name: "Shuv It", trickType: "Flip Trick", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
                                                 .padding(.bottom, 10)
                                         }
