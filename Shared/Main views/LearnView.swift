@@ -8,12 +8,24 @@
 import SwiftUI
 
 struct LearnView: View {
+    
+    var width: CGFloat {
+            if UIDevice.current.userInterfaceIdiom == .phone {
+                return UIScreen.main.bounds.height * 0.165
+            } else {
+                return UIScreen.main.bounds.height * 0.4
+            }
+        }
 
     init(){
         let navBarAppearance = UINavigationBar.appearance()
         navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor(red: 0.96, green: 0.96, blue: 0.96, alpha: 1.0)]
         navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor(red: 0.96, green: 0.96, blue: 0.96, alpha: 1.0)]
         navBarAppearance.barTintColor = UIColor(red: 0.13, green: 0.15, blue: 0.22, alpha: 1.0)
+        
+        UITabBar.appearance().backgroundColor = UIColor(red: 0.13, green: 0.15, blue: 0.22, alpha: 1.0)
+        
+        UITabBar.appearance().barTintColor = UIColor(red: 0.13, green: 0.15, blue: 0.22, alpha: 1.0)
     }
     
     var body: some View {
@@ -25,37 +37,66 @@ struct LearnView: View {
                     .frame(width: 30, height: UIScreen.screenHeight)
                     .offset(x: -100, y: 0)
                 VStack{
-                    Spacer()
                     
-                    Image("learnPlanButton")
-                        .resizable()
-                        .frame(width: 170, height: 170)
-                        .clipShape(Circle())
-                        .shadow(radius: 10)
-                        .overlay(Circle().stroke(Color(red: 0.13, green: 0.15, blue: 0.22), lineWidth: 8))
-                        .offset(x: -80)
+                        HStack{
+                            Image("learnPlanButton")
+                                .resizable()
+                                .clipShape(Circle())
+                                .shadow(radius: 10)
+                                .overlay(Circle().stroke(Color(red: 0.95, green: 0.32, blue: 0.34), lineWidth: 5))
+                                .frame(width: width, height: width)
+                                
+                            VStack{
+                                Text("Plan")
+                                    .font(.system(.largeTitle, design: .rounded))
+                                    .foregroundColor(Color(red: 0.13, green: 0.15, blue: 0.22))
+                                Text("Personalise your learning!")
+                                    .font(.system(.subheadline, design: .rounded))
+                                    .foregroundColor(Color(red: 0.28, green: 0.32, blue: 0.37))
+                            }
+                        }
+                        .padding(.bottom ,50)
+                        .padding(.top, 100)
                     
-                    Spacer()
+                    NavigationLink(destination: PlanView()) {
+                        HStack{
+                            Image("learnTricksButton")
+                                .resizable()
+                                .clipShape(Circle())
+                                .shadow(radius: 10)
+                                .overlay(Circle().stroke(Color(red: 0.95, green: 0.32, blue: 0.34), lineWidth: 5))
+                                .frame(width: width, height: width)
+                                
+                            VStack{
+                                Text("Trick")
+                                    .font(.system(.largeTitle, design: .rounded))
+                                    .foregroundColor(Color(red: 0.13, green: 0.15, blue: 0.22))
+                                Text("Personalise your learning!")
+                                    .font(.system(.subheadline, design: .rounded))
+                                    .foregroundColor(Color(red: 0.28, green: 0.32, blue: 0.37))
+                            }
+                        }
+                        .padding(.bottom, 50)
+                    }
                     
-                    Image("learnTricksButton")
-                        .resizable()
-                        .frame(width: 170, height: 170)
-                        .clipShape(Circle())
-                        .shadow(radius: 10)
-                        .overlay(Circle().stroke(Color(red: 0.13, green: 0.15, blue: 0.22), lineWidth: 8))
-                        .offset(x: -80)
-                    
-                    Spacer()
-                    
-                    Image("learnGamesButton")
-                        .resizable()
-                        .frame(width: 170, height: 170)
-                        .clipShape(Circle())
-                        .shadow(radius: 10)
-                        .overlay(Circle().stroke(Color(red: 0.13, green: 0.15, blue: 0.22), lineWidth: 8))
-                        .offset(x: -80)
-                    
-                    Spacer()
+                    HStack{
+                        Image("learnGamesButton")
+                            .resizable()
+                            .clipShape(Circle())
+                            .shadow(radius: 10)
+                            .overlay(Circle().stroke(Color(red: 0.95, green: 0.32, blue: 0.34), lineWidth: 5))
+                            .frame(width: width, height: width)
+                            
+                        VStack{
+                            Text("Games")
+                                .font(.system(.largeTitle, design: .rounded))
+                                .foregroundColor(Color(red: 0.13, green: 0.15, blue: 0.22))
+                            Text("Personalise your learning!")
+                                .font(.system(.subheadline, design: .rounded))
+                                .foregroundColor(Color(red: 0.28, green: 0.32, blue: 0.37))
+                        }
+                    }
+                    .padding(.bottom, 100)
                 }
             }
             .navigationBarTitle(Text("Learn"), displayMode: .inline)

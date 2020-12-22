@@ -13,6 +13,7 @@
 		2C7E5B64258118F000B634F5 /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7E5B63258118F000B634F5 /* ExploreView.swift */; };
 		2C7E5B6A2581190900B634F5 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7E5B692581190900B634F5 /* FeedView.swift */; };
 		2C7E5B702581191800B634F5 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7E5B6F2581191800B634F5 /* ProfileView.swift */; };
+		2C9B2F08259105D0006A47DA /* TrickRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9B2F07259105D0006A47DA /* TrickRowView.swift */; };
 		2CE5775B258106F000B4F204 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE5775A258106F000B4F204 /* Tests_iOS.swift */; };
 		2CE57766258106F000B4F204 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE57765258106F000B4F204 /* Tests_macOS.swift */; };
 		2CE57768258106F000B4F204 /* Skate_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE5773F258106EF00B4F204 /* Skate_AppApp.swift */; };
@@ -49,6 +50,7 @@
 		2C7E5B63258118F000B634F5 /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
 		2C7E5B692581190900B634F5 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		2C7E5B6F2581191800B634F5 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		2C9B2F07259105D0006A47DA /* TrickRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrickRowView.swift; sourceTree = "<group>"; };
 		2CE5773F258106EF00B4F204 /* Skate_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skate_AppApp.swift; sourceTree = "<group>"; };
 		2CE57740258106EF00B4F204 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2CE57741258106F000B4F204 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -121,6 +123,14 @@
 			path = "Specific views";
 			sourceTree = "<group>";
 		};
+		2C9B2F0625910583006A47DA /* Small views */ = {
+			isa = PBXGroup;
+			children = (
+				2C9B2F07259105D0006A47DA /* TrickRowView.swift */,
+			);
+			path = "Small views";
+			sourceTree = "<group>";
+		};
 		2CE57739258106EF00B4F204 = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +146,7 @@
 		2CE5773E258106EF00B4F204 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				2C9B2F0625910583006A47DA /* Small views */,
 				2C7210912582669A0060EE76 /* Specific views */,
 				2C721090258266650060EE76 /* Main views */,
 				2CE5773F258106EF00B4F204 /* Skate_AppApp.swift */,
@@ -349,6 +360,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C7E5B702581191800B634F5 /* ProfileView.swift in Sources */,
+				2C9B2F08259105D0006A47DA /* TrickRowView.swift in Sources */,
 				2C7E5B6A2581190900B634F5 /* FeedView.swift in Sources */,
 				2C754FA4258786B200EF4FB3 /* PlanView.swift in Sources */,
 				2C7E5B5E258118D400B634F5 /* LearnView.swift in Sources */,
