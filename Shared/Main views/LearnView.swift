@@ -58,7 +58,7 @@ struct LearnView: View {
                         .padding(.bottom ,50)
                         .padding(.top, 100)
                     
-                    NavigationLink(destination: PlanView()) {
+                    NavigationLink(destination: TrickSelectView()) {
                         HStack{
                             Image("learnTricksButton")
                                 .resizable()

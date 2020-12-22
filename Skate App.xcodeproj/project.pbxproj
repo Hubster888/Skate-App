@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C754FA4258786B200EF4FB3 /* PlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C754FA3258786B200EF4FB3 /* PlanView.swift */; };
 		2C754FAE2587B4E100EF4FB3 /* settingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C754FAD2587B4E100EF4FB3 /* settingsView.swift */; };
 		2C7E5B5E258118D400B634F5 /* LearnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7E5B5D258118D400B634F5 /* LearnView.swift */; };
 		2C7E5B64258118F000B634F5 /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7E5B63258118F000B634F5 /* ExploreView.swift */; };
 		2C7E5B6A2581190900B634F5 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7E5B692581190900B634F5 /* FeedView.swift */; };
 		2C7E5B702581191800B634F5 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7E5B6F2581191800B634F5 /* ProfileView.swift */; };
 		2C9B2F08259105D0006A47DA /* TrickRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9B2F07259105D0006A47DA /* TrickRowView.swift */; };
+		2C9B2F1225922334006A47DA /* TrickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9B2F1125922334006A47DA /* TrickView.swift */; };
+		2C9B2F282592253A006A47DA /* TrickSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9B2F272592253A006A47DA /* TrickSelectView.swift */; };
+		2C9B2F3225922BFA006A47DA /* TrickVariationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9B2F3125922BFA006A47DA /* TrickVariationView.swift */; };
 		2CE5775B258106F000B4F204 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE5775A258106F000B4F204 /* Tests_iOS.swift */; };
 		2CE57766258106F000B4F204 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE57765258106F000B4F204 /* Tests_macOS.swift */; };
 		2CE57768258106F000B4F204 /* Skate_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE5773F258106EF00B4F204 /* Skate_AppApp.swift */; };
@@ -44,13 +46,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2C754FA3258786B200EF4FB3 /* PlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanView.swift; sourceTree = "<group>"; };
 		2C754FAD2587B4E100EF4FB3 /* settingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsView.swift; sourceTree = "<group>"; };
 		2C7E5B5D258118D400B634F5 /* LearnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnView.swift; sourceTree = "<group>"; };
 		2C7E5B63258118F000B634F5 /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
 		2C7E5B692581190900B634F5 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		2C7E5B6F2581191800B634F5 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		2C9B2F07259105D0006A47DA /* TrickRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrickRowView.swift; sourceTree = "<group>"; };
+		2C9B2F1125922334006A47DA /* TrickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrickView.swift; sourceTree = "<group>"; };
+		2C9B2F272592253A006A47DA /* TrickSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrickSelectView.swift; sourceTree = "<group>"; };
+		2C9B2F3125922BFA006A47DA /* TrickVariationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrickVariationView.swift; sourceTree = "<group>"; };
 		2CE5773F258106EF00B4F204 /* Skate_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skate_AppApp.swift; sourceTree = "<group>"; };
 		2CE57740258106EF00B4F204 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2CE57741258106F000B4F204 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -117,8 +121,9 @@
 		2C7210912582669A0060EE76 /* Specific views */ = {
 			isa = PBXGroup;
 			children = (
-				2C754FA3258786B200EF4FB3 /* PlanView.swift */,
 				2C754FAD2587B4E100EF4FB3 /* settingsView.swift */,
+				2C9B2F1125922334006A47DA /* TrickView.swift */,
+				2C9B2F272592253A006A47DA /* TrickSelectView.swift */,
 			);
 			path = "Specific views";
 			sourceTree = "<group>";
@@ -127,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				2C9B2F07259105D0006A47DA /* TrickRowView.swift */,
+				2C9B2F3125922BFA006A47DA /* TrickVariationView.swift */,
 			);
 			path = "Small views";
 			sourceTree = "<group>";
@@ -359,16 +365,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C9B2F282592253A006A47DA /* TrickSelectView.swift in Sources */,
 				2C7E5B702581191800B634F5 /* ProfileView.swift in Sources */,
+				2C9B2F3225922BFA006A47DA /* TrickVariationView.swift in Sources */,
 				2C9B2F08259105D0006A47DA /* TrickRowView.swift in Sources */,
 				2C7E5B6A2581190900B634F5 /* FeedView.swift in Sources */,
-				2C754FA4258786B200EF4FB3 /* PlanView.swift in Sources */,
 				2C7E5B5E258118D400B634F5 /* LearnView.swift in Sources */,
 				2CE5778125810A3900B4F204 /* HomeView.swift in Sources */,
 				2C754FAE2587B4E100EF4FB3 /* settingsView.swift in Sources */,
 				2CE5776A258106F000B4F204 /* ContentView.swift in Sources */,
 				2CE5778725810C1B00B4F204 /* AppView.swift in Sources */,
 				2C7E5B64258118F000B634F5 /* ExploreView.swift in Sources */,
+				2C9B2F1225922334006A47DA /* TrickView.swift in Sources */,
 				2CE57768258106F000B4F204 /* Skate_AppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

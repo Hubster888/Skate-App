@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PlanView: View {
+struct TrickSelectView: View {
     @State private var searchText = ""
     @State private var favoriteColor = 0
     
@@ -105,8 +105,12 @@ struct PlanView: View {
                                         .foregroundColor(Color(red: 0.96, green: 0.96, blue: 0.96))
                                     Spacer()
                                     Group{
-                                        TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
-                                            .padding(.bottom, 10)
+                                        NavigationLink(destination: TrickView(trickName: "Shuv It", trickContent: """
+One advanced diverted domestic sex repeated bringing you old. Possible procured her trifling laughter thoughts property she met way. Companions shy had solicitude favourable own. Which could saw guest man now heard but. Lasted my coming uneasy marked so should. Gravity letters it amongst herself dearest an windows by. Wooded ladies she basket season age her uneasy saw. Discourse unwilling am no described dejection incommode no listening of. Before nature his parish boy.
+""")){
+                                            TrickRowView(name: "Shuv It", trickType: "Flip Trick", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
+                                                .padding(.bottom, 10)
+                                        }
                                         TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
                                             .padding(.bottom, 10)
                                         TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
@@ -212,7 +216,7 @@ struct PlanView: View {
 
 struct PlanView_Previews: PreviewProvider {
     static var previews: some View {
-        PlanView()
+        TrickSelectView()
     }
 }
 

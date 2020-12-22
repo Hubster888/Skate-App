@@ -29,39 +29,13 @@ struct TrickRowView: View {
                     Text(trickType)
                 }
                 HStack{
-                    ZStack{
-                        Circle()
-                            .fill(Color(red: 0.95, green: 0.32, blue: 0.34, opacity: 0.7))
-                            .frame(width: height * 0.5, height: height * 0.5)
-                        
-                        Text("R")
-                            .font(.system(size: 35, weight: .bold, design: .rounded))
-                            .foregroundColor(Color(red: 0.13, green: 0.15, blue: 0.22))
-                    }
-                    ZStack{
-                        Circle()
-                            .fill(Color(red: 0.95, green: 0.32, blue: 0.34, opacity: 0.7))
-                            .frame(width: height * 0.5, height: height * 0.5)
-                        Text("N")
-                            .font(.system(.largeTitle, design: .rounded))
-                            .foregroundColor(Color(red: 0.13, green: 0.15, blue: 0.22))
-                    }
-                    ZStack{
-                        Circle()
-                            .fill(Color(red: 0.95, green: 0.32, blue: 0.34, opacity: 0.7))
-                            .frame(width: height * 0.5, height: height * 0.5)
-                        Text("S")
-                            .font(.system(.largeTitle, design: .rounded))
-                            .foregroundColor(Color(red: 0.13, green: 0.15, blue: 0.22))
-                    }
-                    ZStack{
-                        Circle()
-                            .fill(Color(red: 0.95, green: 0.32, blue: 0.34, opacity: 0.7))
-                            .frame(width: height * 0.5, height: height * 0.5)
-                        Text("F")
-                            .font(.system(.largeTitle, design: .rounded))
-                            .foregroundColor(Color(red: 0.13, green: 0.15, blue: 0.22))
-                    }
+                    TrickVariationView(variationType: "R", isComplete: trickComplete[0], diameter: width * 0.15)
+                
+                    TrickVariationView(variationType: "N", isComplete: trickComplete[1], diameter: width * 0.15)
+                
+                    TrickVariationView(variationType: "S", isComplete: trickComplete[2], diameter: width * 0.15)
+                    
+                    TrickVariationView(variationType: "F", isComplete: trickComplete[3], diameter: width * 0.15)
                 }
             }
         }
