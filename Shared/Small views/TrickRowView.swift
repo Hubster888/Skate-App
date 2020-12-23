@@ -16,17 +16,37 @@ struct TrickRowView: View {
     @State var offset = CGSize.zero
     @State var scale : CGFloat = 0.5
     
+    func getHeight() -> CGFloat{
+        switch height {
+        case 0..<80:
+            return 100
+        case 80..<500:
+            return height
+        default:
+            return 0
+        }
+    }
+    
     var body: some View {
         ZStack{
             Rectangle()
                 .fill(Color(red: 0.96, green: 0.96, blue: 0.96))
-                .frame(width: width, height: height, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .frame(width: width * 0.9, height: getHeight(), alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 .cornerRadius(10)
             VStack{
                 HStack{
                     Text(name)
+                        .fontWeight(.bold)
+                        .font(.system(size: 20))
+                        .foregroundColor(Color(red: 0.28, green: 0.32, blue: 0.37))
                     Text("-")
+                        .fontWeight(.bold)
+                        .font(.system(size: 20))
+                        .foregroundColor(Color(red: 0.28, green: 0.32, blue: 0.37))
                     Text(trickType)
+                        .fontWeight(.bold)
+                        .font(.system(size: 20))
+                        .foregroundColor(Color(red: 0.28, green: 0.32, blue: 0.37))
                 }
                 HStack{
                     TrickVariationView(variationType: "R", isComplete: trickComplete[0], diameter: width * 0.15)
@@ -39,7 +59,7 @@ struct TrickRowView: View {
                 }
             }
         }
-        .frame(width: width, height: height, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+        .frame(width: width * 0.9, height: getHeight(), alignment: .center)
     }
 }
 

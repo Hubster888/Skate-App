@@ -113,114 +113,133 @@ Steps:
                         ZStack{
                             Rectangle()
                                 .fill(Color(red: 66/255, green: 70/255, blue: 84/255))
-                            ScrollView(.vertical){
-                                VStack{
-                                    Text("Begginer")
-                                        .font(.system(size: 35, weight: .bold, design: .rounded))
-                                        .foregroundColor(Color(red: 0.96, green: 0.96, blue: 0.96))
-                                    Spacer()
-                                    Group{
-                                        NavigationLink(destination: TrickView(trickName: "Shuv It", trickContent: content, footPlacmentDiagram: "ShuvItFeet", tips: tips, video: "videoplayback")){
-                                            TrickRowView(name: "Shuv It", trickType: "Flip Trick", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
+                            VStack{
+                                Text("Begginer")
+                                    .font(.system(size: 35, weight: .bold, design: .rounded))
+                                    .foregroundColor(Color(red: 0.96, green: 0.96, blue: 0.96))
+                                    .padding()
+                                ScrollView(.vertical){
+                                    VStack{
+                                        Group{
+                                            NavigationLink(destination: TrickView(trickName: "Shuv It", trickContent: content, footPlacmentDiagram: "ShuvItFeet", tips: tips, video: "videoplayback")){
+                                                TrickRowView(name: "Shuv It", trickType: "Flip Trick", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
+                                                    .padding(.bottom, 10)
+                                            }
+                                            Button(action: {print(height * 0.1)}){
+                                                TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
+                                                    .padding(.bottom, 10)
+                                            }
+                                            
+                                            TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
+                                                .padding(.bottom, 10)
+                                            TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
+                                                .padding(.bottom, 10)
+                                            TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
+                                                .padding(.bottom, 10)
+                                            TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
+                                                .padding(.bottom, 10)
+                                            TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
+                                                .padding(.bottom, 10)
+                                            TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
+                                                .padding(.bottom, 10)
+                                            TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
+                                                .padding(.bottom, 10)
+                                            TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
                                                 .padding(.bottom, 10)
                                         }
-                                        
-                                        TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
-                                            .padding(.bottom, 10)
-                                        TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
-                                            .padding(.bottom, 10)
-                                        TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
-                                            .padding(.bottom, 10)
-                                        TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
-                                            .padding(.bottom, 10)
-                                        TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
-                                            .padding(.bottom, 10)
-                                        TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
-                                            .padding(.bottom, 10)
-                                        TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
-                                            .padding(.bottom, 10)
-                                        TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
-                                            .padding(.bottom, 10)
-                                        TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
-                                            .padding(.bottom, 10)
                                     }
                                 }
+                                Rectangle()
+                                    .fill(Color(red: 66/255, green: 70/255, blue: 84/255))
+                                    .frame(width: width * 0.8, height: height * 0.025, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                             }
-                            
-                        }.frame(width: width * 0.8, height: height * 0.6, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        }
+                        .frame(width: width * 0.8, height: height * 0.65, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .cornerRadius(20)
                         
                         ZStack{
                             Rectangle()
                                 .fill(Color(red: 66/255, green: 70/255, blue: 84/255))
-                            
-                            ScrollView(.vertical){
-                                VStack{
-                                    Text("Intermidiate")
-                                        .font(.system(size: 35, weight: .bold, design: .rounded))
-                                        .foregroundColor(Color(red: 0.96, green: 0.96, blue: 0.96))
-                                    Spacer()
-                                    Group{
-                                        TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
-                                            .padding(.bottom, 10)
-                                        TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
-                                            .padding(.bottom, 10)
-                                        TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
-                                            .padding(.bottom, 10)
-                                        TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
-                                            .padding(.bottom, 10)
-                                        TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
-                                            .padding(.bottom, 10)
-                                        TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
-                                            .padding(.bottom, 10)
-                                        TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
-                                            .padding(.bottom, 10)
-                                        TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
-                                            .padding(.bottom, 10)
-                                        TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
-                                            .padding(.bottom, 10)
-                                        TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
-                                            .padding(.bottom, 10)
+                            VStack{
+                                Text("Intermidiate")
+                                    .font(.system(size: 35, weight: .bold, design: .rounded))
+                                    .foregroundColor(Color(red: 0.96, green: 0.96, blue: 0.96))
+                                    .padding()
+                                ScrollView(.vertical){
+                                    VStack{
+                                        Group{
+                                            TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
+                                                .padding(.bottom, 10)
+                                            TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
+                                                .padding(.bottom, 10)
+                                            TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
+                                                .padding(.bottom, 10)
+                                            TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
+                                                .padding(.bottom, 10)
+                                            TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
+                                                .padding(.bottom, 10)
+                                            TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
+                                                .padding(.bottom, 10)
+                                            TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
+                                                .padding(.bottom, 10)
+                                            TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
+                                                .padding(.bottom, 10)
+                                            TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
+                                                .padding(.bottom, 10)
+                                            TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
+                                                .padding(.bottom, 10)
+                                        }
                                     }
                                 }
+                                Rectangle()
+                                    .fill(Color(red: 66/255, green: 70/255, blue: 84/255))
+                                    .frame(width: width * 0.8, height: height * 0.025, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                             }
-                        }.frame(width: width * 0.8, height: height * 0.6, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        }
+                        .frame(width: width * 0.8, height: height * 0.65, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .cornerRadius(20)
                         
                         ZStack{
                             Rectangle()
                                 .fill(Color(red: 66/255, green: 70/255, blue: 84/255))
-                            
-                            ScrollView(.vertical){
-                                VStack{
-                                    Text("Pro")
-                                        .font(.system(size: 35, weight: .bold, design: .rounded))
-                                        .foregroundColor(Color(red: 0.96, green: 0.96, blue: 0.96))
-                                    Spacer()
-                                    Group{
-                                        TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
-                                            .padding(.bottom, 10)
-                                        TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
-                                            .padding(.bottom, 10)
-                                        TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
-                                            .padding(.bottom, 10)
-                                        TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
-                                            .padding(.bottom, 10)
-                                        TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
-                                            .padding(.bottom, 10)
-                                        TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
-                                            .padding(.bottom, 10)
-                                        TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
-                                            .padding(.bottom, 10)
-                                        TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
-                                            .padding(.bottom, 10)
-                                        TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
-                                            .padding(.bottom, 10)
-                                        TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
-                                            .padding(.bottom, 10)
+                            VStack{
+                                Text("Pro")
+                                    .font(.system(size: 35, weight: .bold, design: .rounded))
+                                    .foregroundColor(Color(red: 0.96, green: 0.96, blue: 0.96))
+                                    .padding()
+                                ScrollView(.vertical){
+                                    VStack{
+                                        Group{
+                                            TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
+                                                .padding(.bottom, 10)
+                                            TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
+                                                .padding(.bottom, 10)
+                                            TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
+                                                .padding(.bottom, 10)
+                                            TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
+                                                .padding(.bottom, 10)
+                                            TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
+                                                .padding(.bottom, 10)
+                                            TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
+                                                .padding(.bottom, 10)
+                                            TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
+                                                .padding(.bottom, 10)
+                                            TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
+                                                .padding(.bottom, 10)
+                                            TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
+                                                .padding(.bottom, 10)
+                                            TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
+                                                .padding(.bottom, 10)
+                                        }
                                     }
                                 }
+                                Rectangle()
+                                    .fill(Color(red: 66/255, green: 70/255, blue: 84/255))
+                                    .frame(width: width * 0.8, height: height * 0.025, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                             }
-                            
-                        }.frame(width: width * 0.8, height: height * 0.6, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        }
+                        .frame(width: width * 0.8, height: height * 0.65, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                        .cornerRadius(20)
                     }
                 }.padding(.horizontal, width * 0.02)
                 Spacer()
@@ -230,7 +249,7 @@ Steps:
     }
 }
 
-struct PlanView_Previews: PreviewProvider {
+struct TrickSelectView_Previews: PreviewProvider {
     static var previews: some View {
         TrickSelectView()
     }
