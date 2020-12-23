@@ -14,7 +14,6 @@ struct TrickView: View {
     let footPlacmentDiagram : String
     let tips : String
     let video : String
-    let imageList : [String]
     
     var height: CGFloat {
         if UIDevice.current.userInterfaceIdiom == .phone {
@@ -33,7 +32,7 @@ struct TrickView: View {
     }
     
     var body: some View {
-        ScrollView{
+        ScrollView(.vertical){
             VStack{
                 ZStack{
                     Image("learnTricksButton")
@@ -72,41 +71,41 @@ struct TrickView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .font(.system(.largeTitle, design: .rounded))
                     .foregroundColor(Color(red: 0.13, green: 0.15, blue: 0.22))
-                    .padding(.leading, 25)
+                    .padding(.leading, 50)
                     .padding(.top, 30)
                 Text(trickContent)
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-                    .font(.system(size: 25, design: .rounded))
+                    .font(.system(size: 18, design: .rounded))
                     .foregroundColor(Color(red: 0.13, green: 0.15, blue: 0.22))
-                    .padding(.leading, 25)
+                    .padding(.leading, 50)
                     .padding(.top, 5)
-                    .padding(.trailing, 25)
+                    .padding(.trailing, 50)
                     .multilineTextAlignment(.leading)
                     .lineLimit(nil)
                 Image(footPlacmentDiagram)
                     .resizable()
-                    .scaledToFill()
-                    .frame(width: width * 0.9, height: height * 0.25, alignment: .center)
+                    .scaledToFit()
+                    .frame(width: width * 0.8, height: height * 0.25, alignment: .center)
                     .padding()
                 VideoPlayer(player: AVPlayer(url:  Bundle.main.url(forResource: video, withExtension: "mp4")!))
+                    .frame(width: width * 0.8, height: height * 0.25, alignment: .center)
                     .padding()
                 Text("Tips")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .font(.system(.largeTitle, design: .rounded))
                     .foregroundColor(Color(red: 0.13, green: 0.15, blue: 0.22))
-                    .padding(.leading, 25)
+                    .padding(.leading, 50)
                     .padding(.top, 30)
                 Text(tips)
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-                    .font(.system(size: 25, design: .rounded))
+                    .font(.system(size: 18, design: .rounded))
                     .foregroundColor(Color(red: 0.13, green: 0.15, blue: 0.22))
-                    .padding(.leading, 25)
+                    .padding(.leading, 50)
                     .padding(.top, 5)
-                    .padding(.trailing, 25)
+                    .padding(.trailing, 50)
+                    .padding(.bottom, 10)
                     .multilineTextAlignment(.leading)
                     .lineLimit(nil)
-                Image(imageList[0])
-                Image(imageList[1])
             }
         }
     }
@@ -121,7 +120,7 @@ One advanced diverted domestic sex repeated bringing you old. Possible procured 
             - Weight distribution is very important especially when moving, if your board moves too far away from you this may be the reason. Aim for about a 50/50 weight distribution on your feet.
             - A good way to get started is to practice flicking the board while not standing on it.
             - If you're not confident and fail to commit, try building your confidence by simply jumping up and down on the board (hippy jump).
-            """, video: "videoplayback", imageList: ["learnGamesButton","learnGamesButton"]
+            """, video: "videoplayback"
         )
     }
 }
