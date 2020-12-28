@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2BFA2F70613554E6F3E66816 /* Pods_Skate_App__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC48F3811C2468610A2D1B19 /* Pods_Skate_App__iOS_.framework */; };
+		2C4EC609259A206F000470A1 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4EC608259A206F000470A1 /* AppView.swift */; };
 		2C754FAE2587B4E100EF4FB3 /* settingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C754FAD2587B4E100EF4FB3 /* settingsView.swift */; };
 		2C7E5B5E258118D400B634F5 /* LearnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7E5B5D258118D400B634F5 /* LearnView.swift */; };
 		2C7E5B64258118F000B634F5 /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7E5B63258118F000B634F5 /* ExploreView.swift */; };
@@ -18,15 +20,12 @@
 		2C9B2F3225922BFA006A47DA /* TrickVariationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9B2F3125922BFA006A47DA /* TrickVariationView.swift */; };
 		2C9B2F3C25924E32006A47DA /* videoplayback.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 2C9B2F3B25924E32006A47DA /* videoplayback.mp4 */; };
 		2CE5775B258106F000B4F204 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE5775A258106F000B4F204 /* Tests_iOS.swift */; };
-		2CE57766258106F000B4F204 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE57765258106F000B4F204 /* Tests_macOS.swift */; };
 		2CE57768258106F000B4F204 /* Skate_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE5773F258106EF00B4F204 /* Skate_AppApp.swift */; };
-		2CE57769258106F000B4F204 /* Skate_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE5773F258106EF00B4F204 /* Skate_AppApp.swift */; };
 		2CE5776A258106F000B4F204 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE57740258106EF00B4F204 /* ContentView.swift */; };
-		2CE5776B258106F000B4F204 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE57740258106EF00B4F204 /* ContentView.swift */; };
 		2CE5776C258106F000B4F204 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CE57741258106F000B4F204 /* Assets.xcassets */; };
-		2CE5776D258106F000B4F204 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CE57741258106F000B4F204 /* Assets.xcassets */; };
 		2CE5778125810A3900B4F204 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE5778025810A3900B4F204 /* HomeView.swift */; };
-		2CE5778725810C1B00B4F204 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE5778625810C1B00B4F204 /* AppView.swift */; };
+		2CE864822598C8E6004E6D12 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE864812598C8E6004E6D12 /* LogInView.swift */; };
+		2CE864882598CB06004E6D12 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE864872598CB06004E6D12 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,16 +36,10 @@
 			remoteGlobalIDString = 2CE57745258106F000B4F204;
 			remoteInfo = "Skate App (iOS)";
 		};
-		2CE57762258106F000B4F204 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2CE5773A258106EF00B4F204 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2CE5774D258106F000B4F204;
-			remoteInfo = "Skate App (macOS)";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C4EC608259A206F000470A1 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		2C754FAD2587B4E100EF4FB3 /* settingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsView.swift; sourceTree = "<group>"; };
 		2C7E5B5D258118D400B634F5 /* LearnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnView.swift; sourceTree = "<group>"; };
 		2C7E5B63258118F000B634F5 /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
@@ -62,17 +55,15 @@
 		2CE57741258106F000B4F204 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2CE57746258106F000B4F204 /* Skate App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Skate App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CE57749258106F000B4F204 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2CE5774E258106F000B4F204 /* Skate App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Skate App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2CE57750258106F000B4F204 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2CE57751258106F000B4F204 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		2CE57756258106F000B4F204 /* Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CE5775A258106F000B4F204 /* Tests_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_iOS.swift; sourceTree = "<group>"; };
 		2CE5775C258106F000B4F204 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2CE57761258106F000B4F204 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2CE57765258106F000B4F204 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
-		2CE57767258106F000B4F204 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2CE5778025810A3900B4F204 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		2CE5778625810C1B00B4F204 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
+		2CE864812598C8E6004E6D12 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
+		2CE864872598CB06004E6D12 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9DA1CEC298FAF8862E147BA8 /* Pods-Skate App (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Skate App (iOS).debug.xcconfig"; path = "Target Support Files/Pods-Skate App (iOS)/Pods-Skate App (iOS).debug.xcconfig"; sourceTree = "<group>"; };
+		DC48F3811C2468610A2D1B19 /* Pods_Skate_App__iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Skate_App__iOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F61B2CD3611F25523C63A1F8 /* Pods-Skate App (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Skate App (iOS).release.xcconfig"; path = "Target Support Files/Pods-Skate App (iOS)/Pods-Skate App (iOS).release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,24 +71,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2CE5774B258106F000B4F204 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				2BFA2F70613554E6F3E66816 /* Pods_Skate_App__iOS_.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		2CE57753258106F000B4F204 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2CE5775E258106F000B4F204 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -111,11 +89,12 @@
 			isa = PBXGroup;
 			children = (
 				2CE5778025810A3900B4F204 /* HomeView.swift */,
-				2CE5778625810C1B00B4F204 /* AppView.swift */,
 				2C7E5B5D258118D400B634F5 /* LearnView.swift */,
 				2C7E5B63258118F000B634F5 /* ExploreView.swift */,
 				2C7E5B692581190900B634F5 /* FeedView.swift */,
 				2C7E5B6F2581191800B634F5 /* ProfileView.swift */,
+				2CE864812598C8E6004E6D12 /* LogInView.swift */,
+				2C4EC608259A206F000470A1 /* AppView.swift */,
 			);
 			path = "Main views";
 			sourceTree = "<group>";
@@ -142,13 +121,14 @@
 		2CE57739258106EF00B4F204 = {
 			isa = PBXGroup;
 			children = (
+				2CE864872598CB06004E6D12 /* GoogleService-Info.plist */,
 				2C9B2F3B25924E32006A47DA /* videoplayback.mp4 */,
 				2CE5773E258106EF00B4F204 /* Shared */,
 				2CE57748258106F000B4F204 /* iOS */,
-				2CE5774F258106F000B4F204 /* macOS */,
 				2CE57759258106F000B4F204 /* Tests iOS */,
-				2CE57764258106F000B4F204 /* Tests macOS */,
 				2CE57747258106F000B4F204 /* Products */,
+				86D3FFAD3CCDD9640830EF55 /* Pods */,
+				59BE4152CEE27F54DBE487A3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -169,9 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				2CE57746258106F000B4F204 /* Skate App.app */,
-				2CE5774E258106F000B4F204 /* Skate App.app */,
 				2CE57756258106F000B4F204 /* Tests iOS.xctest */,
-				2CE57761258106F000B4F204 /* Tests macOS.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -184,15 +162,6 @@
 			path = iOS;
 			sourceTree = "<group>";
 		};
-		2CE5774F258106F000B4F204 /* macOS */ = {
-			isa = PBXGroup;
-			children = (
-				2CE57750258106F000B4F204 /* Info.plist */,
-				2CE57751258106F000B4F204 /* macOS.entitlements */,
-			);
-			path = macOS;
-			sourceTree = "<group>";
-		};
 		2CE57759258106F000B4F204 /* Tests iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,13 +171,21 @@
 			path = "Tests iOS";
 			sourceTree = "<group>";
 		};
-		2CE57764258106F000B4F204 /* Tests macOS */ = {
+		59BE4152CEE27F54DBE487A3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2CE57765258106F000B4F204 /* Tests_macOS.swift */,
-				2CE57767258106F000B4F204 /* Info.plist */,
+				DC48F3811C2468610A2D1B19 /* Pods_Skate_App__iOS_.framework */,
 			);
-			path = "Tests macOS";
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		86D3FFAD3CCDD9640830EF55 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9DA1CEC298FAF8862E147BA8 /* Pods-Skate App (iOS).debug.xcconfig */,
+				F61B2CD3611F25523C63A1F8 /* Pods-Skate App (iOS).release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,9 +195,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2CE57770258106F000B4F204 /* Build configuration list for PBXNativeTarget "Skate App (iOS)" */;
 			buildPhases = (
+				0A4F3C742D2DE88C25887A44 /* [CP] Check Pods Manifest.lock */,
 				2CE57742258106F000B4F204 /* Sources */,
 				2CE57743258106F000B4F204 /* Frameworks */,
 				2CE57744258106F000B4F204 /* Resources */,
+				245D651C5E7476837FE90127 /* [CP] Embed Pods Frameworks */,
+				617B1F73F7A1B36BEC1602D9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -229,23 +209,6 @@
 			name = "Skate App (iOS)";
 			productName = "Skate App (iOS)";
 			productReference = 2CE57746258106F000B4F204 /* Skate App.app */;
-			productType = "com.apple.product-type.application";
-		};
-		2CE5774D258106F000B4F204 /* Skate App (macOS) */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2CE57773258106F000B4F204 /* Build configuration list for PBXNativeTarget "Skate App (macOS)" */;
-			buildPhases = (
-				2CE5774A258106F000B4F204 /* Sources */,
-				2CE5774B258106F000B4F204 /* Frameworks */,
-				2CE5774C258106F000B4F204 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Skate App (macOS)";
-			productName = "Skate App (macOS)";
-			productReference = 2CE5774E258106F000B4F204 /* Skate App.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2CE57755258106F000B4F204 /* Tests iOS */ = {
@@ -266,24 +229,6 @@
 			productReference = 2CE57756258106F000B4F204 /* Tests iOS.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		2CE57760258106F000B4F204 /* Tests macOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2CE57779258106F000B4F204 /* Build configuration list for PBXNativeTarget "Tests macOS" */;
-			buildPhases = (
-				2CE5775D258106F000B4F204 /* Sources */,
-				2CE5775E258106F000B4F204 /* Frameworks */,
-				2CE5775F258106F000B4F204 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2CE57763258106F000B4F204 /* PBXTargetDependency */,
-			);
-			name = "Tests macOS";
-			productName = "Tests macOS";
-			productReference = 2CE57761258106F000B4F204 /* Tests macOS.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -296,16 +241,9 @@
 					2CE57745258106F000B4F204 = {
 						CreatedOnToolsVersion = 12.2;
 					};
-					2CE5774D258106F000B4F204 = {
-						CreatedOnToolsVersion = 12.2;
-					};
 					2CE57755258106F000B4F204 = {
 						CreatedOnToolsVersion = 12.2;
 						TestTargetID = 2CE57745258106F000B4F204;
-					};
-					2CE57760258106F000B4F204 = {
-						CreatedOnToolsVersion = 12.2;
-						TestTargetID = 2CE5774D258106F000B4F204;
 					};
 				};
 			};
@@ -323,9 +261,7 @@
 			projectRoot = "";
 			targets = (
 				2CE57745258106F000B4F204 /* Skate App (iOS) */,
-				2CE5774D258106F000B4F204 /* Skate App (macOS) */,
 				2CE57755258106F000B4F204 /* Tests iOS */,
-				2CE57760258106F000B4F204 /* Tests macOS */,
 			);
 		};
 /* End PBXProject section */
@@ -337,14 +273,7 @@
 			files = (
 				2CE5776C258106F000B4F204 /* Assets.xcassets in Resources */,
 				2C9B2F3C25924E32006A47DA /* videoplayback.mp4 in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2CE5774C258106F000B4F204 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2CE5776D258106F000B4F204 /* Assets.xcassets in Resources */,
+				2CE864882598CB06004E6D12 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,14 +284,66 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2CE5775F258106F000B4F204 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0A4F3C742D2DE88C25887A44 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Skate App (iOS)-checkManifestLockResult.txt",
+			);
 			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
-/* End PBXResourcesBuildPhase section */
+		245D651C5E7476837FE90127 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Skate App (iOS)/Pods-Skate App (iOS)-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Skate App (iOS)/Pods-Skate App (iOS)-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Skate App (iOS)/Pods-Skate App (iOS)-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		617B1F73F7A1B36BEC1602D9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Skate App (iOS)/Pods-Skate App (iOS)-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Skate App (iOS)/Pods-Skate App (iOS)-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Skate App (iOS)/Pods-Skate App (iOS)-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2CE57742258106F000B4F204 /* Sources */ = {
@@ -377,20 +358,12 @@
 				2C7E5B5E258118D400B634F5 /* LearnView.swift in Sources */,
 				2CE5778125810A3900B4F204 /* HomeView.swift in Sources */,
 				2C754FAE2587B4E100EF4FB3 /* settingsView.swift in Sources */,
+				2CE864822598C8E6004E6D12 /* LogInView.swift in Sources */,
 				2CE5776A258106F000B4F204 /* ContentView.swift in Sources */,
-				2CE5778725810C1B00B4F204 /* AppView.swift in Sources */,
+				2C4EC609259A206F000470A1 /* AppView.swift in Sources */,
 				2C7E5B64258118F000B634F5 /* ExploreView.swift in Sources */,
 				2C9B2F1225922334006A47DA /* TrickView.swift in Sources */,
 				2CE57768258106F000B4F204 /* Skate_AppApp.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2CE5774A258106F000B4F204 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2CE5776B258106F000B4F204 /* ContentView.swift in Sources */,
-				2CE57769258106F000B4F204 /* Skate_AppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,14 +375,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2CE5775D258106F000B4F204 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2CE57766258106F000B4F204 /* Tests_macOS.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -417,11 +382,6 @@
 			isa = PBXTargetDependency;
 			target = 2CE57745258106F000B4F204 /* Skate App (iOS) */;
 			targetProxy = 2CE57757258106F000B4F204 /* PBXContainerItemProxy */;
-		};
-		2CE57763258106F000B4F204 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2CE5774D258106F000B4F204 /* Skate App (macOS) */;
-			targetProxy = 2CE57762258106F000B4F204 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -539,6 +499,7 @@
 		};
 		2CE57771258106F000B4F204 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9DA1CEC298FAF8862E147BA8 /* Pods-Skate App (iOS).debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -561,6 +522,7 @@
 		};
 		2CE57772258106F000B4F204 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F61B2CD3611F25523C63A1F8 /* Pods-Skate App (iOS).release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -579,54 +541,6 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		2CE57774258106F000B4F204 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 8CNKYM26M7;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = macOS/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Skate-App";
-				PRODUCT_NAME = "Skate App";
-				SDKROOT = macosx;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		2CE57775258106F000B4F204 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 8CNKYM26M7;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = macOS/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Skate-App";
-				PRODUCT_NAME = "Skate App";
-				SDKROOT = macosx;
-				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -675,50 +589,6 @@
 			};
 			name = Release;
 		};
-		2CE5777A258106F000B4F204 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 8CNKYM26M7;
-				INFOPLIST_FILE = "Tests macOS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Tests-macOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = "Skate App (macOS)";
-			};
-			name = Debug;
-		};
-		2CE5777B258106F000B4F204 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 8CNKYM26M7;
-				INFOPLIST_FILE = "Tests macOS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Tests-macOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = "Skate App (macOS)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -740,29 +610,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2CE57773258106F000B4F204 /* Build configuration list for PBXNativeTarget "Skate App (macOS)" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2CE57774258106F000B4F204 /* Debug */,
-				2CE57775258106F000B4F204 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		2CE57776258106F000B4F204 /* Build configuration list for PBXNativeTarget "Tests iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2CE57777258106F000B4F204 /* Debug */,
 				2CE57778258106F000B4F204 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2CE57779258106F000B4F204 /* Build configuration list for PBXNativeTarget "Tests macOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2CE5777A258106F000B4F204 /* Debug */,
-				2CE5777B258106F000B4F204 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
