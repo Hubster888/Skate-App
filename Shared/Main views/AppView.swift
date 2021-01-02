@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct AppView: View {
     @State private var selectedTab = 2

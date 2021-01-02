@@ -55,7 +55,7 @@ struct Skate_AppApp: App {
 
     var body: some Scene {
         WindowGroup {
-            LogInView()
+            AppView()
         }
     }
 }

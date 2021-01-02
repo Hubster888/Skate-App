@@ -7,19 +7,24 @@
 
 import SwiftUI
 import GoogleSignIn
+import Firebase
 
 struct LogInView: View {
+    @Binding var showingDetail : Bool
     
     var body: some View {
         google().frame(width: 120, height: 50)
+        Button(action: {self.showingDetail = false}){
+            Text("Done")
+        }
     }
 }
 
-struct LogInView_Previews: PreviewProvider {
+/*struct LogInView_Previews: PreviewProvider {
     static var previews: some View {
-        LogInView()
+        //LogInView(showingDetail: s)
     }
-}
+}*/
 
 struct google: UIViewRepresentable{
     func makeUIView(context: UIViewRepresentableContext<google>) -> GIDSignInButton {

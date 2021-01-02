@@ -10,21 +10,70 @@ import SwiftUI
 struct TrickSelectView: View {
     @State private var searchText = ""
     @State private var favoriteColor = 0
+    @State private var str : String = "nope"
+    @State private var begginerTricks : [NSDictionary] = []
+    let URL_GET_TRICK = "http://192.168.0.13/DBService/getAllTricks.php"
     
-    let content = """
-The "shove it" is the lesser-known cousin trick to the "pop shove it." The "shove it" does the same motion as the "pop shove it" without the pop, or the air you get from an "ollie." The "shove it" is an old school, freestyle trick that is sure to impress and involves using your feet to rotate the skateboard 180 degrees (while you hop into the air and land on the board again going the same direction). It is also fun and simple because you do not need to know how to "ollie."
-Steps:
-1) Place your feet as seen on the foot placement diagram.
-2) Do a little hop.
-3) As your feet relive a little weight from the board, flick your back foot backwards to spin the board.
-4) The board should be flicked hard enough to spin 180 degrees.
-5) Try landing with your feet in the same or similar position to how they started.
-"""
-    let tips = """
-            - Weight distribution is very important especially when moving, if your board moves too far away from you this may be the reason. Aim for about a 50/50 weight distribution on your feet.
-            - A good way to get started is to practice flicking the board while not standing on it.
-            - If you're not confident and fail to commit, try building your confidence by simply jumping up and down on the board (hippy jump).
-            """
+    func getBeginnerTricks() -> [NSDictionary] {
+        let request = NSMutableURLRequest(url: NSURL(string: URL_GET_TRICK)! as URL)
+        request.httpMethod = "POST"
+        let json: [String: Any] = ["trickId": "1",
+                                   "trickName": "abc",
+                                   "trickType": "sda"]
+        let jsonData = try? JSONSerialization.data(withJSONObject: json)
+        
+        request.httpBody = jsonData
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
+            if error != nil{
+                print("error=\(String(describing: error))")
+                return
+            }else if let data = data {
+                if let jsonString = String(data: data, encoding: .utf8) {
+                    str = jsonString
+                }
+            }
+        }
+
+        task.resume()
+        while(str == "nope"){
+            
+        }
+        var result : [NSDictionary] = []
+        let array = str.components(separatedBy: "}{")
+        for trick in array {
+            var trickString = trick
+            if trick.prefix(1) != "{"{
+                trickString = "{" + trick
+            }
+            if trick.suffix(1) != "}"{
+                trickString = trick + "}"
+            }
+            let trickDic = stringToArray(test: trickString)
+            result.append(trickDic)
+        }
+
+        return result
+    }
+    
+    func stringToArray(test: String) -> NSDictionary{
+        var dictonary:NSDictionary?
+                
+                if let data = test.data(using: String.Encoding.utf8) {
+                    
+                    do {
+                        dictonary = try JSONSerialization.jsonObject(with: data, options: []) as? [String:AnyObject] as NSDictionary?
+                    
+                        if let myDictionary = dictonary
+                        {
+                             return myDictionary
+                        }
+                    } catch let error as NSError {
+                        print(error)
+                    }
+                }
+        return dictonary!
+    }
     
     init() {
         UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(red: 0.95, green: 0.32, blue: 0.34, alpha: 1.0)
@@ -120,32 +169,8 @@ Steps:
                                     .padding()
                                 ScrollView(.vertical){
                                     VStack{
-                                        Group{
-                                            NavigationLink(destination: TrickView(trickName: "Shuv It", trickContent: content, footPlacmentDiagram: "ShuvItFeet", tips: tips, video: "videoplayback")){
-                                                TrickRowView(name: "Shuv It", trickType: "Flip Trick", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
-                                                    .padding(.bottom, 10)
-                                            }
-                                            Button(action: {print(height * 0.1)}){
-                                                TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
-                                                    .padding(.bottom, 10)
-                                            }
-                                            
-                                            TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
-                                                .padding(.bottom, 10)
-                                            TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
-                                                .padding(.bottom, 10)
-                                            TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
-                                                .padding(.bottom, 10)
-                                            TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
-                                                .padding(.bottom, 10)
-                                            TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
-                                                .padding(.bottom, 10)
-                                            TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
-                                                .padding(.bottom, 10)
-                                            TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
-                                                .padding(.bottom, 10)
-                                            TrickRowView(name: "Trick 1", trickType: "Trick type", trickComplete: [false,false,false,false], width: width * 0.78, height: height * 0.1)
-                                                .padding(.bottom, 10)
+                                        ForEach(begginerTricksArray, id: \.self){ trick in
+                                            Text(trick)
                                         }
                                     }
                                 }
@@ -244,9 +269,13 @@ Steps:
                 }.padding(.horizontal, width * 0.02)
                 Spacer()
             }
-        }
+        }.onAppear(perform: {
+            begginerTricks = getBeginnerTricks()
+        })
         
     }
+    
+    //func getAllTricks()
 }
 
 struct TrickSelectView_Previews: PreviewProvider {
@@ -281,3 +310,5 @@ extension View {
 }
 //r66 g70 b84
 //w0.8 h0.65
+
+//Write a class for tricks to use in the for each loop and create the navigation links
