@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2BFA2F70613554E6F3E66816 /* Pods_Skate_App__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC48F3811C2468610A2D1B19 /* Pods_Skate_App__iOS_.framework */; };
+		2C3B003E25A342BB001BFBCA /* TrickListLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3B003D25A342BB001BFBCA /* TrickListLoader.swift */; };
 		2C4EC609259A206F000470A1 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4EC608259A206F000470A1 /* AppView.swift */; };
 		2C754FAE2587B4E100EF4FB3 /* settingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C754FAD2587B4E100EF4FB3 /* settingsView.swift */; };
 		2C7E5B5E258118D400B634F5 /* LearnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7E5B5D258118D400B634F5 /* LearnView.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C3B003D25A342BB001BFBCA /* TrickListLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrickListLoader.swift; sourceTree = "<group>"; };
 		2C4EC608259A206F000470A1 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		2C754FAD2587B4E100EF4FB3 /* settingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsView.swift; sourceTree = "<group>"; };
 		2C7E5B5D258118D400B634F5 /* LearnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnView.swift; sourceTree = "<group>"; };
@@ -85,6 +87,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C3B003C25A3429D001BFBCA /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				2C3B003D25A342BB001BFBCA /* TrickListLoader.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		2C721090258266650060EE76 /* Main views */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +145,7 @@
 		2CE5773E258106EF00B4F204 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				2C3B003C25A3429D001BFBCA /* Classes */,
 				2C9B2F0625910583006A47DA /* Small views */,
 				2C7210912582669A0060EE76 /* Specific views */,
 				2C721090258266650060EE76 /* Main views */,
@@ -358,6 +369,7 @@
 				2C7E5B5E258118D400B634F5 /* LearnView.swift in Sources */,
 				2CE5778125810A3900B4F204 /* HomeView.swift in Sources */,
 				2C754FAE2587B4E100EF4FB3 /* settingsView.swift in Sources */,
+				2C3B003E25A342BB001BFBCA /* TrickListLoader.swift in Sources */,
 				2CE864822598C8E6004E6D12 /* LogInView.swift in Sources */,
 				2CE5776A258106F000B4F204 /* ContentView.swift in Sources */,
 				2C4EC609259A206F000470A1 /* AppView.swift in Sources */,

@@ -66,7 +66,7 @@ struct HomeView: View {
                     */
                     
                     //The following is use to get the tuples as an json.
-                    let request = NSMutableURLRequest(url: NSURL(string: URL_GET_TRICK)! as URL)
+                    /*let request = NSMutableURLRequest(url: NSURL(string: URL_GET_TRICK)! as URL)
                     request.httpMethod = "POST"
                     let json: [String: Any] = ["trickId": "1",
                                                "trickName": "abc",
@@ -86,7 +86,16 @@ struct HomeView: View {
                         }
                     }
 
-                    task.resume()
+                    task.resume()*/
+                    
+                    TrickLoader().getTrick(trickId: "3"){ result in
+                        switch result{
+                        case .success(let trick):
+                            print(trick)
+                        case .failure(let error):
+                            print(error)
+                        }
+                    }
                     
                 }, label: {
                     Text("Test")
