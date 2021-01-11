@@ -10,7 +10,7 @@ import AVKit
 import URLImage
 
 struct TrickView: View {
-    let trickId : String
+    let trickId : Int
     @State var trickName : String = ""
     @State var trickContent : String = ""
     @State var footPlacmentDiagram : String = ""
@@ -42,7 +42,7 @@ struct TrickView: View {
                         TrickLoader().getTrick(trickId: trickId){ result in
                             switch result{
                             case .success(let trick):
-                                assignValues(content: trick)
+                                assignValues(trick: trick)
                             case .failure(let error):
                                 print(error)
                             }
@@ -135,7 +135,7 @@ struct TrickView: View {
                         TrickLoader().getTrick(trickId: trickId){ result in
                             switch result{
                             case .success(let trick):
-                                assignValues(content: trick)
+                                assignValues(trick: trick)
                             case .failure(let error):
                                 print(error)
                             }
@@ -145,22 +145,19 @@ struct TrickView: View {
         }
     }
     
-    func assignValues(content: Dictionary<String,Any>){
+    func assignValues(trick: Trick){
         
-        trickName = content["trickName"] as! String
+        trickName = trick.getTrickName()
+
+        trickContent = trick.getTrickDescription().replacingOccurrences(of: "--n--", with: "\n", options: .literal, range: nil)
         
-        var str = content["trickDescription"] as! String
-        var newString = str.replacingOccurrences(of: "--n--", with: "\n", options: .literal, range: nil)
-        trickContent = newString
+        footPlacmentDiagram = trick.getFootPlacmentImg()
         
-        footPlacmentDiagram = content["footPlacmentImg"] as! String
+        tips = trick.getTrickTips()
         
-        str = content["trickTips"] as! String
-        newString = str.replacingOccurrences(of: "--n--", with: "\n", options: .literal, range: nil)
-        tips = newString
-        video = content["trickVideo"] as! String
+        video = trick.getTrickVideo()
         
-        trickHead = content["trickHead"] as! String
+        trickHead = trick.getTrickHeadImg()
         
         loaded = true
     }
@@ -168,6 +165,6 @@ struct TrickView: View {
 
 struct TrickView_Previews: PreviewProvider {
     static var previews: some View {
-        TrickView(trickId: "1")
+        TrickView(trickId: 1)
     }
 }

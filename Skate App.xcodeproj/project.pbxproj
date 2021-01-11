@@ -19,6 +19,9 @@
 		2C9B2F1225922334006A47DA /* TrickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9B2F1125922334006A47DA /* TrickView.swift */; };
 		2C9B2F282592253A006A47DA /* TrickSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9B2F272592253A006A47DA /* TrickSelectView.swift */; };
 		2C9B2F3225922BFA006A47DA /* TrickVariationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9B2F3125922BFA006A47DA /* TrickVariationView.swift */; };
+		2CC4D30A25AC7BE600CE1132 /* ScrollingHStackModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC4D30925AC7BE600CE1132 /* ScrollingHStackModifier.swift */; };
+		2CC4D32325AC9F1100CE1132 /* ThemeAnimationStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC4D32225AC9F1000CE1132 /* ThemeAnimationStyle.swift */; };
+		2CC4D32725ACCB4200CE1132 /* Trick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC4D32625ACCB4200CE1132 /* Trick.swift */; };
 		2CE5775B258106F000B4F204 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE5775A258106F000B4F204 /* Tests_iOS.swift */; };
 		2CE57768258106F000B4F204 /* Skate_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE5773F258106EF00B4F204 /* Skate_AppApp.swift */; };
 		2CE5776A258106F000B4F204 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE57740258106EF00B4F204 /* ContentView.swift */; };
@@ -50,6 +53,9 @@
 		2C9B2F1125922334006A47DA /* TrickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrickView.swift; sourceTree = "<group>"; };
 		2C9B2F272592253A006A47DA /* TrickSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrickSelectView.swift; sourceTree = "<group>"; };
 		2C9B2F3125922BFA006A47DA /* TrickVariationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrickVariationView.swift; sourceTree = "<group>"; };
+		2CC4D30925AC7BE600CE1132 /* ScrollingHStackModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingHStackModifier.swift; sourceTree = "<group>"; };
+		2CC4D32225AC9F1000CE1132 /* ThemeAnimationStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeAnimationStyle.swift; sourceTree = "<group>"; };
+		2CC4D32625ACCB4200CE1132 /* Trick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trick.swift; sourceTree = "<group>"; };
 		2CE5773F258106EF00B4F204 /* Skate_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skate_AppApp.swift; sourceTree = "<group>"; };
 		2CE57740258106EF00B4F204 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2CE57741258106F000B4F204 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -89,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				2C3B003D25A342BB001BFBCA /* TrickListLoader.swift */,
+				2CC4D32625ACCB4200CE1132 /* Trick.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -122,6 +129,8 @@
 			children = (
 				2C9B2F07259105D0006A47DA /* TrickRowView.swift */,
 				2C9B2F3125922BFA006A47DA /* TrickVariationView.swift */,
+				2CC4D30925AC7BE600CE1132 /* ScrollingHStackModifier.swift */,
+				2CC4D32225AC9F1000CE1132 /* ThemeAnimationStyle.swift */,
 			);
 			path = "Small views";
 			sourceTree = "<group>";
@@ -358,10 +367,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C9B2F282592253A006A47DA /* TrickSelectView.swift in Sources */,
+				2CC4D32325AC9F1100CE1132 /* ThemeAnimationStyle.swift in Sources */,
 				2C7E5B702581191800B634F5 /* ProfileView.swift in Sources */,
+				2CC4D30A25AC7BE600CE1132 /* ScrollingHStackModifier.swift in Sources */,
 				2C9B2F3225922BFA006A47DA /* TrickVariationView.swift in Sources */,
 				2C9B2F08259105D0006A47DA /* TrickRowView.swift in Sources */,
 				2C7E5B6A2581190900B634F5 /* FeedView.swift in Sources */,
+				2CC4D32725ACCB4200CE1132 /* Trick.swift in Sources */,
 				2C7E5B5E258118D400B634F5 /* LearnView.swift in Sources */,
 				2CE5778125810A3900B4F204 /* HomeView.swift in Sources */,
 				2C754FAE2587B4E100EF4FB3 /* settingsView.swift in Sources */,
