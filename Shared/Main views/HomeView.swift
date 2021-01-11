@@ -39,67 +39,7 @@ struct HomeView: View {
                             LogInView(showingDetail: self.$showingDetail)
                         })
                 
-                Button(action: {
-                    //This is used to add a tuple to the DB.
-                    /*let request = NSMutableURLRequest(url: NSURL(string: URL_SAVE_TRICK)! as URL)
-                    request.httpMethod = "POST"
-                    let postString = "a=test name&b=test description"
-                    
-                    request.httpBody = postString.data(using: String.Encoding.utf8)
-                    
-                    let task = URLSession.shared.dataTask(with: request as URLRequest){
-                        data, response, error in
-                        if error != nil{
-                            print("error=\(String(describing: error))")
-                            return
-                        }
-                        
-                        print("response=\(String(describing: response))")
-                        let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-                        print("responseString=\(String(describing: responseString))")
-                    }
-                    task.resume()
-                    
-                    let alertController = UIAlertController(title: "Trick", message: "Succesfully added", preferredStyle: UIAlertController.Style.alert)
-                    alertController.addAction(UIAlertAction(title: "ok", style: UIAlertAction.Style.default, handler: nil))
-                    print("successful")
-                    */
-                    
-                    //The following is use to get the tuples as an json.
-                    /*let request = NSMutableURLRequest(url: NSURL(string: URL_GET_TRICK)! as URL)
-                    request.httpMethod = "POST"
-                    let json: [String: Any] = ["trickId": "1",
-                                               "trickName": "abc",
-                                               "trickDescription": "sda"]
-                    let jsonData = try? JSONSerialization.data(withJSONObject: json)
-                    
-                    request.httpBody = jsonData
-                    
-                    let task = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
-                        if error != nil{
-                            print("error=\(String(describing: error))")
-                            return
-                        }else if let data = data {
-                            if let jsonString = String(data: data, encoding: .utf8) {
-                                print(jsonString)
-                            }
-                        }
-                    }
-
-                    task.resume()*/
-                    
-                    TrickLoader().getTrick(trickId: "3"){ result in
-                        switch result{
-                        case .success(let trick):
-                            print(trick)
-                        case .failure(let error):
-                            print(error)
-                        }
-                    }
-                    
-                }, label: {
-                    Text("Test")
-                })
+                
             }
             .navigationBarTitle("SwiftUI")
         }
