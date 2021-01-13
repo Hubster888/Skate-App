@@ -150,7 +150,7 @@ struct TrickSelectView: View {
                                                         trickComplete: [false,false,false,false],
                                                         width: width * 0.73, height: height * 0.13)
                                                  })
-                                                    .buttonStyle(ThemeAnimationStyle())
+                                                    .buttonStyle(ScaleAnimationButtonEffect())
                                                     .padding(.bottom, 15)
                                                     
                                         }
@@ -191,7 +191,7 @@ struct TrickSelectView: View {
                                                         trickComplete: [false,false,false,false],
                                                         width: width * 0.73, height: height * 0.13)
                                                  })
-                                                    .buttonStyle(ThemeAnimationStyle())
+                                                    .buttonStyle(ScaleAnimationButtonEffect())
                                                     .padding(.bottom, 15)
                                         }
                                     }
@@ -231,7 +231,7 @@ struct TrickSelectView: View {
                                                         trickComplete: [false,false,false,false],
                                                         width: width * 0.73, height: height * 0.13)
                                                  })
-                                                    .buttonStyle(ThemeAnimationStyle())
+                                                    .buttonStyle(ScaleAnimationButtonEffect())
                                                     .padding(.bottom, 15)
                                         }
                                     }
@@ -271,7 +271,7 @@ struct TrickSelectView: View {
                                                         trickComplete: [false,false,false,false],
                                                         width: width * 0.73, height: height * 0.13)
                                                  })
-                                                    .buttonStyle(ThemeAnimationStyle())
+                                                    .buttonStyle(ScaleAnimationButtonEffect())
                                                     .padding(.bottom, 15)
                                         }
                                     }

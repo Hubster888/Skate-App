@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ThemeAnimationStyle: ButtonStyle {
+struct ScaleAnimationButtonEffect: ButtonStyle {
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
             //.background(configuration.isPressed ? Color.green.opacity(0.5) : Color.green)

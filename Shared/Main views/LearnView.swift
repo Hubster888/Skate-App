@@ -77,7 +77,7 @@ struct LearnView: View {
                             }
                         }
                         .padding(.bottom, 50)
-                    }.buttonStyle(ThemeAnimationStyle())
+                    }.buttonStyle(ScaleAnimationButtonEffect())
                     
                     HStack{
                         Image("learnGamesButton")

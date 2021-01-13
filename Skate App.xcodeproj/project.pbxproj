@@ -95,7 +95,9 @@
 			isa = PBXGroup;
 			children = (
 				2C3B003D25A342BB001BFBCA /* TrickListLoader.swift */,
+				2CC4D32225AC9F1000CE1132 /* ThemeAnimationStyle.swift */,
 				2CC4D32625ACCB4200CE1132 /* Trick.swift */,
+				2CC4D30925AC7BE600CE1132 /* ScrollingHStackModifier.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -129,8 +131,6 @@
 			children = (
 				2C9B2F07259105D0006A47DA /* TrickRowView.swift */,
 				2C9B2F3125922BFA006A47DA /* TrickVariationView.swift */,
-				2CC4D30925AC7BE600CE1132 /* ScrollingHStackModifier.swift */,
-				2CC4D32225AC9F1000CE1132 /* ThemeAnimationStyle.swift */,
 			);
 			path = "Small views";
 			sourceTree = "<group>";
