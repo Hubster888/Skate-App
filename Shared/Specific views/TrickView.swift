@@ -153,7 +153,7 @@ struct TrickView: View {
         
         footPlacmentDiagram = trick.getFootPlacmentImg()
         
-        tips = trick.getTrickTips()
+        tips = trick.getTrickTips().replacingOccurrences(of: "--n--", with: "\n", options: .literal, range: nil)
         
         video = trick.getTrickVideo()
         

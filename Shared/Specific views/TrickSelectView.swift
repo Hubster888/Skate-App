@@ -98,27 +98,30 @@ struct TrickSelectView: View {
                     // animation does not work properly
                 }
                 
-                //Segment control
-                    Picker(selection: $favoriteColor, label: Text("Completed trick?")) {
-                        Text("Not even close").tag(0)
-                        Text("Almost there").tag(1)
-                        Text("Nailed it").tag(2)
-                    }
-                    .pickerStyle(SegmentedPickerStyle())
-                    .frame(width: width * 0.9, height: height * 0.05)
-                    .padding(.bottom, height * 0.01)
-                
                 if isEditing {
-                    Spacer()
                     let arraySize = filteredList.count - 1
                     if(arraySize != -1){
                         List{
                             ForEach(0...arraySize, id: \.self){ index in
-                                Text(filteredList[index].getTrickName())
+                                NavigationLink(
+                                    destination: TrickView(trickId: filteredList[index].getTrickId()),
+                                label: {
+                                    Text(filteredList[index].getTrickName())
+                                 })
                             }
                         }.frame(width: width * 0.9, alignment: .center)
                     }
                 }
+                
+                //Segment control
+                Picker(selection: $favoriteColor, label: Text("Completed trick?")) {
+                    Text("Not even close").tag(0)
+                    Text("Almost there").tag(1)
+                    Text("Nailed it").tag(2)
+                }
+                .pickerStyle(SegmentedPickerStyle())
+                .frame(width: width * 0.9, height: height * 0.05)
+                .padding(.bottom, height * 0.01)
                 
                 HStack(alignment: .center, spacing: 30) {
                     // Beginner tab
