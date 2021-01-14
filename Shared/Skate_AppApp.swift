@@ -11,6 +11,7 @@ import Firebase
 import GoogleSignIn
 
 class AppDelegate: NSObject, UIApplicationDelegate, GIDSignInDelegate {
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         FirebaseApp.configure()
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
@@ -52,7 +53,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, GIDSignInDelegate {
 @main
 struct Skate_AppApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-
+    
     var body: some Scene {
         WindowGroup {
             AppView()

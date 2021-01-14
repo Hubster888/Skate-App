@@ -9,6 +9,8 @@ import SwiftUI
 
 struct LearnView: View {
     
+    @State private var isActive = false
+    
     var width: CGFloat {
             if UIDevice.current.userInterfaceIdiom == .phone {
                 return UIScreen.main.bounds.height * 0.165
@@ -58,26 +60,19 @@ struct LearnView: View {
                         .padding(.bottom ,50)
                         .padding(.top, 100)
                     
-                    NavigationLink(destination: TrickSelectView()) {
-                        HStack{
-                            Image("learnTricksButton")
-                                .resizable()
-                                .clipShape(Circle())
-                                .shadow(radius: 10)
-                                .overlay(Circle().stroke(Color(red: 0.95, green: 0.32, blue: 0.34), lineWidth: 5))
-                                .frame(width: width, height: width)
-                                
-                            VStack{
-                                Text("Trick")
-                                    .font(.system(.largeTitle, design: .rounded))
-                                    .foregroundColor(Color(red: 0.13, green: 0.15, blue: 0.22))
-                                Text("Personalise your learning!")
-                                    .font(.system(.subheadline, design: .rounded))
-                                    .foregroundColor(Color(red: 0.28, green: 0.32, blue: 0.37))
-                            }
-                        }
-                        .padding(.bottom, 50)
-                    }
+                    NavigationLink(destination: TrickSelectView(), isActive: $isActive) {
+                                    VStack{
+                                        Text("Tricks")
+                                            .font(.system(.largeTitle, design: .rounded))
+                                            .foregroundColor(Color(red: 0.13, green: 0.15, blue: 0.22))
+                                        
+                                        Text("Find the tricks here!")
+                                            .font(.system(.subheadline, design: .rounded))
+                                            .foregroundColor(Color(red: 0.28, green: 0.32, blue: 0.37))
+                                    }
+                                }.buttonStyle(LearnButtonEffectButtonStyle(image: Image("learnTricksButton"), action: {
+                                    self.isActive.toggle()
+                                }))
                     
                     HStack{
                         Image("learnGamesButton")
