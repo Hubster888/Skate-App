@@ -9,15 +9,17 @@ import SwiftUI
 
 struct LearnView: View {
     
-    @State private var isActive = false
+    @State private var tricksIsActive = false
+    @State private var gamesIsActive = false
+    @State private var planIsActive = false
     
     var width: CGFloat {
-            if UIDevice.current.userInterfaceIdiom == .phone {
-                return UIScreen.main.bounds.height * 0.165
-            } else {
-                return UIScreen.main.bounds.height * 0.4
-            }
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            return UIScreen.main.bounds.height * 0.165
+        } else {
+            return UIScreen.main.bounds.height * 0.4
         }
+    }
 
     init(){
         let navBarAppearance = UINavigationBar.appearance()
@@ -39,59 +41,53 @@ struct LearnView: View {
                     .frame(width: 30, height: UIScreen.screenHeight)
                     .offset(x: -100, y: 0)
                 VStack{
-                    
-                        HStack{
-                            Image("learnPlanButton")
-                                .resizable()
-                                .clipShape(Circle())
-                                .shadow(radius: 10)
-                                .overlay(Circle().stroke(Color(red: 0.95, green: 0.32, blue: 0.34), lineWidth: 5))
-                                .frame(width: width, height: width)
-                                
-                            VStack{
-                                Text("Plan")
-                                    .font(.system(.largeTitle, design: .rounded))
-                                    .foregroundColor(Color(red: 0.13, green: 0.15, blue: 0.22))
-                                Text("Personalise your learning!")
-                                    .font(.system(.subheadline, design: .rounded))
-                                    .foregroundColor(Color(red: 0.28, green: 0.32, blue: 0.37))
-                            }
-                        }
-                        .padding(.bottom ,50)
-                        .padding(.top, 100)
-                    
-                    NavigationLink(destination: TrickSelectView(), isActive: $isActive) {
-                                    VStack{
-                                        Text("Tricks")
-                                            .font(.system(.largeTitle, design: .rounded))
-                                            .foregroundColor(Color(red: 0.13, green: 0.15, blue: 0.22))
-                                        
-                                        Text("Find the tricks here!")
-                                            .font(.system(.subheadline, design: .rounded))
-                                            .foregroundColor(Color(red: 0.28, green: 0.32, blue: 0.37))
-                                    }
-                                }.buttonStyle(LearnButtonEffectButtonStyle(image: Image("learnTricksButton"), action: {
-                                    self.isActive.toggle()
-                                }))
-                    
-                    HStack{
-                        Image("learnGamesButton")
-                            .resizable()
-                            .clipShape(Circle())
-                            .shadow(radius: 10)
-                            .overlay(Circle().stroke(Color(red: 0.95, green: 0.32, blue: 0.34), lineWidth: 5))
-                            .frame(width: width, height: width)
                             
+                    NavigationLink(destination: PlanView(), isActive: $planIsActive) {
                         VStack{
-                            Text("Games")
+                            Text("PLAN")
                                 .font(.system(.largeTitle, design: .rounded))
                                 .foregroundColor(Color(red: 0.13, green: 0.15, blue: 0.22))
+                                            
                             Text("Personalise your learning!")
                                 .font(.system(.subheadline, design: .rounded))
                                 .foregroundColor(Color(red: 0.28, green: 0.32, blue: 0.37))
-                        }
-                    }
+                                .frame(width: width * 0.9, alignment: .center)
+                                
+                        }.padding(.leading, 10)
+                    }.buttonStyle(LearnButtonEffectButtonStyle(image: Image("learnPlanButton"), action: { self.planIsActive.toggle()}))
+                    //.padding(.bottom ,50)
+                    .padding(.top, 100)
+                            
+                    NavigationLink(destination: TrickSelectView(), isActive: $tricksIsActive) {
+                        VStack{
+                            Text("TRICKS")
+                                .font(.system(.largeTitle, design: .rounded))
+                                .foregroundColor(Color(red: 0.13, green: 0.15, blue: 0.22))
+                                                
+                            Text("Find the tricks here!")
+                                .font(.system(.subheadline, design: .rounded))
+                                .foregroundColor(Color(red: 0.28, green: 0.32, blue: 0.37))
+                                .frame(width: width * 0.9, alignment: .center)
+                            
+                        }.padding(.leading, 10)
+                    }.buttonStyle(LearnButtonEffectButtonStyle(image: Image("learnTricksButton"), action: { self.tricksIsActive.toggle()}))
+                    
+                            
+                    NavigationLink(destination: GameSelectView(), isActive: $gamesIsActive) {
+                        VStack{
+                            Text("GAMES")
+                                .font(.system(.largeTitle, design: .rounded))
+                                .foregroundColor(Color(red: 0.13, green: 0.15, blue: 0.22))
+                                                
+                            Text("Play skating games with friends or solo!")
+                                .font(.system(.subheadline, design: .rounded))
+                                .foregroundColor(Color(red: 0.28, green: 0.32, blue: 0.37))
+                                .frame(width: width * 0.9, alignment: .center)
+                            
+                        }.padding(.leading, 10)
+                    }.buttonStyle(LearnButtonEffectButtonStyle(image: Image("learnGamesButton"), action: { self.gamesIsActive.toggle()}))
                     .padding(.bottom, 100)
+                    
                 }
             }
             .navigationBarTitle(Text("Learn"), displayMode: .inline)
@@ -104,7 +100,9 @@ struct LearnView: View {
             }
         }
     }
-};extension UIScreen{
+        
+}
+;extension UIScreen{
     static let screenWidth = UIScreen.main.bounds.size.width
     static let screenHeight = UIScreen.main.bounds.size.height
     static let screenSize = UIScreen.main.bounds.size

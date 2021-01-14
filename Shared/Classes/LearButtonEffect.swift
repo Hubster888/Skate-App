@@ -30,7 +30,10 @@ struct LearnButtonEffectButtonStyle: PrimitiveButtonStyle {
                     .overlay(Circle().stroke(self.pressed ? Color.white : Color(red: 0.95, green: 0.32, blue: 0.34), lineWidth: self.pressed ? 8 : 4))
                     .shadow(radius: 7)
                     .frame(width: UIScreen.main.bounds.height * 0.165, height: UIScreen.main.bounds.height * 0.165)
+                    .offset(x: 50)
+                Spacer()
                 configuration.label
+                Spacer()
             }
             .padding(.bottom, 50)
             .onLongPressGesture(minimumDuration: 0.2, maximumDistance: .infinity, pressing: { pressing in
