@@ -21,7 +21,7 @@ struct TrickRowView: View {
         case 0..<80:
             return 100
         case 80..<500:
-            return height
+            return height * 0.5
         default:
             return 0
         }
@@ -31,13 +31,8 @@ struct TrickRowView: View {
         ZStack{
             Rectangle()
                 .fill(Color(red: 0.96, green: 0.96, blue: 0.96))
-                .frame(width: width * 0.9, height: getHeight(), alignment: .center)
+                .frame(width: width * 0.85, height: getHeight(), alignment: .center)
                 .cornerRadius(10)
-                .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color(red: 0.95, green: 0.32, blue: 0.34), lineWidth: 2)
-                            //.shadow(color: Color(red: 66/255, green: 70/255, blue: 84/255), radius: 4, x: 3, y: 3)
-                    )
                 
             VStack{
                 HStack{
@@ -54,10 +49,9 @@ struct TrickRowView: View {
                         .fontWeight(.bold)
                         .font(.system(size: 20))
                         .foregroundColor(Color(red: 0.28, green: 0.32, blue: 0.37))
-                        .lineLimit(1)
                         .padding(.trailing, 5)
                 }
-                HStack{
+                /*HStack{
                     TrickVariationView(variationType: "R", isComplete: trickComplete[0], diameter: width * 0.15)
                 
                     TrickVariationView(variationType: "N", isComplete: trickComplete[1], diameter: width * 0.15)
@@ -65,10 +59,11 @@ struct TrickRowView: View {
                     TrickVariationView(variationType: "S", isComplete: trickComplete[2], diameter: width * 0.15)
                     
                     TrickVariationView(variationType: "F", isComplete: trickComplete[3], diameter: width * 0.15)
-                }
+                }*/
             }
         }
-        .frame(width: width * 0.9, height: getHeight(), alignment: .center)
+        .frame(width: width * 0.85, height: getHeight(), alignment: .center)
+        
         
     }
     
@@ -94,3 +89,5 @@ struct TrickRowView_Previews: PreviewProvider {
             .previewLayout(.sizeThatFits)
     }
 }
+
+// Add progress bar that covers 25% of the view for every variation completed. (Once users are implemented)

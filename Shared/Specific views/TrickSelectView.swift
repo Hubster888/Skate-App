@@ -155,11 +155,11 @@ struct TrickSelectView: View {
                                                     
                                         }
                                     }
-                                }.frame(width: width * 0.8, height: height * 0.31, alignment: .center)
+                                }.frame(width: width * 0.8, height: height * 0.2, alignment: .center)
                             }
-                            Rectangle()
-                                .fill(Color(red: 66/255, green: 70/255, blue: 84/255))
-                                .frame(width: width * 0.8, height: height * 0.025)
+                            //Rectangle()
+                              //  .fill(Color(red: 66/255, green: 70/255, blue: 84/255))
+                                //.frame(width: width * 0.8, height: height * 0.025)
                         }
                     }
                     .frame(width: width * 0.8, height: height * 0.6)

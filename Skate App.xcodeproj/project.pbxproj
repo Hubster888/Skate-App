@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2BFA2F70613554E6F3E66816 /* Pods_Skate_App__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC48F3811C2468610A2D1B19 /* Pods_Skate_App__iOS_.framework */; };
 		2C2C5D2925AEF76F003B8F64 /* LearButtonEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2C5D2825AEF76F003B8F64 /* LearButtonEffect.swift */; };
+		2C2C5D2D25B0409F003B8F64 /* GradientButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2C5D2C25B0409F003B8F64 /* GradientButtonStyle.swift */; };
 		2C3B003E25A342BB001BFBCA /* TrickListLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3B003D25A342BB001BFBCA /* TrickListLoader.swift */; };
 		2C4EC609259A206F000470A1 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4EC608259A206F000470A1 /* AppView.swift */; };
 		2C754FAE2587B4E100EF4FB3 /* settingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C754FAD2587B4E100EF4FB3 /* settingsView.swift */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		2C2C5D2825AEF76F003B8F64 /* LearButtonEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearButtonEffect.swift; sourceTree = "<group>"; };
+		2C2C5D2C25B0409F003B8F64 /* GradientButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButtonStyle.swift; sourceTree = "<group>"; };
 		2C3B003D25A342BB001BFBCA /* TrickListLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrickListLoader.swift; sourceTree = "<group>"; };
 		2C4EC608259A206F000470A1 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		2C754FAD2587B4E100EF4FB3 /* settingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsView.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				2CC4D32625ACCB4200CE1132 /* Trick.swift */,
 				2CC4D30925AC7BE600CE1132 /* ScrollingHStackModifier.swift */,
 				2C2C5D2825AEF76F003B8F64 /* LearButtonEffect.swift */,
+				2C2C5D2C25B0409F003B8F64 /* GradientButtonStyle.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				2C2C5D2925AEF76F003B8F64 /* LearButtonEffect.swift in Sources */,
 				2C7E5B5E258118D400B634F5 /* LearnView.swift in Sources */,
 				2CE5778125810A3900B4F204 /* HomeView.swift in Sources */,
+				2C2C5D2D25B0409F003B8F64 /* GradientButtonStyle.swift in Sources */,
 				2C754FAE2587B4E100EF4FB3 /* settingsView.swift in Sources */,
 				2C3B003E25A342BB001BFBCA /* TrickListLoader.swift in Sources */,
 				2CE864822598C8E6004E6D12 /* LogInView.swift in Sources */,
