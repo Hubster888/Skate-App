@@ -13,7 +13,7 @@ struct GradientButtonStyle: ButtonStyle {
         configuration.label
             .foregroundColor(Color.white)
             .padding()
-            .background(LinearGradient(gradient: Gradient(colors: [Color(red: 0.96, green: 0.48, blue: 0.50), Color(red: 0.90, green: 0.67, blue: 0.68)]), startPoint: .leading, endPoint: .trailing))
+            .background(LinearGradient(gradient: Gradient(colors: [Color(red: 0.96, green: 0.48, blue: 0.50), Color.orange]), startPoint: .leading, endPoint: .trailing))
             .cornerRadius(15.0)
     }
 }

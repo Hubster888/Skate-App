@@ -20,6 +20,9 @@
 		2C7E5B64258118F000B634F5 /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7E5B63258118F000B634F5 /* ExploreView.swift */; };
 		2C7E5B6A2581190900B634F5 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7E5B692581190900B634F5 /* FeedView.swift */; };
 		2C7E5B702581191800B634F5 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7E5B6F2581191800B634F5 /* ProfileView.swift */; };
+		2C8DAAA525B1CD4D00FCD572 /* SkateGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8DAAA425B1CD4D00FCD572 /* SkateGameView.swift */; };
+		2C8DAAAB25B1D28B00FCD572 /* StartSkateGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8DAAAA25B1D28B00FCD572 /* StartSkateGameView.swift */; };
+		2C8DAAAF25B1E32600FCD572 /* SkateGamePlayLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8DAAAE25B1E32600FCD572 /* SkateGamePlayLocal.swift */; };
 		2C9B2F08259105D0006A47DA /* TrickRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9B2F07259105D0006A47DA /* TrickRowView.swift */; };
 		2C9B2F1225922334006A47DA /* TrickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9B2F1125922334006A47DA /* TrickView.swift */; };
 		2C9B2F282592253A006A47DA /* TrickSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9B2F272592253A006A47DA /* TrickSelectView.swift */; };
@@ -59,6 +62,9 @@
 		2C7E5B63258118F000B634F5 /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
 		2C7E5B692581190900B634F5 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		2C7E5B6F2581191800B634F5 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		2C8DAAA425B1CD4D00FCD572 /* SkateGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkateGameView.swift; sourceTree = "<group>"; };
+		2C8DAAAA25B1D28B00FCD572 /* StartSkateGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartSkateGameView.swift; sourceTree = "<group>"; };
+		2C8DAAAE25B1E32600FCD572 /* SkateGamePlayLocal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkateGamePlayLocal.swift; sourceTree = "<group>"; };
 		2C9B2F07259105D0006A47DA /* TrickRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrickRowView.swift; sourceTree = "<group>"; };
 		2C9B2F1125922334006A47DA /* TrickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrickView.swift; sourceTree = "<group>"; };
 		2C9B2F272592253A006A47DA /* TrickSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrickSelectView.swift; sourceTree = "<group>"; };
@@ -110,6 +116,7 @@
 				2CC4D30925AC7BE600CE1132 /* ScrollingHStackModifier.swift */,
 				2C2C5D2825AEF76F003B8F64 /* LearButtonEffect.swift */,
 				2C2C5D2C25B0409F003B8F64 /* GradientButtonStyle.swift */,
+				2C8DAAAE25B1E32600FCD572 /* SkateGamePlayLocal.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -140,6 +147,15 @@
 			path = "Specific views";
 			sourceTree = "<group>";
 		};
+		2C8DAAA325B1CD3200FCD572 /* Game views */ = {
+			isa = PBXGroup;
+			children = (
+				2C8DAAA425B1CD4D00FCD572 /* SkateGameView.swift */,
+				2C8DAAAA25B1D28B00FCD572 /* StartSkateGameView.swift */,
+			);
+			path = "Game views";
+			sourceTree = "<group>";
+		};
 		2C9B2F0625910583006A47DA /* Small views */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +182,7 @@
 		2CE5773E258106EF00B4F204 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				2C8DAAA325B1CD3200FCD572 /* Game views */,
 				2C3B003C25A3429D001BFBCA /* Classes */,
 				2C9B2F0625910583006A47DA /* Small views */,
 				2C7210912582669A0060EE76 /* Specific views */,
@@ -382,6 +399,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C9B2F282592253A006A47DA /* TrickSelectView.swift in Sources */,
+				2C8DAAAB25B1D28B00FCD572 /* StartSkateGameView.swift in Sources */,
 				2CC4D32325AC9F1100CE1132 /* ScaleAnimationButtonEffect.swift in Sources */,
 				2C7E5B702581191800B634F5 /* ProfileView.swift in Sources */,
 				2CC4D30A25AC7BE600CE1132 /* ScrollingHStackModifier.swift in Sources */,
@@ -400,9 +418,11 @@
 				2C3B003E25A342BB001BFBCA /* TrickListLoader.swift in Sources */,
 				2CE864822598C8E6004E6D12 /* LogInView.swift in Sources */,
 				2CE5776A258106F000B4F204 /* ContentView.swift in Sources */,
+				2C8DAAA525B1CD4D00FCD572 /* SkateGameView.swift in Sources */,
 				2C4EC609259A206F000470A1 /* AppView.swift in Sources */,
 				2C7E5B64258118F000B634F5 /* ExploreView.swift in Sources */,
 				2C9B2F1225922334006A47DA /* TrickView.swift in Sources */,
+				2C8DAAAF25B1E32600FCD572 /* SkateGamePlayLocal.swift in Sources */,
 				2CE57768258106F000B4F204 /* Skate_AppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

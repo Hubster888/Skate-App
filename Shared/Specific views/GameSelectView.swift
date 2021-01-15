@@ -30,7 +30,9 @@ struct GameSelectView: View {
             Color(red: 0.96, green: 0.96, blue: 0.96).edgesIgnoringSafeArea(.all)
             List{
                 Spacer()
-                GameListElm(name: "SKATE", capabilities: "Online, Local", width: width, height: height * 0.15)
+                NavigationLink(destination: SkateGameView()){
+                    GameListElm(name: "SKATE", capabilities: "Online, Local", width: width, height: height * 0.15)
+                }
                 Spacer()
                 GameListElm(name: "SKATE", capabilities: "Online, Local", width: width, height: height * 0.15)
                 Spacer()
