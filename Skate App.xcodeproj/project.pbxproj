@@ -15,6 +15,8 @@
 		2C2C5D3B25B09BA7003B8F64 /* GameListElm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2C5D3A25B09BA7003B8F64 /* GameListElm.swift */; };
 		2C3B003E25A342BB001BFBCA /* TrickListLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3B003D25A342BB001BFBCA /* TrickListLoader.swift */; };
 		2C4EC609259A206F000470A1 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4EC608259A206F000470A1 /* AppView.swift */; };
+		2C6F17DF25BEE9C0001CE0C9 /* PlanIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6F17DE25BEE9C0001CE0C9 /* PlanIntroView.swift */; };
+		2C6F17E325C037A6001CE0C9 /* UpdatePlanDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6F17E225C037A6001CE0C9 /* UpdatePlanDB.swift */; };
 		2C754FAE2587B4E100EF4FB3 /* settingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C754FAD2587B4E100EF4FB3 /* settingsView.swift */; };
 		2C7E5B5E258118D400B634F5 /* LearnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7E5B5D258118D400B634F5 /* LearnView.swift */; };
 		2C7E5B64258118F000B634F5 /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7E5B63258118F000B634F5 /* ExploreView.swift */; };
@@ -57,6 +59,8 @@
 		2C2C5D3A25B09BA7003B8F64 /* GameListElm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListElm.swift; sourceTree = "<group>"; };
 		2C3B003D25A342BB001BFBCA /* TrickListLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrickListLoader.swift; sourceTree = "<group>"; };
 		2C4EC608259A206F000470A1 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
+		2C6F17DE25BEE9C0001CE0C9 /* PlanIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanIntroView.swift; sourceTree = "<group>"; };
+		2C6F17E225C037A6001CE0C9 /* UpdatePlanDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePlanDB.swift; sourceTree = "<group>"; };
 		2C754FAD2587B4E100EF4FB3 /* settingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsView.swift; sourceTree = "<group>"; };
 		2C7E5B5D258118D400B634F5 /* LearnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnView.swift; sourceTree = "<group>"; };
 		2C7E5B63258118F000B634F5 /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
@@ -117,6 +121,7 @@
 				2C2C5D2825AEF76F003B8F64 /* LearButtonEffect.swift */,
 				2C2C5D2C25B0409F003B8F64 /* GradientButtonStyle.swift */,
 				2C8DAAAE25B1E32600FCD572 /* SkateGamePlayLocal.swift */,
+				2C6F17E225C037A6001CE0C9 /* UpdatePlanDB.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -143,6 +148,7 @@
 				2C9B2F272592253A006A47DA /* TrickSelectView.swift */,
 				2C2C5D3025B086D9003B8F64 /* GameSelectView.swift */,
 				2C2C5D3625B08A9B003B8F64 /* PlanView.swift */,
+				2C6F17DE25BEE9C0001CE0C9 /* PlanIntroView.swift */,
 			);
 			path = "Specific views";
 			sourceTree = "<group>";
@@ -166,6 +172,17 @@
 			path = "Small views";
 			sourceTree = "<group>";
 		};
+		2CB11DC725B83DFA00C0316A /* LearnTab */ = {
+			isa = PBXGroup;
+			children = (
+				2C7210912582669A0060EE76 /* Specific views */,
+				2C9B2F0625910583006A47DA /* Small views */,
+				2C3B003C25A3429D001BFBCA /* Classes */,
+				2C8DAAA325B1CD3200FCD572 /* Game views */,
+			);
+			path = LearnTab;
+			sourceTree = "<group>";
+		};
 		2CE57739258106EF00B4F204 = {
 			isa = PBXGroup;
 			children = (
@@ -182,10 +199,7 @@
 		2CE5773E258106EF00B4F204 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				2C8DAAA325B1CD3200FCD572 /* Game views */,
-				2C3B003C25A3429D001BFBCA /* Classes */,
-				2C9B2F0625910583006A47DA /* Small views */,
-				2C7210912582669A0060EE76 /* Specific views */,
+				2CB11DC725B83DFA00C0316A /* LearnTab */,
 				2C721090258266650060EE76 /* Main views */,
 				2CE5773F258106EF00B4F204 /* Skate_AppApp.swift */,
 				2CE57740258106EF00B4F204 /* ContentView.swift */,
@@ -403,6 +417,7 @@
 				2CC4D32325AC9F1100CE1132 /* ScaleAnimationButtonEffect.swift in Sources */,
 				2C7E5B702581191800B634F5 /* ProfileView.swift in Sources */,
 				2CC4D30A25AC7BE600CE1132 /* ScrollingHStackModifier.swift in Sources */,
+				2C6F17E325C037A6001CE0C9 /* UpdatePlanDB.swift in Sources */,
 				2C2C5D3B25B09BA7003B8F64 /* GameListElm.swift in Sources */,
 				2C9B2F3225922BFA006A47DA /* TrickVariationView.swift in Sources */,
 				2C9B2F08259105D0006A47DA /* TrickRowView.swift in Sources */,
@@ -414,6 +429,7 @@
 				2C7E5B5E258118D400B634F5 /* LearnView.swift in Sources */,
 				2CE5778125810A3900B4F204 /* HomeView.swift in Sources */,
 				2C2C5D2D25B0409F003B8F64 /* GradientButtonStyle.swift in Sources */,
+				2C6F17DF25BEE9C0001CE0C9 /* PlanIntroView.swift in Sources */,
 				2C754FAE2587B4E100EF4FB3 /* settingsView.swift in Sources */,
 				2C3B003E25A342BB001BFBCA /* TrickListLoader.swift in Sources */,
 				2CE864822598C8E6004E6D12 /* LogInView.swift in Sources */,
