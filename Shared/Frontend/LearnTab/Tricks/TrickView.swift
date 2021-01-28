@@ -10,13 +10,12 @@ import AVKit
 import URLImage
 
 struct TrickView: View {
-    let trickId : Int
+
     @State var trickName : String = ""
     @State var trickContent : String = ""
     @State var footPlacmentDiagram : String = ""
     @State var tips : String = ""
     @State var video : String = ""
-    @State var loaded : Bool = false
     @State var trickHead : String = ""
     
     var height: CGFloat {
@@ -37,18 +36,18 @@ struct TrickView: View {
     
     var body: some View {
             ScrollView(.vertical){
-                if(!loaded){
-                    Text("Empty").onAppear(perform: {
-                        TrickLoader().getTrick(trickId: trickId){ result in
+                //if(!loaded){
+                   // Text("Empty").onAppear(perform: {
+                        /*TrickLoader().getTrick(trickId: trickId){ result in
                             switch result{
                             case .success(let trick):
                                 assignValues(trick: trick)
                             case .failure(let error):
                                 print(error)
                             }
-                        }
-                    })
-                }else{
+                        }*/
+                    //})
+                //}else{
                     VStack{
                         ZStack{
                             URLImage(url: URL(string: "http://192.168.0.13/imgAssets/" + trickHead)!, content: {
@@ -132,20 +131,20 @@ struct TrickView: View {
                             .lineSpacing(8)
                             .fixedSize(horizontal: false, vertical: true)
                     }.onAppear(perform: {
-                        TrickLoader().getTrick(trickId: trickId){ result in
+                        /*TrickLoader().getTrick(trickId: trickId){ result in
                             switch result{
                             case .success(let trick):
                                 assignValues(trick: trick)
                             case .failure(let error):
                                 print(error)
                             }
-                        }
+                        }*/
                     })
             }
         }
     }
     
-    func assignValues(trick: Trick){
+    /*func assignValues(trick: Trick){
         
         trickName = trick.getTrickName()
 
@@ -160,11 +159,7 @@ struct TrickView: View {
         trickHead = trick.getTrickHeadImg()
         
         loaded = true
-    }
-}
+    }*/
+//}
 
-struct TrickView_Previews: PreviewProvider {
-    static var previews: some View {
-        TrickView(trickId: 1)
-    }
-}
+

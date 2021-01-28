@@ -21,7 +21,7 @@ class UpdatePlanDB{
     private var PlanCheckIsGood : Bool = false
     private var bothChecked : Int = 0
     
-    func getNewPlanId(completionHandler: @escaping (Result<Int, Error>) -> Void){
+    /*func getNewPlanId(completionHandler: @escaping (Result<Int, Error>) -> Void){
         getLowestPlanId(){ result in
                 var lowestPlanId : Int = 2
                 switch(result){
@@ -45,9 +45,9 @@ class UpdatePlanDB{
                     }
                 }
             }
-    }
+    }*/
     
-    func getLowestPlanId(completionHandler: @escaping (Result<Int, Error>) -> Void){
+    /*func getLowestPlanId(completionHandler: @escaping (Result<Int, Isnt>) -> Void){
         let request = NSMutableURLRequest(url: NSURL(string: URL_GET_GET_LOWEST_PLAN_ID)! as URL)
         request.httpMethod = "POST"
         
@@ -56,7 +56,7 @@ class UpdatePlanDB{
         let task = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
             if error != nil{
                 print(error!)
-                completionHandler(.failure(NetworkError.badURL))
+                completionHandler(.failure(1))
                 return
             }else if let data = data {
                 if var jsonString = String(data: data, encoding: .utf8) {
@@ -67,9 +67,9 @@ class UpdatePlanDB{
         }
 
         task.resume()
-    }
+    }*/
     
-    func getHeighestPlanId(completionHandler: @escaping (Result<Int, Error>) -> Void){
+    /*func getHeighestPlanId(completionHandler: @escaping (Result<Int, Int>) -> Void){
         let request = NSMutableURLRequest(url: NSURL(string: URL_GET_GET_HIGHEST_PLAN_ID)! as URL)
         request.httpMethod = "POST"
         
@@ -78,7 +78,7 @@ class UpdatePlanDB{
         let task = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
             if error != nil{
                 print(error!)
-                completionHandler(.failure(NetworkError.badURL))
+                completionHandler(.failure(1))
                 return
             }else if let data = data {
                 if var jsonString = String(data: data, encoding: .utf8) {
@@ -89,9 +89,9 @@ class UpdatePlanDB{
         }
 
         task.resume()
-    }
+    }*/
     
-    func checkIdDoesNotExist(planId: Int, tableName: String, completionHandler: @escaping (Result<Bool, Error>) -> Void){
+    func checkIdDoesNotExist(planId: Int, tableName: String, completionHandler: @escaping (Bool) -> Void){
         let request = NSMutableURLRequest(url: NSURL(string: URL_CHECK_PLAN_ID_EXISTS)! as URL)
         request.httpMethod = "POST"
         
@@ -100,17 +100,20 @@ class UpdatePlanDB{
         request.httpBody = postString.data(using: String.Encoding.utf8)
         
         let task = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
+            
+            
+            
             if error != nil{
                 print(error!)
-                completionHandler(.failure(NetworkError.badURL))
+                completionHandler(false)
                 return
             }else if let data = data {
                 if let jsonString = String(data: data, encoding: .utf8) {
                     if(jsonString == "0 results"){
-                        completionHandler(.success(true))
+                        completionHandler(true)
                        
                     }else{
-                        completionHandler(.success(false))
+                        completionHandler(false)
                         
                     }
                 }
@@ -120,93 +123,74 @@ class UpdatePlanDB{
         task.resume()
     }
     
-    func addToUserPlans(planId: Int, completionHandler: @escaping (Result<Bool, Error>) -> Void){
+    /*func check(planId: Int, completionHandler: @escaping (Bool) -> Void){
         checkIdDoesNotExist(planId: planId, tableName: "UserPlans"){ result in
             switch(result){
             case .success(let res):
-                self.UserPlanCheckIsGood = res
-                self.bothChecked += 1
-            case .failure(let err):
-                print(err)
-                self.UserPlanCheckIsGood = false
-                self.bothChecked += 1
+                completionHandler(res)
+                
+            case .failure(_ ):
+                completionHandler(false)
+                
             }
-        }
-        
-        checkIdDoesNotExist(planId: planId, tableName: "Plans"){ result in
-            switch(result){
-            case .success(let res):
-                self.PlanCheckIsGood = res
-                self.bothChecked += 1
-            case .failure(let err):
-                print(err)
-                self.PlanCheckIsGood = false
-                self.bothChecked += 1
-            }
-        }
-        
-        while(bothChecked != 2){
-            print("waiting")
-        }
-        
-        if(PlanCheckIsGood && UserPlanCheckIsGood){
-            let request = NSMutableURLRequest(url: NSURL(string: URL_ADD_USER_PLANS)! as URL)
-            request.httpMethod = "POST"
-            let postString = "userId=\(Auth.auth().currentUser?.uid ?? "None")&planId=\(planId)"
-            
-            request.httpBody = postString.data(using: String.Encoding.utf8)
-            
-            let task = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
-                if error != nil{
-                    print(error!)
-                    completionHandler(.failure(NetworkError.badURL))
-                    return
-                }else if let data = data {
-                    if let jsonString = String(data: data, encoding: .utf8) {
-                        if(jsonString == "true"){
-                            completionHandler(.success(true))
-                        }else{
-                            completionHandler(.success(false))
-                        }
-                    }
-                }
-            }
-
-            task.resume()
-        }else{
-            completionHandler(.failure(NetworkError.badURL))
         }
     }
     
-    func addPlan(planId: Int, completionHandler: @escaping (Result<Bool, Error>) -> Void){
-        if(PlanCheckIsGood && UserPlanCheckIsGood){
-            let request = NSMutableURLRequest(url: NSURL(string: URL_ADD_PLAN)! as URL)
-            request.httpMethod = "POST"
-            let postString = "userId=\(Auth.auth().currentUser?.uid ?? "None")&planId=\(planId)"
-            
-            request.httpBody = postString.data(using: String.Encoding.utf8)
-            
-            let task = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
-                if error != nil{
-                    print(error!)
-                    completionHandler(.failure(NetworkError.badURL))
-                    return
-                }else if let data = data {
-                    if let jsonString = String(data: data, encoding: .utf8) {
-                        if(jsonString == "true"){
-                            completionHandler(.success(true))
-                        }else{
-                            completionHandler(.success(false))
-                        }
+    func check2(planId: Int, completionHandler: @escaping (Bool) -> Void){
+        checkIdDoesNotExist(planId: planId, tableName: "Plans"){ result in
+            switch(result){
+            case .success(let res):
+                completionHandler(res)
+            case .failure(_ ):
+                completionHandler(false)
+            }
+        }
+    }*/
+    
+    func check3(planId: Int, completionHandler: @escaping (Bool) -> Void){
+        let request = NSMutableURLRequest(url: NSURL(string: URL_ADD_USER_PLANS)! as URL)
+        request.httpMethod = "POST"
+        let postString = "userId=\(Auth.auth().currentUser?.uid ?? "None")&planId=\(planId)"
+        
+        request.httpBody = postString.data(using: String.Encoding.utf8)
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
+            if error != nil{
+                print(error!)
+                completionHandler(false)
+                return
+            }else if let data = data {
+                if let jsonString = String(data: data, encoding: .utf8) {
+                    if(jsonString == "true"){
+                        completionHandler(true)
+                    }else{
+                        completionHandler(false)
                     }
                 }
             }
-
-            task.resume()
-        }else{
-            completionHandler(.failure(NetworkError.badURL))
         }
+
+        task.resume()
     }
+    
+   /* func addToUserPlans(planId: Int, completionHandler: @escaping (Bool) -> Void){
+        
+        check(planId: planId){ planIdExists in
+            if planIdExists {
+                self.check2(planId: planId){ planIdExists2 in
+                    if planIdExists2 {
+                        self.check3(planId: planId){ planIdExists3 in
+                            completionHandler(planIdExists3)
+                        }
+                    }else{
+                        completionHandler(false)
+                    }
+                }
+            }else{
+                completionHandler(false)
+            }
+        }
+    }*/
     
     func addProgressRow(completionHandler: @escaping (Result<Int, Error>) -> Void){
         

@@ -8,7 +8,11 @@
 import SwiftUI
 import Firebase
 
+let newUpdate = UpdatePlanDB()
+
 struct PlanIntroView: View {
+    
+    
     
     @Binding var rootIsActive : Bool
     @State var planIsActive : Bool = false
@@ -332,33 +336,20 @@ struct PlanIntroView: View {
                                                 }
                                             }*/
                                             
-                                            let newUpdate = UpdatePlanDB()
-                                            newUpdate.getNewPlanId(){result in
+                                            //let newUpdate = UpdatePlanDB()
+                                            
+                                            /*newUpdate.getNewPlanId(){result in
                                                 switch(result){
                                                 case .success(let res):
-                                                    newUpdate.addPlan(planId: res){ result2 in
-                                                        switch(result2){
-                                                        case .success(let res2):
-                                                            print(String(describing: res2))
-                                                        case .failure(let err2):
-                                                            print(err2)
-                                                        }
-                                                    }
-                                                    
                                                     newUpdate.addToUserPlans(planId: res){ result2 in
-                                                        switch(result2){
-                                                        case .success(let res2):
-                                                            print(String(describing: res2))
-                                                        case .failure(let err2):
-                                                            print(err2)
-                                                        }
+                                                        print(result2)
                                                     }
                                                 case .failure(let err):
                                                     print(err , "---------------------------")
                                                 }
                                                 
                                                 
-                                            }
+                                            }*/
                                             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                                                 withAnimation {
                                                     //PlanView()

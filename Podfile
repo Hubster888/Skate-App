@@ -8,9 +8,11 @@ target 'Skate App (iOS)' do
 pod 'Firebase'
 pod 'Firebase/Auth'
 pod 'Firebase/Analytics'
-pod 'Firebase/Database'
 pod 'GoogleSignIn'
 pod 'URLImage'
+pod 'Firebase/Firestore'
+pod 'FirebaseFirestoreSwift'
+
 # add pods for any other desired Firebase products
 # https://firebase.google.com/docs/ios/setup#available-pods
 

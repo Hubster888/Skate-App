@@ -8,15 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		2BFA2F70613554E6F3E66816 /* Pods_Skate_App__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC48F3811C2468610A2D1B19 /* Pods_Skate_App__iOS_.framework */; };
+		2C1B0BFE25C1B7EA00C0B6F7 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1B0BFD25C1B7EA00C0B6F7 /* CurrentUser.swift */; };
+		2C1B0C0E25C1E85800C0B6F7 /* TrickViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1B0C0D25C1E85800C0B6F7 /* TrickViewModel.swift */; };
+		2C1B0C1225C2C63D00C0B6F7 /* TrickSelectTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1B0C1125C2C63D00C0B6F7 /* TrickSelectTabView.swift */; };
+		2C1B0C1625C2DAD600C0B6F7 /* Arc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1B0C1525C2DAD600C0B6F7 /* Arc.swift */; };
 		2C2C5D2925AEF76F003B8F64 /* LearButtonEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2C5D2825AEF76F003B8F64 /* LearButtonEffect.swift */; };
 		2C2C5D2D25B0409F003B8F64 /* GradientButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2C5D2C25B0409F003B8F64 /* GradientButtonStyle.swift */; };
 		2C2C5D3125B086D9003B8F64 /* GameSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2C5D3025B086D9003B8F64 /* GameSelectView.swift */; };
 		2C2C5D3725B08A9B003B8F64 /* PlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2C5D3625B08A9B003B8F64 /* PlanView.swift */; };
 		2C2C5D3B25B09BA7003B8F64 /* GameListElm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2C5D3A25B09BA7003B8F64 /* GameListElm.swift */; };
-		2C3B003E25A342BB001BFBCA /* TrickListLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3B003D25A342BB001BFBCA /* TrickListLoader.swift */; };
 		2C4EC609259A206F000470A1 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4EC608259A206F000470A1 /* AppView.swift */; };
 		2C6F17DF25BEE9C0001CE0C9 /* PlanIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6F17DE25BEE9C0001CE0C9 /* PlanIntroView.swift */; };
 		2C6F17E325C037A6001CE0C9 /* UpdatePlanDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6F17E225C037A6001CE0C9 /* UpdatePlanDB.swift */; };
+		2C6F17E925C0AD21001CE0C9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C6F17E825C0AD21001CE0C9 /* GoogleService-Info.plist */; };
 		2C754FAE2587B4E100EF4FB3 /* settingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C754FAD2587B4E100EF4FB3 /* settingsView.swift */; };
 		2C7E5B5E258118D400B634F5 /* LearnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7E5B5D258118D400B634F5 /* LearnView.swift */; };
 		2C7E5B64258118F000B634F5 /* ExploreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7E5B63258118F000B634F5 /* ExploreView.swift */; };
@@ -34,11 +38,9 @@
 		2CC4D32725ACCB4200CE1132 /* Trick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC4D32625ACCB4200CE1132 /* Trick.swift */; };
 		2CE5775B258106F000B4F204 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE5775A258106F000B4F204 /* Tests_iOS.swift */; };
 		2CE57768258106F000B4F204 /* Skate_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE5773F258106EF00B4F204 /* Skate_AppApp.swift */; };
-		2CE5776A258106F000B4F204 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE57740258106EF00B4F204 /* ContentView.swift */; };
 		2CE5776C258106F000B4F204 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CE57741258106F000B4F204 /* Assets.xcassets */; };
 		2CE5778125810A3900B4F204 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE5778025810A3900B4F204 /* HomeView.swift */; };
 		2CE864822598C8E6004E6D12 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE864812598C8E6004E6D12 /* LogInView.swift */; };
-		2CE864882598CB06004E6D12 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CE864872598CB06004E6D12 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,15 +54,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C1B0BFD25C1B7EA00C0B6F7 /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
+		2C1B0C0D25C1E85800C0B6F7 /* TrickViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrickViewModel.swift; sourceTree = "<group>"; };
+		2C1B0C1125C2C63D00C0B6F7 /* TrickSelectTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrickSelectTabView.swift; sourceTree = "<group>"; };
+		2C1B0C1525C2DAD600C0B6F7 /* Arc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arc.swift; sourceTree = "<group>"; };
 		2C2C5D2825AEF76F003B8F64 /* LearButtonEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearButtonEffect.swift; sourceTree = "<group>"; };
 		2C2C5D2C25B0409F003B8F64 /* GradientButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButtonStyle.swift; sourceTree = "<group>"; };
 		2C2C5D3025B086D9003B8F64 /* GameSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSelectView.swift; sourceTree = "<group>"; };
 		2C2C5D3625B08A9B003B8F64 /* PlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanView.swift; sourceTree = "<group>"; };
 		2C2C5D3A25B09BA7003B8F64 /* GameListElm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListElm.swift; sourceTree = "<group>"; };
-		2C3B003D25A342BB001BFBCA /* TrickListLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrickListLoader.swift; sourceTree = "<group>"; };
 		2C4EC608259A206F000470A1 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		2C6F17DE25BEE9C0001CE0C9 /* PlanIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanIntroView.swift; sourceTree = "<group>"; };
 		2C6F17E225C037A6001CE0C9 /* UpdatePlanDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePlanDB.swift; sourceTree = "<group>"; };
+		2C6F17E825C0AD21001CE0C9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2C754FAD2587B4E100EF4FB3 /* settingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsView.swift; sourceTree = "<group>"; };
 		2C7E5B5D258118D400B634F5 /* LearnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnView.swift; sourceTree = "<group>"; };
 		2C7E5B63258118F000B634F5 /* ExploreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreView.swift; sourceTree = "<group>"; };
@@ -77,7 +83,6 @@
 		2CC4D32225AC9F1000CE1132 /* ScaleAnimationButtonEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleAnimationButtonEffect.swift; sourceTree = "<group>"; };
 		2CC4D32625ACCB4200CE1132 /* Trick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trick.swift; sourceTree = "<group>"; };
 		2CE5773F258106EF00B4F204 /* Skate_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skate_AppApp.swift; sourceTree = "<group>"; };
-		2CE57740258106EF00B4F204 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2CE57741258106F000B4F204 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2CE57746258106F000B4F204 /* Skate App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Skate App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CE57749258106F000B4F204 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -86,7 +91,6 @@
 		2CE5775C258106F000B4F204 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2CE5778025810A3900B4F204 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2CE864812598C8E6004E6D12 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
-		2CE864872598CB06004E6D12 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9DA1CEC298FAF8862E147BA8 /* Pods-Skate App (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Skate App (iOS).debug.xcconfig"; path = "Target Support Files/Pods-Skate App (iOS)/Pods-Skate App (iOS).debug.xcconfig"; sourceTree = "<group>"; };
 		DC48F3811C2468610A2D1B19 /* Pods_Skate_App__iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Skate_App__iOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F61B2CD3611F25523C63A1F8 /* Pods-Skate App (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Skate App (iOS).release.xcconfig"; path = "Target Support Files/Pods-Skate App (iOS)/Pods-Skate App (iOS).release.xcconfig"; sourceTree = "<group>"; };
@@ -111,19 +115,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2C3B003C25A3429D001BFBCA /* Classes */ = {
+		2C1B0BFC25C1B7D600C0B6F7 /* General */ = {
 			isa = PBXGroup;
 			children = (
-				2C3B003D25A342BB001BFBCA /* TrickListLoader.swift */,
-				2CC4D32225AC9F1000CE1132 /* ScaleAnimationButtonEffect.swift */,
-				2CC4D32625ACCB4200CE1132 /* Trick.swift */,
-				2CC4D30925AC7BE600CE1132 /* ScrollingHStackModifier.swift */,
-				2C2C5D2825AEF76F003B8F64 /* LearButtonEffect.swift */,
-				2C2C5D2C25B0409F003B8F64 /* GradientButtonStyle.swift */,
-				2C8DAAAE25B1E32600FCD572 /* SkateGamePlayLocal.swift */,
-				2C6F17E225C037A6001CE0C9 /* UpdatePlanDB.swift */,
+				2CE5773F258106EF00B4F204 /* Skate_AppApp.swift */,
+				2C1B0BFD25C1B7EA00C0B6F7 /* CurrentUser.swift */,
 			);
-			path = Classes;
+			path = General;
+			sourceTree = "<group>";
+		};
+		2C1B0C0B25C1E82E00C0B6F7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2CC4D32625ACCB4200CE1132 /* Trick.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2C1B0C0C25C1E83F00C0B6F7 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				2C1B0C0D25C1E85800C0B6F7 /* TrickViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		2C721090258266650060EE76 /* Main views */ = {
@@ -140,53 +154,111 @@
 			path = "Main views";
 			sourceTree = "<group>";
 		};
-		2C7210912582669A0060EE76 /* Specific views */ = {
+		2CD521A925C1ACC100592092 /* Backend */ = {
+			isa = PBXGroup;
+			children = (
+				2C1B0BFC25C1B7D600C0B6F7 /* General */,
+				2CD521AB25C1AD0500592092 /* LearnTab */,
+			);
+			path = Backend;
+			sourceTree = "<group>";
+		};
+		2CD521AA25C1ACCF00592092 /* Frontend */ = {
+			isa = PBXGroup;
+			children = (
+				2CD521B425C1AE1400592092 /* LearnTab */,
+				2CD521AF25C1ADCD00592092 /* ReusableViews */,
+				2CD521AC25C1AD5B00592092 /* Styles */,
+				2C721090258266650060EE76 /* Main views */,
+			);
+			path = Frontend;
+			sourceTree = "<group>";
+		};
+		2CD521AB25C1AD0500592092 /* LearnTab */ = {
+			isa = PBXGroup;
+			children = (
+				2C1B0C0C25C1E83F00C0B6F7 /* ViewModels */,
+				2C1B0C0B25C1E82E00C0B6F7 /* Models */,
+				2C8DAAAE25B1E32600FCD572 /* SkateGamePlayLocal.swift */,
+				2C6F17E225C037A6001CE0C9 /* UpdatePlanDB.swift */,
+			);
+			path = LearnTab;
+			sourceTree = "<group>";
+		};
+		2CD521AC25C1AD5B00592092 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				2CC4D32225AC9F1000CE1132 /* ScaleAnimationButtonEffect.swift */,
+				2CC4D30925AC7BE600CE1132 /* ScrollingHStackModifier.swift */,
+				2C2C5D2C25B0409F003B8F64 /* GradientButtonStyle.swift */,
+				2C2C5D2825AEF76F003B8F64 /* LearButtonEffect.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
+		2CD521AF25C1ADCD00592092 /* ReusableViews */ = {
+			isa = PBXGroup;
+			children = (
+				2C9B2F07259105D0006A47DA /* TrickRowView.swift */,
+				2C2C5D3A25B09BA7003B8F64 /* GameListElm.swift */,
+				2C9B2F3125922BFA006A47DA /* TrickVariationView.swift */,
+				2C1B0C1125C2C63D00C0B6F7 /* TrickSelectTabView.swift */,
+				2C1B0C1525C2DAD600C0B6F7 /* Arc.swift */,
+			);
+			path = ReusableViews;
+			sourceTree = "<group>";
+		};
+		2CD521B425C1AE1400592092 /* LearnTab */ = {
 			isa = PBXGroup;
 			children = (
 				2C754FAD2587B4E100EF4FB3 /* settingsView.swift */,
-				2C9B2F1125922334006A47DA /* TrickView.swift */,
-				2C9B2F272592253A006A47DA /* TrickSelectView.swift */,
-				2C2C5D3025B086D9003B8F64 /* GameSelectView.swift */,
-				2C2C5D3625B08A9B003B8F64 /* PlanView.swift */,
-				2C6F17DE25BEE9C0001CE0C9 /* PlanIntroView.swift */,
+				2CD521B725C1AE4C00592092 /* Games */,
+				2CD521B625C1AE3A00592092 /* Tricks */,
+				2CD521B525C1AE2200592092 /* Plan */,
 			);
-			path = "Specific views";
+			path = LearnTab;
 			sourceTree = "<group>";
 		};
-		2C8DAAA325B1CD3200FCD572 /* Game views */ = {
+		2CD521B525C1AE2200592092 /* Plan */ = {
+			isa = PBXGroup;
+			children = (
+				2C6F17DE25BEE9C0001CE0C9 /* PlanIntroView.swift */,
+				2C2C5D3625B08A9B003B8F64 /* PlanView.swift */,
+			);
+			path = Plan;
+			sourceTree = "<group>";
+		};
+		2CD521B625C1AE3A00592092 /* Tricks */ = {
+			isa = PBXGroup;
+			children = (
+				2C9B2F272592253A006A47DA /* TrickSelectView.swift */,
+				2C9B2F1125922334006A47DA /* TrickView.swift */,
+			);
+			path = Tricks;
+			sourceTree = "<group>";
+		};
+		2CD521B725C1AE4C00592092 /* Games */ = {
+			isa = PBXGroup;
+			children = (
+				2CD521BA25C1AE9600592092 /* SkateGame */,
+				2C2C5D3025B086D9003B8F64 /* GameSelectView.swift */,
+			);
+			path = Games;
+			sourceTree = "<group>";
+		};
+		2CD521BA25C1AE9600592092 /* SkateGame */ = {
 			isa = PBXGroup;
 			children = (
 				2C8DAAA425B1CD4D00FCD572 /* SkateGameView.swift */,
 				2C8DAAAA25B1D28B00FCD572 /* StartSkateGameView.swift */,
 			);
-			path = "Game views";
-			sourceTree = "<group>";
-		};
-		2C9B2F0625910583006A47DA /* Small views */ = {
-			isa = PBXGroup;
-			children = (
-				2C9B2F07259105D0006A47DA /* TrickRowView.swift */,
-				2C9B2F3125922BFA006A47DA /* TrickVariationView.swift */,
-				2C2C5D3A25B09BA7003B8F64 /* GameListElm.swift */,
-			);
-			path = "Small views";
-			sourceTree = "<group>";
-		};
-		2CB11DC725B83DFA00C0316A /* LearnTab */ = {
-			isa = PBXGroup;
-			children = (
-				2C7210912582669A0060EE76 /* Specific views */,
-				2C9B2F0625910583006A47DA /* Small views */,
-				2C3B003C25A3429D001BFBCA /* Classes */,
-				2C8DAAA325B1CD3200FCD572 /* Game views */,
-			);
-			path = LearnTab;
+			path = SkateGame;
 			sourceTree = "<group>";
 		};
 		2CE57739258106EF00B4F204 = {
 			isa = PBXGroup;
 			children = (
-				2CE864872598CB06004E6D12 /* GoogleService-Info.plist */,
+				2C6F17E825C0AD21001CE0C9 /* GoogleService-Info.plist */,
 				2CE5773E258106EF00B4F204 /* Shared */,
 				2CE57748258106F000B4F204 /* iOS */,
 				2CE57759258106F000B4F204 /* Tests iOS */,
@@ -199,10 +271,8 @@
 		2CE5773E258106EF00B4F204 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				2CB11DC725B83DFA00C0316A /* LearnTab */,
-				2C721090258266650060EE76 /* Main views */,
-				2CE5773F258106EF00B4F204 /* Skate_AppApp.swift */,
-				2CE57740258106EF00B4F204 /* ContentView.swift */,
+				2CD521AA25C1ACCF00592092 /* Frontend */,
+				2CD521A925C1ACC100592092 /* Backend */,
 				2CE57741258106F000B4F204 /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -335,7 +405,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CE5776C258106F000B4F204 /* Assets.xcassets in Resources */,
-				2CE864882598CB06004E6D12 /* GoogleService-Info.plist in Resources */,
+				2C6F17E925C0AD21001CE0C9 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,20 +490,22 @@
 				2C6F17E325C037A6001CE0C9 /* UpdatePlanDB.swift in Sources */,
 				2C2C5D3B25B09BA7003B8F64 /* GameListElm.swift in Sources */,
 				2C9B2F3225922BFA006A47DA /* TrickVariationView.swift in Sources */,
+				2C1B0C1225C2C63D00C0B6F7 /* TrickSelectTabView.swift in Sources */,
 				2C9B2F08259105D0006A47DA /* TrickRowView.swift in Sources */,
+				2C1B0C1625C2DAD600C0B6F7 /* Arc.swift in Sources */,
 				2C7E5B6A2581190900B634F5 /* FeedView.swift in Sources */,
 				2C2C5D3725B08A9B003B8F64 /* PlanView.swift in Sources */,
 				2C2C5D3125B086D9003B8F64 /* GameSelectView.swift in Sources */,
 				2CC4D32725ACCB4200CE1132 /* Trick.swift in Sources */,
+				2C1B0C0E25C1E85800C0B6F7 /* TrickViewModel.swift in Sources */,
 				2C2C5D2925AEF76F003B8F64 /* LearButtonEffect.swift in Sources */,
 				2C7E5B5E258118D400B634F5 /* LearnView.swift in Sources */,
 				2CE5778125810A3900B4F204 /* HomeView.swift in Sources */,
 				2C2C5D2D25B0409F003B8F64 /* GradientButtonStyle.swift in Sources */,
 				2C6F17DF25BEE9C0001CE0C9 /* PlanIntroView.swift in Sources */,
 				2C754FAE2587B4E100EF4FB3 /* settingsView.swift in Sources */,
-				2C3B003E25A342BB001BFBCA /* TrickListLoader.swift in Sources */,
+				2C1B0BFE25C1B7EA00C0B6F7 /* CurrentUser.swift in Sources */,
 				2CE864822598C8E6004E6D12 /* LogInView.swift in Sources */,
-				2CE5776A258106F000B4F204 /* ContentView.swift in Sources */,
 				2C8DAAA525B1CD4D00FCD572 /* SkateGameView.swift in Sources */,
 				2C4EC609259A206F000470A1 /* AppView.swift in Sources */,
 				2C7E5B64258118F000B634F5 /* ExploreView.swift in Sources */,
