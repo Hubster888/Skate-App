@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2BFA2F70613554E6F3E66816 /* Pods_Skate_App__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC48F3811C2468610A2D1B19 /* Pods_Skate_App__iOS_.framework */; };
 		2C1B0BFE25C1B7EA00C0B6F7 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1B0BFD25C1B7EA00C0B6F7 /* CurrentUser.swift */; };
 		2C1B0C0E25C1E85800C0B6F7 /* TrickViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1B0C0D25C1E85800C0B6F7 /* TrickViewModel.swift */; };
 		2C1B0C1225C2C63D00C0B6F7 /* TrickSelectTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1B0C1125C2C63D00C0B6F7 /* TrickSelectTabView.swift */; };
@@ -41,6 +40,7 @@
 		2CE5776C258106F000B4F204 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CE57741258106F000B4F204 /* Assets.xcassets */; };
 		2CE5778125810A3900B4F204 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE5778025810A3900B4F204 /* HomeView.swift */; };
 		2CE864822598C8E6004E6D12 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE864812598C8E6004E6D12 /* LogInView.swift */; };
+		33AC3B379FE8C62E4068A87B /* Pods_Skate_App__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B53258AF5BABD6D947AB80CE /* Pods_Skate_App__iOS_.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A72CE917C4D8BCCACEC8E45 /* Pods-Skate App (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Skate App (iOS).debug.xcconfig"; path = "Target Support Files/Pods-Skate App (iOS)/Pods-Skate App (iOS).debug.xcconfig"; sourceTree = "<group>"; };
 		2C1B0BFD25C1B7EA00C0B6F7 /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		2C1B0C0D25C1E85800C0B6F7 /* TrickViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrickViewModel.swift; sourceTree = "<group>"; };
 		2C1B0C1125C2C63D00C0B6F7 /* TrickSelectTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrickSelectTabView.swift; sourceTree = "<group>"; };
@@ -91,9 +92,8 @@
 		2CE5775C258106F000B4F204 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2CE5778025810A3900B4F204 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2CE864812598C8E6004E6D12 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
-		9DA1CEC298FAF8862E147BA8 /* Pods-Skate App (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Skate App (iOS).debug.xcconfig"; path = "Target Support Files/Pods-Skate App (iOS)/Pods-Skate App (iOS).debug.xcconfig"; sourceTree = "<group>"; };
-		DC48F3811C2468610A2D1B19 /* Pods_Skate_App__iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Skate_App__iOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F61B2CD3611F25523C63A1F8 /* Pods-Skate App (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Skate App (iOS).release.xcconfig"; path = "Target Support Files/Pods-Skate App (iOS)/Pods-Skate App (iOS).release.xcconfig"; sourceTree = "<group>"; };
+		63FDE1A23667BFCD1F15022E /* Pods-Skate App (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Skate App (iOS).release.xcconfig"; path = "Target Support Files/Pods-Skate App (iOS)/Pods-Skate App (iOS).release.xcconfig"; sourceTree = "<group>"; };
+		B53258AF5BABD6D947AB80CE /* Pods_Skate_App__iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Skate_App__iOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BFA2F70613554E6F3E66816 /* Pods_Skate_App__iOS_.framework in Frameworks */,
+				33AC3B379FE8C62E4068A87B /* Pods_Skate_App__iOS_.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,7 +264,7 @@
 				2CE57759258106F000B4F204 /* Tests iOS */,
 				2CE57747258106F000B4F204 /* Products */,
 				86D3FFAD3CCDD9640830EF55 /* Pods */,
-				59BE4152CEE27F54DBE487A3 /* Frameworks */,
+				E857B573C2B010B3D380C13C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -304,21 +304,21 @@
 			path = "Tests iOS";
 			sourceTree = "<group>";
 		};
-		59BE4152CEE27F54DBE487A3 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				DC48F3811C2468610A2D1B19 /* Pods_Skate_App__iOS_.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		86D3FFAD3CCDD9640830EF55 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				9DA1CEC298FAF8862E147BA8 /* Pods-Skate App (iOS).debug.xcconfig */,
-				F61B2CD3611F25523C63A1F8 /* Pods-Skate App (iOS).release.xcconfig */,
+				0A72CE917C4D8BCCACEC8E45 /* Pods-Skate App (iOS).debug.xcconfig */,
+				63FDE1A23667BFCD1F15022E /* Pods-Skate App (iOS).release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		E857B573C2B010B3D380C13C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B53258AF5BABD6D947AB80CE /* Pods_Skate_App__iOS_.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,12 +328,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2CE57770258106F000B4F204 /* Build configuration list for PBXNativeTarget "Skate App (iOS)" */;
 			buildPhases = (
-				0A4F3C742D2DE88C25887A44 /* [CP] Check Pods Manifest.lock */,
+				02A221807BF7BDA58D91B1AD /* [CP] Check Pods Manifest.lock */,
 				2CE57742258106F000B4F204 /* Sources */,
 				2CE57743258106F000B4F204 /* Frameworks */,
 				2CE57744258106F000B4F204 /* Resources */,
-				245D651C5E7476837FE90127 /* [CP] Embed Pods Frameworks */,
-				617B1F73F7A1B36BEC1602D9 /* [CP] Copy Pods Resources */,
+				72590DC00503BE16777F3702 /* [CP] Embed Pods Frameworks */,
+				F0F49B419DCCAC4D2C52F1D8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -419,7 +419,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0A4F3C742D2DE88C25887A44 /* [CP] Check Pods Manifest.lock */ = {
+		02A221807BF7BDA58D91B1AD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -441,7 +441,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		245D651C5E7476837FE90127 /* [CP] Embed Pods Frameworks */ = {
+		72590DC00503BE16777F3702 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -458,7 +458,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Skate App (iOS)/Pods-Skate App (iOS)-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		617B1F73F7A1B36BEC1602D9 /* [CP] Copy Pods Resources */ = {
+		F0F49B419DCCAC4D2C52F1D8 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -647,7 +647,7 @@
 		};
 		2CE57771258106F000B4F204 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9DA1CEC298FAF8862E147BA8 /* Pods-Skate App (iOS).debug.xcconfig */;
+			baseConfigurationReference = 0A72CE917C4D8BCCACEC8E45 /* Pods-Skate App (iOS).debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -670,7 +670,7 @@
 		};
 		2CE57772258106F000B4F204 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F61B2CD3611F25523C63A1F8 /* Pods-Skate App (iOS).release.xcconfig */;
+			baseConfigurationReference = 63FDE1A23667BFCD1F15022E /* Pods-Skate App (iOS).release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
