@@ -16,7 +16,7 @@ struct LearnView: View {
     @State private var planIsActive = false
     @State private var planIntroIsActive = false
     
-    @State private var planStarted : Bool = false
+    @ObservedObject private var currentUserViewModel = CurrentUserViewModel()
     
     var width: CGFloat {
         return UIScreen.main.bounds.width
@@ -46,7 +46,7 @@ struct LearnView: View {
                     .frame(width: 30, height: UIScreen.screenHeight)
                     .offset(x: width * -0.25)
                 VStack{
-                    if(planStarted){
+                    if(currentUserViewModel.currentUser != nil && currentUserViewModel.currentUser!.planStarted){
                         NavigationLink(destination: PlanView(rootIsActive: self.$planIsActive), isActive: $planIsActive) {
                             VStack{
                                 Text("PLAN")
@@ -123,9 +123,7 @@ struct LearnView: View {
             })
             .onAppear() {
                 if(Auth.auth().currentUser != nil){
-                    CurrentUser.userHasPlan(){ res in
-                        planStarted = res
-                    }
+                    self.currentUserViewModel.fetchData()
                 }
                 UINavigationBar.appearance().barTintColor = UIColor(red: 0.13, green: 0.15, blue: 0.22, alpha: 1.0)
             }

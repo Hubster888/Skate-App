@@ -8,20 +8,20 @@
 import SwiftUI
 import Firebase
 
-let newUpdate = UpdatePlanDB()
+//let newUpdate = UpdatePlanDB()
 
 struct PlanIntroView: View {
-    
-    
     
     @Binding var rootIsActive : Bool
     @State var planIsActive : Bool = false
     
     @State var showingLogIn = false
     
+    //Question Answers
+    @State var questionAnswers : Dictionary<Int,Int> = [1:0,2:0,3:0,4:0,5:0,6:0]
+    
     @State private var introSlide : Int = 0
-    @State private var questionNum : Int = 0
-    @State private var questionAnswers = [String]()
+    @State private var questionNum : Int = 1
     @State private var image : String = "skatePicModed"
     @State private var title : String = "Title"
     @State private var description : String = "This is one sentence for a sample description of what is going on."
@@ -143,158 +143,18 @@ struct PlanIntroView: View {
                 if(Auth.auth().currentUser != nil){
                     VStack{
                         switch(questionNum){
-                        case 0:
-                            Text("How many days a week are you going to skate?")
-                            Button(action: {
-                                questionAnswers.append("1")
-                                withAnimation{
-                                    questionNum += 1
-                                }
-
-                            }){
-                                Text("1 Day")
-                            }
-                            Button(action: {
-                                questionAnswers.append("23")
-                                withAnimation{
-                                    questionNum += 1
-                                }
-                            }){
-                                Text("2-3 Days")
-                            }
-                            Button(action: {
-                                questionAnswers.append("45")
-                                withAnimation{
-                                    questionNum += 1
-                                }
-                            }){
-                                Text("4-5 Days")
-                            }
-                            Button(action: {
-                                questionAnswers.append("67")
-                                withAnimation{
-                                    questionNum += 1
-                                }
-                            }){
-                                Text("6-7 Days")
-                            }
                         case 1:
-                            Text("How many hours a day are you going to skate?")
-                            Button(action: {
-                                questionAnswers.append("1")
-                                withAnimation{
-                                    questionNum += 1
-                                }
-                            }){
-                                Text("1 Hour")
-                            }
-                            Button(action: {
-                                questionAnswers.append("23")
-                                withAnimation{
-                                    questionNum += 1
-                                }
-                            }){
-                                Text("2-3 Hours")
-                            }
-                            Button(action: {
-                                questionAnswers.append("4")
-                                withAnimation{
-                                    questionNum += 1
-                                }
-                            }){
-                                Text("4+ Hours")
-                            }
+                            QuestionView(questionResults: self.$questionAnswers, questionNum: self.$questionNum, question: "How many days a week are you going to skate?", answerList: ["1 Day","2-3 Days","4-5 Days","6-7 Days"], twoChoice: false)
                         case 2:
-                            Text("How confident are you on a skateboard?")
-                            Button(action: {
-                                questionAnswers.append("1")
-                                withAnimation{
-                                    questionNum += 1
-                                }
-                            }){
-                                Text("First time on one. ")
-                            }
-                            Button(action: {
-                                questionAnswers.append("2")
-                                withAnimation{
-                                    questionNum += 1
-                                }
-                            }){
-                                Text("I can ride comfortably ")
-                            }
-                            Button(action: {
-                                questionAnswers.append("3")
-                                withAnimation{
-                                    questionNum += 1
-                                }
-                            }){
-                                Text("I try some tricks ")
-                            }
-                            Button(action: {
-                                questionAnswers.append("4")
-                                withAnimation{
-                                    questionNum += 1
-                                }
-                            }){
-                                Text("I was born on a board ")
-                            }
+                            QuestionView(questionResults: self.$questionAnswers, questionNum: self.$questionNum, question: "How many hours a day are you going to skate?", answerList: ["1 Hour","2-3 Hours","4+ Hours"], twoChoice: false)
                         case 3:
-                            Text("Pick a trick that you want to learn first:")
-                            Button(action: {
-                                questionAnswers.append("1")
-                                withAnimation{
-                                    questionNum += 1
-                                }
-                            }){
-                                Text("Pop Shove It")
-                            }
-                            Text("OR")
-                            Button(action: {
-                                questionAnswers.append("2")
-                                withAnimation{
-                                    questionNum += 1
-                                }
-                            }){
-                                Text("Kick Flip")
-                            }
+                            QuestionView(questionResults: self.$questionAnswers, questionNum: self.$questionNum, question: "How confident are you on a skateboard?", answerList: ["First time on one.","I can ride comfortably.","I try some tricks.","I was born on a board."], twoChoice: false)
                         case 4:
-                            Text("Pick a trick that you want to learn first:")
-                            Button(action: {
-                                questionAnswers.append("1")
-                                withAnimation{
-                                    questionNum += 1
-                                }
-                            }){
-                                Text("Casper Flip")
-                            }
-                            Text("OR")
-                            Button(action: {
-                                questionAnswers.append("2")
-                                withAnimation{
-                                    questionNum += 1
-                                }
-                            }){
-                                Text("Heel Flip")
-                            }
+                            QuestionView(questionResults: self.$questionAnswers, questionNum: self.$questionNum, question: "Pick a trick that you want to learn first:", answerList: ["Pop Shove It","Kick Flip"], twoChoice: true)
                         case 5:
-                            Text("Pick a trick that you want to learn first:")
-                            Button(action: {
-                                questionAnswers.append("1")
-                                withAnimation{
-                                    questionNum += 1
-                                }
-                            }){
-                                Text("Power Slide")
-                            }
-                            Text("OR")
-                            Button(action: {
-                                questionAnswers.append("2")
-                                withAnimation{
-                                    questionNum += 1
-                                }
-                            }){
-                                Text("Manual")
-                            }
+                            QuestionView(questionResults: self.$questionAnswers, questionNum: self.$questionNum, question: "Pick a trick that you want to learn first:", answerList: ["Casper Flip","Heel Flip"], twoChoice: true)
+                        case 6:
+                            QuestionView(questionResults: self.$questionAnswers, questionNum: self.$questionNum, question: "Pick a trick that you want to learn first:", answerList: ["Power Slide","Manual"], twoChoice: true)
                         default:
                             // Show loading motion
                             VStack{
@@ -316,45 +176,17 @@ struct PlanIntroView: View {
                                         .animation(Animation.linear(duration: 1).repeatForever(autoreverses: false))
                                         .onAppear(perform: {
                                             self.isLoading = true
-                                            /*UpdatePlanDB().getNewPlanId(){result in
-                                                switch(result){
-                                                case .success(let res):
-                                                    print(res , "---------------------------")
-                                                case .failure(let err):
-                                                    print(err , "---------------------------")
-                                                }
-                                            }*/
-                                            /*UpdatePlanDB().checkIdDoesNotExist(planId: 3, tableName: "UserPlans"){
-                                                result in
-                                                switch(result){
-                                                case .success(let res):
-                                                    if(res){
-                                                        print("Not there")
-                                                    }else {print("Exists")}
-                                                case .failure(let err):
-                                                    print(err)
-                                                }
-                                            }*/
-                                            
-                                            //let newUpdate = UpdatePlanDB()
-                                            
-                                            /*newUpdate.getNewPlanId(){result in
-                                                switch(result){
-                                                case .success(let res):
-                                                    newUpdate.addToUserPlans(planId: res){ result2 in
-                                                        print(result2)
+                                            PlanViewModel().addPlanToDB(plan: PlanViewModel().createPlanObject(data: questionAnswers)){ res in
+                                                if res {
+                                                    CurrentUserViewModel().startPlan()
+                                                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                                                        withAnimation {
+                                                            self.planIsActive = true
+                                                        }
                                                     }
-                                                case .failure(let err):
-                                                    print(err , "---------------------------")
-                                                }
-                                                
-                                                
-                                            }*/
-                                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                                                withAnimation {
-                                                    //PlanView()
-                                                    //self.rootIsActive = false
-                                                    self.planIsActive = true
+                                                }else{
+                                                    print("error")
+                                                    //Display alert to restart
                                                 }
                                             }
                                         })
@@ -365,17 +197,6 @@ struct PlanIntroView: View {
                                     .frame(width: width, height: height * 0.4, alignment: .bottom)
                                     .offset(y: height * 0.05)
                             }
-                            // Update the DB with the data
-                        // get lowest plan id if id > 2 then minus 1 and use that as new id
-                        //  else get highest id of plan and add 1
-                            
-                        // Check no id of plan exist like that
-                        
-                        // add to UsersPlans currentUser.uid and new plan id
-                        
-                        
-                        // using this plan id add a new plan
-                            // Show the plan
                         }
                     }
                 }else{
@@ -385,5 +206,3 @@ struct PlanIntroView: View {
         }
     }
 }
-
-// For root: if just done then launch planView (passed from intro view)
