@@ -14,7 +14,7 @@ class CurrentUserViewModel : ObservableObject{
     private var db = Firestore.firestore()
     
     func startPlan(){
-        db.collection("Users").document(Auth.auth().currentUser!.uid).collection("Data").document("1").updateData([
+        db.collection("Users").document(Auth.auth().currentUser!.uid).collection("Data").document("data").updateData([
             "planStarted": true
         ]) { err in
             if let err = err {
@@ -27,7 +27,7 @@ class CurrentUserViewModel : ObservableObject{
     
     func fetchData(){
         
-        db.collection("Users").document(Auth.auth().currentUser!.uid).collection("Data").document("1").addSnapshotListener {(documentSnapshot, error) in
+        db.collection("Users").document(Auth.auth().currentUser!.uid).collection("Data").document("data").addSnapshotListener {(documentSnapshot, error) in
             self.currentUser = documentSnapshot.flatMap { (queryDocumentSnapshot) -> CurrentUser in
                 return try! queryDocumentSnapshot.data(as: CurrentUser.self)!
             }

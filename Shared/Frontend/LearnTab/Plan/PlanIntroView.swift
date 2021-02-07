@@ -12,45 +12,46 @@ import Firebase
 
 struct PlanIntroView: View {
     
+    // Navigation and view
     @Binding var rootIsActive : Bool
     @State var planIsActive : Bool = false
-    
     @State var showingLogIn = false
+    @State private var introSlide : Int = 0
+    @State private var questionNum : Int = 1
+    @ObservedObject var planViewModel : PlanViewModel
+    @ObservedObject var currentUserViewModel : CurrentUserViewModel
+    let width : CGFloat
+    let height : CGFloat
     
     //Question Answers
     @State var questionAnswers : Dictionary<Int,Int> = [1:0,2:0,3:0,4:0,5:0,6:0]
     
-    @State private var introSlide : Int = 0
-    @State private var questionNum : Int = 1
+    // Questions and titles
     @State private var image : String = "skatePicModed"
     @State private var title : String = "Title"
-    @State private var description : String = "This is one sentence for a sample description of what is going on."
+    private let description1 : String = "This here is your personalised skating plan to improve those skills in your own time. Based on a few answers you will provide; the plan plops you into the correct week and adjusts the time spent skating to your free time."
+    private let description2 : String = "Don’t know what you're doing? The plan lets you improve on your own terms and guides you through the stages of becoming a “good” skater and enjoying yourself more. \"The plan only shows recommendations, you need to go at your own pace!\""
+    private let description3 : String = "If you feel you struggled during a week, do the week over again. The whole point is to enjoy yourself. Do whatever you enjoy. Don’t be sacred to try new skills, often after a few tries of a new trick you will gain confidence even though you may have not landed it yet."
     @State private var buttonText : String = "Next"
     
+    // Timer
     @State var isTimerRunning = false
     @State private var startTime =  Date()
     @State var interval = TimeInterval()
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State private var isLoading = false
-    
-    var width: CGFloat {
-        return UIScreen.main.bounds.width
-    }
-    
-    var height: CGFloat {
-        return UIScreen.main.bounds.height
-    }
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
         ZStack{
-            NavigationLink(destination: PlanView(rootIsActive: self.$rootIsActive), isActive: self.$planIsActive) {
+            Color(red: 0.96, green: 0.96, blue: 0.96)
+                .edgesIgnoringSafeArea(.all)
+            NavigationLink(destination: PlanView(rootIsActive: self.$rootIsActive, planViewModel: planViewModel, width: width, height: height), isActive: self.$planIsActive) {
                 Text("")
               }.hidden()
-            Color(red: 0.96, green: 0.96, blue: 0.96).edgesIgnoringSafeArea(.all)
-            if(introSlide <= 2){
+            if(introSlide <= 2){ // Shows the slide show.
                 Ellipse()
                     .fill(Color(red: 0.28, green: 0.32, blue: 0.37))
-                    .frame(width: height * 0.55, height: height * 0.7, alignment: .topLeading)
+                    .frame(width: height * 0.6, height: height * 0.7, alignment: .topLeading)
                     .offset(x: -height * 0.15, y: -height * 0.125)
                 Image(image)
                     .resizable()
@@ -59,55 +60,60 @@ struct PlanIntroView: View {
                 VStack{
                     switch(introSlide){
                     case 0:
-                        Text("Title 1")
-                            .font(.system(size: width * 0.1, weight: .bold, design: .monospaced))
+                        Text("What's the plan?")
+                            .font(.system(size: width * 0.055, weight: .bold, design: .monospaced))
                             .foregroundColor(Color(red: 0.96, green: 0.96, blue: 0.96))
-                            .padding(.bottom, height * 0.05)
                             .padding(.top, height * 0.1)
-                        Text(description)
-                            .font(.system(size: width * 0.05, weight: .bold, design: .default))
+                            .padding(.bottom, height * 0.025)
+                        Text(description1)
+                            .font(.system(size: width * 0.04, weight: .bold, design: .default))
                             .foregroundColor(Color(red: 0.96, green: 0.96, blue: 0.96))
                             .multilineTextAlignment(.center)
                     case 1:
-                        Text("Title 2")
-                            .font(.system(size: width * 0.1, weight: .bold, design: .monospaced))
+                        Text("Why?")
+                            .font(.system(size: width * 0.055, weight: .bold, design: .monospaced))
                             .foregroundColor(Color(red: 0.96, green: 0.96, blue: 0.96))
-                            .padding(.bottom, height * 0.05)
                             .padding(.top, height * 0.1)
-                        Text(description)
-                            .font(.system(size: width * 0.05, weight: .bold, design: .default))
+                            .padding(.bottom, height * 0.025)
+                        Text(description2)
+                            .font(.system(size: width * 0.04, weight: .bold, design: .default))
+                            .foregroundColor(Color(red: 0.96, green: 0.96, blue: 0.96))
+                            .multilineTextAlignment(.center)
+                    case 2:
+                        Text("How to?")
+                            .font(.system(size: width * 0.055, weight: .bold, design: .monospaced))
+                            .foregroundColor(Color(red: 0.96, green: 0.96, blue: 0.96))
+                            .padding(.top, height * 0.1)
+                            .padding(.bottom, height * 0.025)
+                        Text(description3)
+                            .font(.system(size: width * 0.04, weight: .bold, design: .default))
                             .foregroundColor(Color(red: 0.96, green: 0.96, blue: 0.96))
                             .multilineTextAlignment(.center)
                     default:
                         Text("END")
-                            .font(.system(size: width * 0.1, weight: .bold, design: .monospaced))
-                            .foregroundColor(Color(red: 0.96, green: 0.96, blue: 0.96))
-                            .padding(.bottom, height * 0.05)
-                            .padding(.top, height * 0.1)
-                        Text(description)
-                            .font(.system(size: width * 0.05, weight: .bold, design: .default))
-                            .foregroundColor(Color(red: 0.96, green: 0.96, blue: 0.96))
-                            .multilineTextAlignment(.center)
                     }
-                    
                     Spacer()
-                    if(introSlide == 2){
                         Button(action: {
                             withAnimation(.easeIn(duration: 1)){
-                                if(Auth.auth().currentUser != nil){
-                                    introSlide += 1
+                                if(introSlide == 2){
+                                    if(Auth.auth().currentUser != nil){
+                                        introSlide += 1
+                                    }else{
+                                        showingLogIn = true
+                                    }
                                 }else{
-                                    showingLogIn = true
+                                    introSlide += 1
                                 }
                             }
                         }){
                             ZStack{
                                 Rectangle()
                                     .fill(Color(red: 0.95, green: 0.32, blue: 0.34))
-                                    .frame(width: width * 0.35, height: height * 0.08, alignment: .center)
+                                    .frame(width: width * 0.25, height: height * 0.06, alignment: .center)
                                     .cornerRadius(10)
-                                Text("Begin")
-                                    .font(.system(size: width * 0.09, weight: .bold, design: .default))
+                                    .shadow(color: Color(red: 66/255, green: 70/255, blue: 84/255, opacity: 0.5), radius: 3, x: 10, y: 10)
+                                Text(introSlide == 2 ? "Begin" : "Next")
+                                    .font(.system(size: width * 0.07, weight: .bold, design: .monospaced))
                                     .foregroundColor(Color(red: 0.13, green: 0.15, blue: 0.22))
                             }
                             
@@ -117,25 +123,6 @@ struct PlanIntroView: View {
                                     LogInView(showingDetail: self.$showingLogIn)
                                 })
                         .padding(.bottom, height * 0.05)
-                    }else{
-                        Button(action: {
-                            withAnimation(.easeIn(duration: 1)){
-                                introSlide += 1
-                            }
-                        }){
-                            ZStack{
-                                Rectangle()
-                                    .fill(Color(red: 0.95, green: 0.32, blue: 0.34))
-                                    .frame(width: width * 0.35, height: height * 0.08, alignment: .center)
-                                    .cornerRadius(10)
-                                Text("Next")
-                                    .font(.system(size: width * 0.09, weight: .bold, design: .default))
-                                    .foregroundColor(Color(red: 0.13, green: 0.15, blue: 0.22))
-                            }
-                            
-                        }.padding(.bottom, height * 0.05)
-                    }
-                    
                 }
                 .frame(width: height * 0.3, height: height * 0.5, alignment: .topLeading)
                 .offset(x: -height * 0.07, y: -height * 0.175)
@@ -144,7 +131,7 @@ struct PlanIntroView: View {
                     VStack{
                         switch(questionNum){
                         case 1:
-                            QuestionView(questionResults: self.$questionAnswers, questionNum: self.$questionNum, question: "How many days a week are you going to skate?", answerList: ["1 Day","2-3 Days","4-5 Days","6-7 Days"], twoChoice: false)
+                            QuestionView(questionResults: self.$questionAnswers, questionNum: self.$questionNum, question: "How many days a week are you going to skate?", answerList: ["2-3 Days","4-5 Days","6-7 Days"], twoChoice: false)
                         case 2:
                             QuestionView(questionResults: self.$questionAnswers, questionNum: self.$questionNum, question: "How many hours a day are you going to skate?", answerList: ["1 Hour","2-3 Hours","4+ Hours"], twoChoice: false)
                         case 3:
@@ -176,9 +163,10 @@ struct PlanIntroView: View {
                                         .animation(Animation.linear(duration: 1).repeatForever(autoreverses: false))
                                         .onAppear(perform: {
                                             self.isLoading = true
-                                            PlanViewModel().addPlanToDB(plan: PlanViewModel().createPlanObject(data: questionAnswers)){ res in
+                                            planViewModel.addPlanToDB(plan: planViewModel.createPlanObject(data: questionAnswers)){ res in
                                                 if res {
-                                                    CurrentUserViewModel().startPlan()
+                                                    planViewModel.setData()
+                                                    currentUserViewModel.startPlan()
                                                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                                                         withAnimation {
                                                             self.planIsActive = true

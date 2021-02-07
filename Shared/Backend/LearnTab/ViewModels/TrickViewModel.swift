@@ -50,7 +50,6 @@ class TrickViewModel : ObservableObject {
                     return
                 }
                 self.addTrickToArray(documents: documents, difficulty: i)
-                
             }
         }
     }

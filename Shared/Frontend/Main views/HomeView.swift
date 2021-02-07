@@ -12,7 +12,10 @@ struct HomeView: View {
     
     //@EnvironmentObject var currentUser : CurrentUser
     
+    
     let db = Firestore.firestore()
+    
+    @ObservedObject private var planViewModel = PlanViewModel()
     
     @State var showingDetail = false
     let URL_SAVE_TRICK = "http://192.168.0.13/DBService/Connection.php"
@@ -84,21 +87,18 @@ struct HomeView: View {
                     Text("DB Test add! 2")
                 }
                 Button(action: {
-                    /*
-                    db.collection("users").getDocuments() { (querySnapshot, err) in
-                        if let err = err {
-                            print("Error getting documents: \(err)")
-                        } else {
-                            for document in querySnapshot!.documents {
-                                print("\(document.documentID) => \(document.data())")
-                            }
-                        }
-                    }*/
-                    //self.currentUser.planStarted = false
+                    if(Auth.auth().currentUser != nil){
+                        //PlanWeekTaskViewModel(planViewModel: self.planViewModel).setData() // Execute when new account created
+                    }
 
                 }){
-                    Text("Get data")
-                }
+                    Text("Create tasks for user")
+                }.onAppear(perform: {
+                    if(Auth.auth().currentUser != nil){
+                        //planViewModel.fetchData()
+                        
+                    }
+                })
             }
             .navigationBarTitle("SwiftUI")
         }

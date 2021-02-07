@@ -16,17 +16,14 @@ struct LearnView: View {
     @State private var planIsActive = false
     @State private var planIntroIsActive = false
     
-    @ObservedObject private var currentUserViewModel = CurrentUserViewModel()
+    @ObservedObject var planViewModel = PlanViewModel()
+    @ObservedObject var currentUserViewModel : CurrentUserViewModel
     
-    var width: CGFloat {
-        return UIScreen.main.bounds.width
-    }
+    var width: CGFloat = UIScreen.main.bounds.width
     
-    var height: CGFloat {
-        return UIScreen.main.bounds.height
-    }
-
-    init(){
+    var height: CGFloat = UIScreen.main.bounds.height
+    
+    init(currentUser: CurrentUserViewModel){
         let navBarAppearance = UINavigationBar.appearance()
         navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor(red: 0.96, green: 0.96, blue: 0.96, alpha: 1.0)]
         navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor(red: 0.96, green: 0.96, blue: 0.96, alpha: 1.0)]
@@ -35,6 +32,7 @@ struct LearnView: View {
         UITabBar.appearance().backgroundColor = UIColor(red: 0.13, green: 0.15, blue: 0.22, alpha: 1.0)
         
         UITabBar.appearance().barTintColor = UIColor(red: 0.13, green: 0.15, blue: 0.22, alpha: 1.0)
+        self.currentUserViewModel = currentUser
     }
     
     var body: some View {
@@ -47,7 +45,7 @@ struct LearnView: View {
                     .offset(x: width * -0.25)
                 VStack{
                     if(currentUserViewModel.currentUser != nil && currentUserViewModel.currentUser!.planStarted){
-                        NavigationLink(destination: PlanView(rootIsActive: self.$planIsActive), isActive: $planIsActive) {
+                        NavigationLink(destination: PlanView(rootIsActive: self.$planIsActive, planViewModel: planViewModel, width: width, height: height), isActive: $planIsActive) {
                             VStack{
                                 Text("PLAN")
                                     .font(.system(size: width * 0.1, weight: .bold, design: .monospaced))
@@ -62,7 +60,7 @@ struct LearnView: View {
                             }.frame(alignment: .trailing)
                         }.buttonStyle(LearnButtonEffectButtonStyle(image: Image("learnPlanButton"), action: { self.planIsActive.toggle()}))
                     }else{
-                        NavigationLink(destination: PlanIntroView(rootIsActive: self.$planIntroIsActive), isActive: $planIntroIsActive) {
+                        NavigationLink(destination: PlanIntroView(rootIsActive: self.$planIsActive, planViewModel: planViewModel, currentUserViewModel: currentUserViewModel, width: width, height: height), isActive: $planIntroIsActive) {
                             VStack{
                                 Text("PLAN")
                                     .font(.system(size: width * 0.1, weight: .bold, design: .monospaced))
@@ -121,12 +119,15 @@ struct LearnView: View {
                 Image(systemName: "gear")
                     .foregroundColor(Color(red: 0.96, green: 0.96, blue: 0.96))
             })
-            .onAppear() {
+            .onAppear(perform: {
                 if(Auth.auth().currentUser != nil){
-                    self.currentUserViewModel.fetchData()
+                    self.planViewModel.fetchData()
+                    if(currentUserViewModel.currentUser!.planStarted){
+                        self.planViewModel.fetchDataTasks()
+                    }
                 }
                 UINavigationBar.appearance().barTintColor = UIColor(red: 0.13, green: 0.15, blue: 0.22, alpha: 1.0)
-            }
+            })
         }
     }
 }

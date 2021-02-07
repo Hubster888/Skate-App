@@ -11,12 +11,14 @@ import Firebase
 struct AppView: View {
 
     @State private var selectedTab = 2
+    
+    @ObservedObject var currentUserViewModel = CurrentUserViewModel()
 
     var body: some View{
         ZStack{
             Color(red: 0.13, green: 0.15, blue: 0.22)
             TabView(selection: $selectedTab) {
-                LearnView()
+                LearnView(currentUser: currentUserViewModel)
                     .tabItem {
                         Image(systemName: "pencil.and.outline")
                         Text("Learn")
@@ -42,7 +44,8 @@ struct AppView: View {
                         Text("Home")
                     }
                     .onAppear {
-                            self.selectedTab = 2
+                        self.selectedTab = 2
+                        currentUserViewModel.fetchData()
                         }
                     .tag(2)
                 

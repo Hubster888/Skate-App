@@ -37,6 +37,7 @@
 		2C9B2F1225922334006A47DA /* TrickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9B2F1125922334006A47DA /* TrickView.swift */; };
 		2C9B2F282592253A006A47DA /* TrickSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9B2F272592253A006A47DA /* TrickSelectView.swift */; };
 		2C9B2F3225922BFA006A47DA /* TrickVariationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9B2F3125922BFA006A47DA /* TrickVariationView.swift */; };
+		2C9C7C7C25C941FD00319434 /* PlanWeekTaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9C7C7B25C941FC00319434 /* PlanWeekTaskModel.swift */; };
 		2CC4D30A25AC7BE600CE1132 /* ScrollingHStackModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC4D30925AC7BE600CE1132 /* ScrollingHStackModifier.swift */; };
 		2CC4D32325AC9F1100CE1132 /* ScaleAnimationButtonEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC4D32225AC9F1000CE1132 /* ScaleAnimationButtonEffect.swift */; };
 		2CC4D32725ACCB4200CE1132 /* Trick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC4D32625ACCB4200CE1132 /* Trick.swift */; };
@@ -90,6 +91,7 @@
 		2C9B2F1125922334006A47DA /* TrickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrickView.swift; sourceTree = "<group>"; };
 		2C9B2F272592253A006A47DA /* TrickSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrickSelectView.swift; sourceTree = "<group>"; };
 		2C9B2F3125922BFA006A47DA /* TrickVariationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrickVariationView.swift; sourceTree = "<group>"; };
+		2C9C7C7B25C941FC00319434 /* PlanWeekTaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanWeekTaskModel.swift; sourceTree = "<group>"; };
 		2CC4D30925AC7BE600CE1132 /* ScrollingHStackModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingHStackModifier.swift; sourceTree = "<group>"; };
 		2CC4D32225AC9F1000CE1132 /* ScaleAnimationButtonEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleAnimationButtonEffect.swift; sourceTree = "<group>"; };
 		2CC4D32625ACCB4200CE1132 /* Trick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trick.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				2C1B0BFD25C1B7EA00C0B6F7 /* CurrentUser.swift */,
 				2CC4D32625ACCB4200CE1132 /* Trick.swift */,
 				2C7E540125C43CA200AD173F /* Plan.swift */,
+				2C9C7C7B25C941FC00319434 /* PlanWeekTaskModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -174,6 +177,28 @@
 				2C8DAAAE25B1E32600FCD572 /* SkateGamePlayLocal.swift */,
 			);
 			path = Games;
+			sourceTree = "<group>";
+		};
+		2C7E545025C7F67800AD173F /* Learn Tab */ = {
+			isa = PBXGroup;
+			children = (
+				2C7E540B25C44A5B00AD173F /* QuestionView.swift */,
+				2C7E544825C4805700AD173F /* PlanWeekView.swift */,
+				2C1B0C1125C2C63D00C0B6F7 /* TrickSelectTabView.swift */,
+				2C9B2F3125922BFA006A47DA /* TrickVariationView.swift */,
+				2C7E544C25C4811100AD173F /* WeekPlanRowView.swift */,
+				2C2C5D3A25B09BA7003B8F64 /* GameListElm.swift */,
+				2C9B2F07259105D0006A47DA /* TrickRowView.swift */,
+			);
+			path = "Learn Tab";
+			sourceTree = "<group>";
+		};
+		2C7E545725C7F6A100AD173F /* General */ = {
+			isa = PBXGroup;
+			children = (
+				2C1B0C1525C2DAD600C0B6F7 /* Arc.swift */,
+			);
+			path = General;
 			sourceTree = "<group>";
 		};
 		2CD521A925C1ACC100592092 /* Backend */ = {
@@ -220,14 +245,8 @@
 		2CD521AF25C1ADCD00592092 /* ReusableViews */ = {
 			isa = PBXGroup;
 			children = (
-				2C9B2F07259105D0006A47DA /* TrickRowView.swift */,
-				2C2C5D3A25B09BA7003B8F64 /* GameListElm.swift */,
-				2C9B2F3125922BFA006A47DA /* TrickVariationView.swift */,
-				2C1B0C1125C2C63D00C0B6F7 /* TrickSelectTabView.swift */,
-				2C1B0C1525C2DAD600C0B6F7 /* Arc.swift */,
-				2C7E540B25C44A5B00AD173F /* QuestionView.swift */,
-				2C7E544825C4805700AD173F /* PlanWeekView.swift */,
-				2C7E544C25C4811100AD173F /* WeekPlanRowView.swift */,
+				2C7E545725C7F6A100AD173F /* General */,
+				2C7E545025C7F67800AD173F /* Learn Tab */,
 			);
 			path = ReusableViews;
 			sourceTree = "<group>";
@@ -355,8 +374,8 @@
 				2CE57742258106F000B4F204 /* Sources */,
 				2CE57743258106F000B4F204 /* Frameworks */,
 				2CE57744258106F000B4F204 /* Resources */,
-				72590DC00503BE16777F3702 /* [CP] Embed Pods Frameworks */,
-				F0F49B419DCCAC4D2C52F1D8 /* [CP] Copy Pods Resources */,
+				FE31D50243E23FB871473B8C /* [CP] Embed Pods Frameworks */,
+				DB35CF4A78396A6AF920AF99 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -464,24 +483,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		72590DC00503BE16777F3702 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Skate App (iOS)/Pods-Skate App (iOS)-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Skate App (iOS)/Pods-Skate App (iOS)-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Skate App (iOS)/Pods-Skate App (iOS)-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F0F49B419DCCAC4D2C52F1D8 /* [CP] Copy Pods Resources */ = {
+		DB35CF4A78396A6AF920AF99 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -496,6 +498,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Skate App (iOS)/Pods-Skate App (iOS)-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FE31D50243E23FB871473B8C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Skate App (iOS)/Pods-Skate App (iOS)-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Skate App (iOS)/Pods-Skate App (iOS)-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Skate App (iOS)/Pods-Skate App (iOS)-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -528,6 +547,7 @@
 				2C7E5B5E258118D400B634F5 /* LearnView.swift in Sources */,
 				2CE5778125810A3900B4F204 /* HomeView.swift in Sources */,
 				2C2C5D2D25B0409F003B8F64 /* GradientButtonStyle.swift in Sources */,
+				2C9C7C7C25C941FD00319434 /* PlanWeekTaskModel.swift in Sources */,
 				2C6F17DF25BEE9C0001CE0C9 /* PlanIntroView.swift in Sources */,
 				2C754FAE2587B4E100EF4FB3 /* settingsView.swift in Sources */,
 				2C1B0BFE25C1B7EA00C0B6F7 /* CurrentUser.swift in Sources */,
