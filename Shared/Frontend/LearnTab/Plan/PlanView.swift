@@ -74,14 +74,26 @@ struct PlanView: View {
                                      weekDescription: "This is your final week, at this point you can call yourself a skater and start to define your style. Just remember this is only the beginning.",
                                      hoursPerWeek: planViewModel.plan!.hoursPerWeek, planViewModel: planViewModel, height: height, width: width)
                     default:
+                        Spacer()
                         Text("Plan Finished, here is how to carry on:")
-                            .frame(width: width * 0.75, alignment: .center)
-                            .font(.system(size: width * 0.05, weight: .bold, design: .monospaced))
+                            .underline()
+                            .frame(width: width * 0.85, alignment: .center)
+                            .font(.system(size: width * 0.065, weight: .bold, design: .monospaced))
                             .foregroundColor(Color(red: 0.13, green: 0.15, blue: 0.22))
                             .multilineTextAlignment(.center)
-                        /*ForEach(endTips){ tip in
+                            
+                            //.padding(.bottom, 30)
+                        Spacer()
+                        ForEach(endTips, id: \.self){ tip in
                             Text(tip)
-                        }*/
+                                .font(.system(size: width * 0.045, weight: .bold, design: .default))
+                                .foregroundColor(Color(red: 0.13, green: 0.15, blue: 0.22))
+                                .multilineTextAlignment(.center)
+                                .padding(.bottom ,20)
+                                .padding(.leading, 15)
+                                .padding(.trailing, 15)
+                        }
+                        Spacer()
                         Button(action: {//end button
                             planViewModel.endPlan()
                             self.rootIsActive = false
@@ -97,6 +109,7 @@ struct PlanView: View {
                                     .foregroundColor(Color(red: 0.96, green: 0.96, blue: 0.96))
                             }
                         }.buttonStyle(ScaleAnimationButtonEffect())
+                        Spacer()
                     }
                     if(planViewModel.plan!.weekOn < 9){
                         Button(action: {
@@ -128,9 +141,7 @@ struct PlanView: View {
             }else{
                 Text("NOT LOADED")
             }
-        }.onAppear(perform: {
-            planViewModel.fetchData()
-        })
+        }
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: btnBack)
             

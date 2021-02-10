@@ -11,14 +11,13 @@ import Firebase
 struct AppView: View {
 
     @State private var selectedTab = 2
-    
-    @ObservedObject var currentUserViewModel = CurrentUserViewModel()
+    var currentUserViewModel = CurrentUserViewModel()
 
     var body: some View{
         ZStack{
             Color(red: 0.13, green: 0.15, blue: 0.22)
             TabView(selection: $selectedTab) {
-                LearnView(currentUser: currentUserViewModel)
+                LearnView().environmentObject(currentUserViewModel)
                     .tabItem {
                         Image(systemName: "pencil.and.outline")
                         Text("Learn")
@@ -28,7 +27,7 @@ struct AppView: View {
                         }
                     .tag(0)
                 
-                ExploreView()
+                ExploreView().environmentObject(currentUserViewModel)
                     .tabItem {
                         Image(systemName: "perspective")
                         Text("Explore")
@@ -38,18 +37,17 @@ struct AppView: View {
                         }
                     .tag(1)
                 
-                HomeView()
+                HomeView().environmentObject(currentUserViewModel)
                     .tabItem {
                         Image(systemName: "house.fill")
                         Text("Home")
                     }
                     .onAppear {
                         self.selectedTab = 2
-                        currentUserViewModel.fetchData()
                         }
                     .tag(2)
                 
-                FeedView()
+                FeedView().environmentObject(currentUserViewModel)
                     .tabItem {
                         Image(systemName: "person.3.fill")
                         Text("Feed")
@@ -59,7 +57,7 @@ struct AppView: View {
                         }
                     .tag(3)
                 
-                ProfileView()
+                ProfileView().environmentObject(currentUserViewModel)
                     .tabItem {
                         Image(systemName: "person.circle.fill")
                         Text("Profile")
@@ -73,6 +71,7 @@ struct AppView: View {
         .accentColor(Color(red: 0.95, green: 0.32, blue: 0.34))
         .onAppear() {
             UITabBar.appearance().barTintColor = UIColor(red: 0.13, green: 0.15, blue: 0.22, alpha: 1.0)
+            //currentUserViewModel.fetchData()
         }
     }
 }

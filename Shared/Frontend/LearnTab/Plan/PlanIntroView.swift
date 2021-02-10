@@ -120,7 +120,7 @@ struct PlanIntroView: View {
                         }
                         .sheet(isPresented: $showingLogIn,
                                 content: {
-                                    LogInView(showingDetail: self.$showingLogIn)
+                                    //LogInView()
                                 })
                         .padding(.bottom, height * 0.05)
                 }

@@ -17,13 +17,13 @@ struct LearnView: View {
     @State private var planIntroIsActive = false
     
     @ObservedObject var planViewModel = PlanViewModel()
-    @ObservedObject var currentUserViewModel : CurrentUserViewModel
+    @EnvironmentObject var currentUserViewModel : CurrentUserViewModel
     
     var width: CGFloat = UIScreen.main.bounds.width
     
     var height: CGFloat = UIScreen.main.bounds.height
     
-    init(currentUser: CurrentUserViewModel){
+    init(){
         let navBarAppearance = UINavigationBar.appearance()
         navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor(red: 0.96, green: 0.96, blue: 0.96, alpha: 1.0)]
         navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor(red: 0.96, green: 0.96, blue: 0.96, alpha: 1.0)]
@@ -32,7 +32,6 @@ struct LearnView: View {
         UITabBar.appearance().backgroundColor = UIColor(red: 0.13, green: 0.15, blue: 0.22, alpha: 1.0)
         
         UITabBar.appearance().barTintColor = UIColor(red: 0.13, green: 0.15, blue: 0.22, alpha: 1.0)
-        self.currentUserViewModel = currentUser
     }
     
     var body: some View {

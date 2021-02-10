@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		021198D583268B70B998E9DE /* Pods_Skate_App__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7E99F2D04CBD4F48EA457EF /* Pods_Skate_App__iOS_.framework */; };
 		2C1B0BFE25C1B7EA00C0B6F7 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1B0BFD25C1B7EA00C0B6F7 /* CurrentUser.swift */; };
 		2C1B0C0E25C1E85800C0B6F7 /* TrickViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1B0C0D25C1E85800C0B6F7 /* TrickViewModel.swift */; };
 		2C1B0C1225C2C63D00C0B6F7 /* TrickSelectTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1B0C1125C2C63D00C0B6F7 /* TrickSelectTabView.swift */; };
@@ -17,6 +18,7 @@
 		2C2C5D3725B08A9B003B8F64 /* PlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2C5D3625B08A9B003B8F64 /* PlanView.swift */; };
 		2C2C5D3B25B09BA7003B8F64 /* GameListElm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2C5D3A25B09BA7003B8F64 /* GameListElm.swift */; };
 		2C4EC609259A206F000470A1 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4EC608259A206F000470A1 /* AppView.swift */; };
+		2C528F3125D2731800D30BB6 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C528F3025D2731800D30BB6 /* LogInView.swift */; };
 		2C6F17DF25BEE9C0001CE0C9 /* PlanIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6F17DE25BEE9C0001CE0C9 /* PlanIntroView.swift */; };
 		2C6F17E925C0AD21001CE0C9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C6F17E825C0AD21001CE0C9 /* GoogleService-Info.plist */; };
 		2C754FAE2587B4E100EF4FB3 /* settingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C754FAD2587B4E100EF4FB3 /* settingsView.swift */; };
@@ -38,6 +40,7 @@
 		2C9B2F282592253A006A47DA /* TrickSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9B2F272592253A006A47DA /* TrickSelectView.swift */; };
 		2C9B2F3225922BFA006A47DA /* TrickVariationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9B2F3125922BFA006A47DA /* TrickVariationView.swift */; };
 		2C9C7C7C25C941FD00319434 /* PlanWeekTaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9C7C7B25C941FC00319434 /* PlanWeekTaskModel.swift */; };
+		2CAD031925D2D48A007601F8 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAD031825D2D48A007601F8 /* UserViewModel.swift */; };
 		2CC4D30A25AC7BE600CE1132 /* ScrollingHStackModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC4D30925AC7BE600CE1132 /* ScrollingHStackModifier.swift */; };
 		2CC4D32325AC9F1100CE1132 /* ScaleAnimationButtonEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC4D32225AC9F1000CE1132 /* ScaleAnimationButtonEffect.swift */; };
 		2CC4D32725ACCB4200CE1132 /* Trick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC4D32625ACCB4200CE1132 /* Trick.swift */; };
@@ -45,8 +48,6 @@
 		2CE57768258106F000B4F204 /* Skate_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE5773F258106EF00B4F204 /* Skate_AppApp.swift */; };
 		2CE5776C258106F000B4F204 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CE57741258106F000B4F204 /* Assets.xcassets */; };
 		2CE5778125810A3900B4F204 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE5778025810A3900B4F204 /* HomeView.swift */; };
-		2CE864822598C8E6004E6D12 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE864812598C8E6004E6D12 /* LogInView.swift */; };
-		33AC3B379FE8C62E4068A87B /* Pods_Skate_App__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B53258AF5BABD6D947AB80CE /* Pods_Skate_App__iOS_.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,9 +72,11 @@
 		2C2C5D3625B08A9B003B8F64 /* PlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanView.swift; sourceTree = "<group>"; };
 		2C2C5D3A25B09BA7003B8F64 /* GameListElm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListElm.swift; sourceTree = "<group>"; };
 		2C4EC608259A206F000470A1 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
+		2C528F3025D2731800D30BB6 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		2C6F17DE25BEE9C0001CE0C9 /* PlanIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanIntroView.swift; sourceTree = "<group>"; };
 		2C6F17E825C0AD21001CE0C9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2C754FAD2587B4E100EF4FB3 /* settingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsView.swift; sourceTree = "<group>"; };
+		2C7BF52025D2DC7A00338E2B /* Skate App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Skate App.entitlements"; sourceTree = "<group>"; };
 		2C7E53DF25C339AF00AD173F /* CurrentUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserViewModel.swift; sourceTree = "<group>"; };
 		2C7E540125C43CA200AD173F /* Plan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plan.swift; sourceTree = "<group>"; };
 		2C7E540725C440B200AD173F /* PlanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanViewModel.swift; sourceTree = "<group>"; };
@@ -92,6 +95,7 @@
 		2C9B2F272592253A006A47DA /* TrickSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrickSelectView.swift; sourceTree = "<group>"; };
 		2C9B2F3125922BFA006A47DA /* TrickVariationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrickVariationView.swift; sourceTree = "<group>"; };
 		2C9C7C7B25C941FC00319434 /* PlanWeekTaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanWeekTaskModel.swift; sourceTree = "<group>"; };
+		2CAD031825D2D48A007601F8 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		2CC4D30925AC7BE600CE1132 /* ScrollingHStackModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingHStackModifier.swift; sourceTree = "<group>"; };
 		2CC4D32225AC9F1000CE1132 /* ScaleAnimationButtonEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleAnimationButtonEffect.swift; sourceTree = "<group>"; };
 		2CC4D32625ACCB4200CE1132 /* Trick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trick.swift; sourceTree = "<group>"; };
@@ -103,9 +107,8 @@
 		2CE5775A258106F000B4F204 /* Tests_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_iOS.swift; sourceTree = "<group>"; };
 		2CE5775C258106F000B4F204 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2CE5778025810A3900B4F204 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		2CE864812598C8E6004E6D12 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		63FDE1A23667BFCD1F15022E /* Pods-Skate App (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Skate App (iOS).release.xcconfig"; path = "Target Support Files/Pods-Skate App (iOS)/Pods-Skate App (iOS).release.xcconfig"; sourceTree = "<group>"; };
-		B53258AF5BABD6D947AB80CE /* Pods_Skate_App__iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Skate_App__iOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7E99F2D04CBD4F48EA457EF /* Pods_Skate_App__iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Skate_App__iOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,7 +116,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33AC3B379FE8C62E4068A87B /* Pods_Skate_App__iOS_.framework in Frameworks */,
+				021198D583268B70B998E9DE /* Pods_Skate_App__iOS_.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +133,8 @@
 		2C1B0BFC25C1B7D600C0B6F7 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				2C528F3325D27B0E00D30BB6 /* ViewModels */,
+				2C528F3225D27B0700D30BB6 /* Model */,
 				2CE5773F258106EF00B4F204 /* Skate_AppApp.swift */,
 			);
 			path = General;
@@ -138,7 +143,6 @@
 		2C1B0C0B25C1E82E00C0B6F7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				2C1B0BFD25C1B7EA00C0B6F7 /* CurrentUser.swift */,
 				2CC4D32625ACCB4200CE1132 /* Trick.swift */,
 				2C7E540125C43CA200AD173F /* Plan.swift */,
 				2C9C7C7B25C941FC00319434 /* PlanWeekTaskModel.swift */,
@@ -150,8 +154,34 @@
 			isa = PBXGroup;
 			children = (
 				2C1B0C0D25C1E85800C0B6F7 /* TrickViewModel.swift */,
-				2C7E53DF25C339AF00AD173F /* CurrentUserViewModel.swift */,
 				2C7E540725C440B200AD173F /* PlanViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		2C528F2A25D26FBC00D30BB6 /* SideViews */ = {
+			isa = PBXGroup;
+			children = (
+				2C4EC608259A206F000470A1 /* AppView.swift */,
+				2C754FAD2587B4E100EF4FB3 /* settingsView.swift */,
+				2C528F3025D2731800D30BB6 /* LogInView.swift */,
+			);
+			path = SideViews;
+			sourceTree = "<group>";
+		};
+		2C528F3225D27B0700D30BB6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2C1B0BFD25C1B7EA00C0B6F7 /* CurrentUser.swift */,
+				2CAD031825D2D48A007601F8 /* UserViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2C528F3325D27B0E00D30BB6 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				2C7E53DF25C339AF00AD173F /* CurrentUserViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -159,14 +189,12 @@
 		2C721090258266650060EE76 /* Main views */ = {
 			isa = PBXGroup;
 			children = (
-				2C754FAD2587B4E100EF4FB3 /* settingsView.swift */,
+				2C528F2A25D26FBC00D30BB6 /* SideViews */,
 				2CE5778025810A3900B4F204 /* HomeView.swift */,
 				2C7E5B5D258118D400B634F5 /* LearnView.swift */,
 				2C7E5B63258118F000B634F5 /* ExploreView.swift */,
 				2C7E5B692581190900B634F5 /* FeedView.swift */,
 				2C7E5B6F2581191800B634F5 /* ProfileView.swift */,
-				2CE864812598C8E6004E6D12 /* LogInView.swift */,
-				2C4EC608259A206F000470A1 /* AppView.swift */,
 			);
 			path = "Main views";
 			sourceTree = "<group>";
@@ -300,6 +328,7 @@
 		2CE57739258106EF00B4F204 = {
 			isa = PBXGroup;
 			children = (
+				2C7BF52025D2DC7A00338E2B /* Skate App.entitlements */,
 				2C6F17E825C0AD21001CE0C9 /* GoogleService-Info.plist */,
 				2CE5773E258106EF00B4F204 /* Shared */,
 				2CE57748258106F000B4F204 /* iOS */,
@@ -358,7 +387,7 @@
 		E857B573C2B010B3D380C13C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B53258AF5BABD6D947AB80CE /* Pods_Skate_App__iOS_.framework */,
+				B7E99F2D04CBD4F48EA457EF /* Pods_Skate_App__iOS_.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -536,12 +565,14 @@
 				2C7E544925C4805700AD173F /* PlanWeekView.swift in Sources */,
 				2C1B0C1225C2C63D00C0B6F7 /* TrickSelectTabView.swift in Sources */,
 				2C9B2F08259105D0006A47DA /* TrickRowView.swift in Sources */,
+				2C528F3125D2731800D30BB6 /* LogInView.swift in Sources */,
 				2C1B0C1625C2DAD600C0B6F7 /* Arc.swift in Sources */,
 				2C7E5B6A2581190900B634F5 /* FeedView.swift in Sources */,
 				2C7E544D25C4811100AD173F /* WeekPlanRowView.swift in Sources */,
 				2C2C5D3725B08A9B003B8F64 /* PlanView.swift in Sources */,
 				2C2C5D3125B086D9003B8F64 /* GameSelectView.swift in Sources */,
 				2CC4D32725ACCB4200CE1132 /* Trick.swift in Sources */,
+				2CAD031925D2D48A007601F8 /* UserViewModel.swift in Sources */,
 				2C1B0C0E25C1E85800C0B6F7 /* TrickViewModel.swift in Sources */,
 				2C2C5D2925AEF76F003B8F64 /* LearButtonEffect.swift in Sources */,
 				2C7E5B5E258118D400B634F5 /* LearnView.swift in Sources */,
@@ -551,7 +582,6 @@
 				2C6F17DF25BEE9C0001CE0C9 /* PlanIntroView.swift in Sources */,
 				2C754FAE2587B4E100EF4FB3 /* settingsView.swift in Sources */,
 				2C1B0BFE25C1B7EA00C0B6F7 /* CurrentUser.swift in Sources */,
-				2CE864822598C8E6004E6D12 /* LogInView.swift in Sources */,
 				2C7E53E025C339AF00AD173F /* CurrentUserViewModel.swift in Sources */,
 				2C8DAAA525B1CD4D00FCD572 /* SkateGameView.swift in Sources */,
 				2C4EC609259A206F000470A1 /* AppView.swift in Sources */,
@@ -633,6 +663,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -686,6 +717,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -699,6 +731,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Skate App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8CNKYM26M7;
 				ENABLE_PREVIEWS = YES;
@@ -711,7 +744,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Skate-App";
 				PRODUCT_NAME = "Skate App";
 				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -722,6 +755,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Skate App.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8CNKYM26M7;
 				ENABLE_PREVIEWS = YES;
@@ -734,7 +768,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Skate-App";
 				PRODUCT_NAME = "Skate App";
 				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};

@@ -7,106 +7,45 @@
 
 import SwiftUI
 import Firebase
+import GoogleSignIn
 
 struct HomeView: View {
     
-    //@EnvironmentObject var currentUser : CurrentUser
-    
-    
     let db = Firestore.firestore()
     
+    @EnvironmentObject var currentUserViewModel : CurrentUserViewModel
     @ObservedObject private var planViewModel = PlanViewModel()
+    var logInShown : Bool = false
     
-    @State var showingDetail = false
-    let URL_SAVE_TRICK = "http://192.168.0.13/DBService/Connection.php"
-    let URL_GET_TRICK = "http://192.168.0.13/DBService/getTrick.php"
-    
-    var colors: [Color] = [.blue, .green, .red, .orange]
+    @State var user : Bool = (Auth.auth().currentUser != nil)
     
     var body: some View {
-        
         NavigationView {
             VStack {
-                NavigationLink(destination: Text("Detail View")) {
-                    Text("Hello World")
-                }
-                Button(action: {
-                    if(Auth.auth().currentUser != nil){
-                        logout()
-                        showingDetail = false
-                    }else{
-                        showingDetail = true
-                        //show sheet to log in
-                    }
-                }){
-                    if(Auth.auth().currentUser != nil){
-                        Text("Sign Out")
-                    }else{
+                if(currentUserViewModel.currentUser != nil){
+                    Button(action: {logout()}){Text("OUT")}
+                }else{
+                    NavigationLink(
+                        destination: LogInView()){
                         Text("Log In")
                     }
-                }.sheet(isPresented: $showingDetail,
-                        content: {
-                            LogInView(showingDetail: self.$showingDetail)
-                        })
-                
-                Button(action: {
-                    var ref: DocumentReference? = nil
-                    ref = db.collection("users").addDocument(data: [
-                        "first": "Ada",
-                        "last": "Lovelace",
-                        "born": 1815
-                    ]) { err in
-                        if let err = err {
-                            print("Error adding document: \(err)")
-                        } else {
-                            print("Document added with ID: \(ref!.documentID)")
-                        }
-                    }
-              
-
-                }){
-                    Text("DB Test add!")
+                    .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+                    .background(Color.white)
+                    .cornerRadius(8.0)
+                    .shadow(radius: 4.0)
                 }
-                Button(action: {
-                    var ref: DocumentReference? = nil
-                    // Add a second document with a generated ID.
-                    ref = db.collection("users").addDocument(data: [
-                        "first": "Alan",
-                        "middle": "Mathison",
-                        "last": "Turing",
-                        "born": 1912
-                    ]) { err in
-                        if let err = err {
-                            print("Error adding document: \(err)")
-                        } else {
-                            print("Document added with ID: \(ref!.documentID)")
-                        }
-                    }
-
-                }){
-                    Text("DB Test add! 2")
+            }.onAppear{
+                if(Auth.auth().currentUser != nil){
+                    currentUserViewModel.fetchData()
                 }
-                Button(action: {
-                    if(Auth.auth().currentUser != nil){
-                        //PlanWeekTaskViewModel(planViewModel: self.planViewModel).setData() // Execute when new account created
-                    }
-
-                }){
-                    Text("Create tasks for user")
-                }.onAppear(perform: {
-                    if(Auth.auth().currentUser != nil){
-                        //planViewModel.fetchData()
-                        
-                    }
-                })
             }
-            .navigationBarTitle("SwiftUI")
         }
     }
         
     func logout(){
         do{
             try Auth.auth().signOut()
+            currentUserViewModel.currentUser = nil
         }catch let error as NSError{
             print(error.localizedDescription)
         }
@@ -115,7 +54,7 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(showingDetail: false)
+        HomeView()
     }
 }
 

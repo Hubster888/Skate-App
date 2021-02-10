@@ -12,6 +12,13 @@ pod 'GoogleSignIn'
 pod 'URLImage'
 pod 'Firebase/Firestore'
 pod 'FirebaseFirestoreSwift'
+pod 'CombineFirebase/Firestore'
+pod 'CombineFirebase/RemoteConfig'
+pod 'CombineFirebase/Database'
+pod 'CombineFirebase/Storage'
+pod 'CombineFirebase/Auth'
+pod 'CombineFirebase/Functions'
+pod 'Navajo-Swift'
 
 # add pods for any other desired Firebase products
 # https://firebase.google.com/docs/ios/setup#available-pods

@@ -17,13 +17,8 @@ class PlanViewModel : ObservableObject{
     private var db = Firestore.firestore()
     
     func addPlanToDB(plan: Plan, completionHandler: (Bool) -> Void){
-        do{
-            let _ = try db.collection("Users").document(Auth.auth().currentUser!.uid).collection("Plan").document("plan").setData(from: plan)
-            completionHandler(true)
-        }catch{
-            print(error)
-            completionHandler(false)
-        }
+        let _ = db.collection("Users").document(Auth.auth().currentUser!.uid).collection("Plan").document("plan").setData(from: plan)
+        completionHandler(true)
     }
     
     func createPlanObject(data: Dictionary<Int,Int>) -> Plan{
@@ -67,8 +62,8 @@ class PlanViewModel : ObservableObject{
     }
     
     func moveToNextWeek(){
-        let newWeekOn = plan!.weekOn + 1
-        db.collection("Users").document(Auth.auth().currentUser!.uid).collection("Plan").document("plan").updateData(["weekOn":newWeekOn])
+        let newWeekOn = plan?.weekOn ?? 0 + 1
+        let _ = db.collection("Users").document(Auth.auth().currentUser?.uid ?? "NO USER").collection("Plan").document("plan").updateData(["weekOn": newWeekOn]).description
     }
     
     func endPlan(){
@@ -105,21 +100,18 @@ class PlanViewModel : ObservableObject{
             }
         }
         for i in 0...taskList.count - 1{
-            do{
-                let _ = try db.collection("Users").document(Auth.auth().currentUser!.uid).collection("Plan").document("plan").collection("Tasks").addDocument(from: taskList[i])
-            }catch{
-                print(error)
-            }
+            let _ = db.collection("Users").document(Auth.auth().currentUser!.uid).collection("Plan").document("plan").collection("Tasks").addDocument(from: taskList[i])
         }
     }
     
     func toogleTaskComplete(docId: String){
+        let ref = db.collection("Users").document(Auth.auth().currentUser?.uid ?? "NO USER").collection("Plan").document("plan").collection("Tasks").document(docId)
         for i in 0...tasks.count - 1{
             if(tasks[i].id == docId){
                 if(tasks[i].complete){
-                    db.collection("Users").document(Auth.auth().currentUser!.uid).collection("Plan").document("plan").collection("Tasks").document(docId).updateData(["complete" : false])
+                   let _ = ref.updateData(["complete" : false]).description
                 }else{
-                    db.collection("Users").document(Auth.auth().currentUser!.uid).collection("Plan").document("plan").collection("Tasks").document(docId).updateData(["complete" : true])
+                    let _ = ref.updateData(["complete" : true]).description
                 }
             }
         }

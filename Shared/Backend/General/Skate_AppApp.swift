@@ -14,7 +14,6 @@ class AppDelegate: NSObject, UIApplicationDelegate, GIDSignInDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         FirebaseApp.configure()
-        
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         return true
@@ -41,7 +40,18 @@ class AppDelegate: NSObject, UIApplicationDelegate, GIDSignInDelegate {
                 return
             }
             print("user=" + (res?.user.email)!)
-            
+                // check if user in firestore
+            let db = Firestore.firestore()
+            db.collection("Users").document(Auth.auth().currentUser?.uid ?? "NO USER").getDocument(){
+                (document, error) in
+                if document!.exists {
+                    print("Document data: \(String(describing: document!.data()))")
+                    CurrentUserViewModel().fetchData()
+                } else {
+                    print("Document does not exist")
+                    CurrentUserViewModel().initialiseNewUser()
+                }
+            }
         })
     }
 
