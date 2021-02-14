@@ -114,7 +114,8 @@ struct TrickSelectView: View {
                     TrickSelectTabView(tabName: "Intermidiate", tabType: trickViewModel.doingThisAWhileTricks, width: width, height: height)
                     TrickSelectTabView(tabName: "Pro", tabType: trickViewModel.proTricks, width: width, height: height)
                     TrickSelectTabView(tabName: "God Level", tabType: trickViewModel.godlikeTricks, width: width, height: height)
-                }.modifier(ScrollingHStackModifier(items: 4, itemWidth: width * 0.8, itemSpacing: 30))
+                }
+                .modifier(ScrollingHStackModifier(items: 4, itemWidth: width * 0.8, itemSpacing: 30))
                 Spacer()
             }
         }.onAppear(perform: {

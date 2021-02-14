@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import FirebaseFirestore
 import Firebase
 
 class PlanViewModel : ObservableObject{
@@ -61,9 +60,16 @@ class PlanViewModel : ObservableObject{
         }
     }
     
-    func moveToNextWeek(){
-        let newWeekOn = plan?.weekOn ?? 0 + 1
-        let _ = db.collection("Users").document(Auth.auth().currentUser?.uid ?? "NO USER").collection("Plan").document("plan").updateData(["weekOn": newWeekOn]).description
+    func moveToNextWeek(forward: Bool){
+        let ref = db.collection("Users").document(Auth.auth().currentUser?.uid ?? "NO USER").collection("Plan").document("plan")
+        ref.getDocument(){(doc,err) in
+            if (err != nil) {
+                print(err!)
+                return
+            }
+            let newWeekOn = doc?.get("weekOn") as! Int + (forward ? 1 : -1)
+            let _ = ref.updateData(["weekOn": newWeekOn]).description
+        }
     }
     
     func endPlan(){
@@ -91,16 +97,39 @@ class PlanViewModel : ObservableObject{
     }
     
     func setData(){
+        let dbRef = db.collection("Users").document(Auth.auth().currentUser?.uid ?? "NO USER").collection("Plan").document("plan").collection("Tasks")
+        
+        // Data to be set
         let taskLists : [[String]] = [["Ride Around", "Moving Hippy Jump", "Standing Ollie"],["Ride Around", "Moving Ollie", plan!.trickChoice3 == 1 ? "Power Slide" : "Manual", "Hippy Jump"],["Ride Around", plan!.trickChoice3 == 1 ? "Power Slide" : "Manual", "Standing \(plan!.trickChoice1 == 1 ? "Pop Shove It" : "Kick Flip")", "Moving Ollie", "Standing \(plan!.trickChoice2 == 2 ? "Casper Flip" : "Heel Flip")"],["Ride Around", "Moving Ollie", plan!.trickChoice3 == 1 ? "Power Slide" : "Manual", "Moving \(plan!.trickChoice1 == 1 ? "Pop Shove It" : "Kick Flip")", "Moving \(plan!.trickChoice2 == 2 ? "Casper Flip" : "Heel Flip")", "Ollie Over Obstacle"],["Ride Around", "Ollie Off A Curb", "Moving \(plan!.trickChoice2 == 2 ? "Casper Flip" : "Heel Flip")", "Moving \(plan!.trickChoice1 == 1 ? "Pop Shove It" : "Kick Flip")", plan!.trickChoice3 == 1 ? "Power Slide" : "Manual", "\(plan!.trickChoice1 == 1 ? "Pop Shove It" : "Kick Flip") Over A Obstacle"],["Ride Around", "\(plan!.trickChoice2 == 2 ? "Casper Flip" : "Heel Flip") Over Obstacle", "\(plan!.trickChoice1 == 1 ? "Pop Shove It" : "Kick Flip") Off A Curb", plan!.trickChoice3 == 1 ? "Power Slide" : "Manual", "Ollie Onto A Curb"],["Ride Around", "Ollie Onto A Low Rail/ Ledge Into A 50-50 Grind", plan!.trickChoice3 == 1 ? "Power Slide" : "Manual", "\(plan!.trickChoice2 == 2 ? "Casper Flip" : "Heel Flip") Off A Curb", "\(plan!.trickChoice1 == 1 ? "Pop Shove It" : "Kick Flip") Onto A Curb"],["Ride Around", plan!.trickChoice3 == 1 ? "Power Slide" : "Manual", "\(plan!.trickChoice2 == 2 ? "Casper Flip" : "Heel Flip") Onto A Curb", "Ollie Off A Small Stair Set", "\(plan!.trickChoice1 == 1 ? "Pop Shove It" : "Kick Flip") Off A Small Stair Set", "Moving 180 Ollie"]]
         
-        var taskList = [PlanWeekTaskModel]()
-        for i in 0...taskLists.count - 1{
-            for j in 0...taskLists[i].count - 1{
-                taskList.append(PlanWeekTaskModel(title: taskLists[i][j], complete: false, weekFor: i + 1))
+        //Remove old set of tasks
+        dbRef.getDocuments(){ (docs,err) in
+            // Get array of all doc ids
+            var docIdArray : [String] = [String]()
+            if((docs?.documents.count)! > 0){
+                for i in 0...(docs?.documents.count)! - 1{
+                    docIdArray.append((docs?.documents[i].documentID)!)
+                }
+                // Go through each doc id and remove it from firestore
+                for i in 0...docIdArray.count - 1{
+                    dbRef.document(docIdArray[i]).delete(){res in
+                        print(res ?? "NO ERROR")
+                    }
+                }
             }
-        }
-        for i in 0...taskList.count - 1{
-            let _ = db.collection("Users").document(Auth.auth().currentUser!.uid).collection("Plan").document("plan").collection("Tasks").addDocument(from: taskList[i])
+            
+            // Adds the task list to an array of Task models
+            var taskList = [PlanWeekTaskModel]()
+            for i in 0...taskLists.count - 1{
+                for j in 0...taskLists[i].count - 1{
+                    taskList.append(PlanWeekTaskModel(title: taskLists[i][j], complete: false, weekFor: i + 1))
+                }
+            }
+            
+            // Adds the tasks from task list to the db
+            for i in 0...taskList.count - 1{
+                let _ = dbRef.addDocument(from: taskList[i])
+            }
         }
     }
     
@@ -117,13 +146,28 @@ class PlanViewModel : ObservableObject{
         }
     }
     
-    func calculateHours(hoursPerWeek: Int, weekFor: Int) -> Float{
+    func calculateHours(hoursPerWeek: Int, weekFor: Int, task: PlanWeekTaskModel) -> Float{
         var numOfTasks = 0
         for task in tasks{
             if(task.weekFor == weekFor){
                 numOfTasks += 1
             }
         }
-        return Float(hoursPerWeek / numOfTasks)
+        if(task.title.contains("Over")){
+            let res = Float(hoursPerWeek / numOfTasks) + 1.0
+            return res > 3 ? 3 : res
+        }else if(task.title.contains("Ride")){
+            let res = Float(hoursPerWeek / numOfTasks) - 1.0
+            return res > 3 ? 3 : res
+        }else if(task.title.contains("Low")){
+            let res = Float(hoursPerWeek / numOfTasks) + 2.0
+            return res > 3 ? 3 : res
+        }else if(task.title.contains("Hippy")){
+            let res = Float(hoursPerWeek / numOfTasks) - 2.0
+            return res > 3 ? 3 : res
+        }else{
+            let res = Float(hoursPerWeek / numOfTasks)
+            return res > 3 ? 3 : res
+        }
     }
 }

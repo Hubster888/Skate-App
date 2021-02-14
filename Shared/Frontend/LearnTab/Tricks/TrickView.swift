@@ -50,7 +50,7 @@ struct TrickView: View {
                 //}else{
                     VStack{
                         ZStack{
-                            URLImage(url: URL(string: "http://192.168.0.13/imgAssets/" + trickHead)!, content: {
+                            URLImage(url: URL(string: trickHead)!, content: {
                                 image in
                                 image
                                     .resizable()
@@ -76,6 +76,9 @@ struct TrickView: View {
                                 Spacer()
                                 Group{
                                     TrickVariationView(variationType: "R", isComplete: false, diameter: width * 0.1)
+                                        .onTapGesture {
+                                            print("tapped!!")
+                                        }
                                     
                                     TrickVariationView(variationType: "N", isComplete: false, diameter: width * 0.1)
                                     
@@ -130,36 +133,9 @@ struct TrickView: View {
                             .lineLimit(nil)
                             .lineSpacing(8)
                             .fixedSize(horizontal: false, vertical: true)
-                    }.onAppear(perform: {
-                        /*TrickLoader().getTrick(trickId: trickId){ result in
-                            switch result{
-                            case .success(let trick):
-                                assignValues(trick: trick)
-                            case .failure(let error):
-                                print(error)
-                            }
-                        }*/
-                    })
+                    }
             }
         }
     }
-    
-    /*func assignValues(trick: Trick){
-        
-        trickName = trick.getTrickName()
-
-        trickContent = trick.getTrickDescription().replacingOccurrences(of: "--n--", with: "\n", options: .literal, range: nil)
-        
-        footPlacmentDiagram = trick.getFootPlacmentImg()
-        
-        tips = trick.getTrickTips().replacingOccurrences(of: "--n--", with: "\n", options: .literal, range: nil)
-        
-        video = trick.getTrickVideo()
-        
-        trickHead = trick.getTrickHeadImg()
-        
-        loaded = true
-    }*/
-//}
 
 

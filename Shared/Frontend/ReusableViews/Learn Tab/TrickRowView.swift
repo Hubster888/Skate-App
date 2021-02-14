@@ -21,20 +21,23 @@ struct TrickRowView: View {
             Rectangle()
                 .fill(Color(red: 0.96, green: 0.96, blue: 0.96))
                 .frame(width: width * 0.7, height: height * 0.1, alignment: .center)
+                .cornerRadius(10)
+                
             HStack{
                 VStack{
                     Text(name)
                         .font(.system(size: width * 0.045, weight: .bold, design: .monospaced))
                         .foregroundColor(Color(red: 0.13, green: 0.15, blue: 0.22))
-                        .frame(width: width * 0.35, height: height * 0.03, alignment: .leading)
+                        .frame(width: width * 0.35, height: height * 0.03, alignment: .center)
                         .padding(.leading, width * 0.075)
-                        .padding(.top, height * 0.01)
-                    Text(String(trickType))
+                        .padding(.top, height * 0.005)
+                    Text(String(typeToString(type: trickType)))
                         .font(.system(size: width * 0.035, weight: .bold, design: .monospaced))
                         .foregroundColor(Color(red: 0.13, green: 0.15, blue: 0.22))
-                        .frame(width: width * 0.35, height: height * 0.03, alignment: .leading)
+                        .frame(width: width * 0.35, height: height * 0.03, alignment: .center)
                         .padding(.leading, width * 0.075)
                         .padding(.bottom, height * 0.01)
+                        .padding(.top, height * 0.005)
                 }
                 Spacer()
                 ZStack{
@@ -42,31 +45,35 @@ struct TrickRowView: View {
                         .fill(Color(red: 66/255, green: 70/255, blue: 84/255))
                         .frame(width: width * 0.15, height: width * 0.15, alignment: .trailing)
                         .padding(.trailing, width * 0.057)
-                    Arc(startAngle: .degrees(270), endAngle: .degrees(0), clockwise: false)
-                        .stroke(Color.red, lineWidth: 10)
-                        .frame(width: width * 0.15 , height: width * 0.015, alignment: .trailing)
-                        .padding(.trailing, width * 0.057)
+                    if(trickComplete[0]){
+                        Arc(startAngle: .degrees(270), endAngle: .degrees(0), clockwise: false)
+                            .stroke(Color.red, lineWidth: 10)
+                            .frame(width: width * 0.15 , height: width * 0.015, alignment: .trailing)
+                            .padding(.trailing, width * 0.057)
+                    }
                 }
-                
             }
         }
+        .padding(.bottom, height * 0.025)
         .frame(width: width * 0.7, height: height * 0.1, alignment: .center)
     }
     
-    func typeToString(type: TrickType) -> String{
+    func typeToString(type: Int) -> String{
         switch type {
-        case .flipTrick:
+        case 1:
             return "Flip trick"
-        case .grabTrick:
+        case 3:
             return "Grab and air"
-        case .grindTrick:
+        case 2:
             return "Grind and slide"
-        case .rampTrick:
+        case 4:
             return "Ramp and foot plant"
-        case .other:
+        case 5:
             return "Other"
-        case .none:
+        case 6:
             return "Wrong"
+        default:
+            return "0"
         }
     }
 }

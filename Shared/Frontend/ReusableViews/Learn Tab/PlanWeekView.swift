@@ -11,7 +11,7 @@ struct PlanWeekView: View {
     
     // Navigation and view
     @State var weekHours : [Float]? = nil
-    let planViewModel : PlanViewModel
+    @EnvironmentObject var planViewModel : PlanViewModel
     var weekNum : Int
     var weekDescription : String
     var hoursPerWeek : Int
@@ -19,14 +19,13 @@ struct PlanWeekView: View {
     let height : CGFloat
 
     // Set view values and list colour
-    init(weekNum: Int, weekDescription: String, hoursPerWeek: Int ,planViewModel: PlanViewModel, height: CGFloat, width: CGFloat){
+    init(weekNum: Int, weekDescription: String, hoursPerWeek: Int, height: CGFloat, width: CGFloat){
         UITableView.appearance().backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.96, alpha: 0)
         UITableViewCell.appearance().backgroundColor = UIColor(red: 0.96, green: 0.96, blue: 0.96, alpha: 0)
         UITableView.appearance().tableFooterView = UIView()
         self.weekNum = weekNum
         self.weekDescription = weekDescription
         self.hoursPerWeek = hoursPerWeek
-        self.planViewModel = planViewModel
         self.width = width
         self.height = height
     }
@@ -51,7 +50,7 @@ struct PlanWeekView: View {
                     List{
                         ForEach(planViewModel.tasks){ task in
                             if(task.weekFor == weekNum){
-                                let hours = planViewModel.calculateHours(hoursPerWeek: hoursPerWeek, weekFor: weekNum)
+                                let hours = planViewModel.calculateHours(hoursPerWeek: hoursPerWeek, weekFor: weekNum, task: task)
                                 Button(action: {
                                     // Update task complete
                                     planViewModel.toogleTaskComplete(docId: task.id!)

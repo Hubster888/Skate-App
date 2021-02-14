@@ -43,43 +43,15 @@ struct StartSkateGameView: View{
     var body: some View {
         ZStack{
             if(stateOfGame == .start){
-                ZStack{
-                    Color(red: 0.96, green: 0.96, blue: 0.96).edgesIgnoringSafeArea(.all)
-                    VStack{
-                        Spacer()
-                        ZStack{
-                            Text("Getting game ready!")
-                                .font(.system(size: 20, design: .rounded))
-                                .bold()
-                                .offset(x: 0, y: -25)
-                             
-                            RoundedRectangle(cornerRadius: 3)
-                                .stroke(Color(.systemGray5), lineWidth: 3)
-                                .frame(width: 250, height: 3)
-                             
-                            RoundedRectangle(cornerRadius: 3)
-                                .stroke(Color(red: 0.95, green: 0.32, blue: 0.34), lineWidth: 3)
-                                .frame(width: 30, height: 3)
-                                .offset(x: isLoading ? 110 : -110, y: 0)
-                                .animation(Animation.linear(duration: 1).repeatForever(autoreverses: false))
-                                .onAppear(perform: {
-                                    self.isLoading = true
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                                        withAnimation {
-                                            stateOfGame = .player1Set
-                                        }
-                                    }
-                                })
+                LoadingView()
+                    .onAppear(perform: {
+                    self.isLoading = true
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                        withAnimation {
+                            stateOfGame = .player1Set
                         }
-                        Spacer()
-                        Image("skatePicModed")
-                            .resizable()
-                            .frame(width: width, height: height * 0.4, alignment: .bottom)
-                            .offset(y: height * 0.05)
                     }
-                }
-                
-                
+                })
             }else if(stateOfGame == .end || skateGame.getPlayer1Score() == 5 || skateGame.getPlayer2Score() == 5){
                 ZStack{
                     Color.green.edgesIgnoringSafeArea(.all)

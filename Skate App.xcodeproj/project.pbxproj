@@ -44,6 +44,7 @@
 		2CC4D30A25AC7BE600CE1132 /* ScrollingHStackModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC4D30925AC7BE600CE1132 /* ScrollingHStackModifier.swift */; };
 		2CC4D32325AC9F1100CE1132 /* ScaleAnimationButtonEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC4D32225AC9F1000CE1132 /* ScaleAnimationButtonEffect.swift */; };
 		2CC4D32725ACCB4200CE1132 /* Trick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC4D32625ACCB4200CE1132 /* Trick.swift */; };
+		2CD800EF25D6861600A9994D /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD800EE25D6861500A9994D /* LoadingView.swift */; };
 		2CE5775B258106F000B4F204 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE5775A258106F000B4F204 /* Tests_iOS.swift */; };
 		2CE57768258106F000B4F204 /* Skate_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE5773F258106EF00B4F204 /* Skate_AppApp.swift */; };
 		2CE5776C258106F000B4F204 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CE57741258106F000B4F204 /* Assets.xcassets */; };
@@ -99,6 +100,7 @@
 		2CC4D30925AC7BE600CE1132 /* ScrollingHStackModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingHStackModifier.swift; sourceTree = "<group>"; };
 		2CC4D32225AC9F1000CE1132 /* ScaleAnimationButtonEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleAnimationButtonEffect.swift; sourceTree = "<group>"; };
 		2CC4D32625ACCB4200CE1132 /* Trick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trick.swift; sourceTree = "<group>"; };
+		2CD800EE25D6861500A9994D /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		2CE5773F258106EF00B4F204 /* Skate_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skate_AppApp.swift; sourceTree = "<group>"; };
 		2CE57741258106F000B4F204 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2CE57746258106F000B4F204 /* Skate App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Skate App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -225,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				2C1B0C1525C2DAD600C0B6F7 /* Arc.swift */,
+				2CD800EE25D6861500A9994D /* LoadingView.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -570,6 +573,7 @@
 				2C7E5B6A2581190900B634F5 /* FeedView.swift in Sources */,
 				2C7E544D25C4811100AD173F /* WeekPlanRowView.swift in Sources */,
 				2C2C5D3725B08A9B003B8F64 /* PlanView.swift in Sources */,
+				2CD800EF25D6861600A9994D /* LoadingView.swift in Sources */,
 				2C2C5D3125B086D9003B8F64 /* GameSelectView.swift in Sources */,
 				2CC4D32725ACCB4200CE1132 /* Trick.swift in Sources */,
 				2CAD031925D2D48A007601F8 /* UserViewModel.swift in Sources */,

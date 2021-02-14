@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseFirestore
+import Firebase
 
 class TrickViewModel : ObservableObject {
     @Published var tricks = [Trick]()
@@ -55,10 +56,28 @@ class TrickViewModel : ObservableObject {
     }
     
     func addTrickToDB(trick : Trick){
-        do{
-            let _ = try db.collection("Tricks").addDocument(from: trick)
-        }catch{
-            print(error)
+        let _ = db.collection("Tricks").addDocument(from: trick)
+    }
+    
+    func getTrickComplete(trick: Trick) -> [Bool]{
+        if(Auth.auth().currentUser == nil){
+            return [false,false,false,false]
         }
+        var result = [false,false,false,false]
+        // get trick doc id
+        let docId = trick.id
+        // Look at user, look under tricks, look for trick ID that match, if id matches then get the four values
+        db.collection("Users").document(Auth.auth().currentUser?.uid ?? "NO USER")
+            .collection("Tricks").document(docId!).getDocument() { (document,error) in
+                if(error == nil){
+                    for i in 0...3{
+                        result[i] = document?.get(String(i)) as? Bool ?? false
+                    }
+                }else{
+                    print("Eeerrrrrooorrrrrr")
+                }
+        }
+        // If the trick id not found then that means the result is all false.
+        return result
     }
 }

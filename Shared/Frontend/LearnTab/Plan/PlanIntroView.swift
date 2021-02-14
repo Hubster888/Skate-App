@@ -18,8 +18,8 @@ struct PlanIntroView: View {
     @State var showingLogIn = false
     @State private var introSlide : Int = 0
     @State private var questionNum : Int = 1
-    @ObservedObject var planViewModel : PlanViewModel
-    @ObservedObject var currentUserViewModel : CurrentUserViewModel
+    @EnvironmentObject var planViewModel : PlanViewModel
+    @EnvironmentObject var currentUserViewModel : CurrentUserViewModel
     let width : CGFloat
     let height : CGFloat
     
@@ -38,14 +38,13 @@ struct PlanIntroView: View {
     @State var isTimerRunning = false
     @State private var startTime =  Date()
     @State var interval = TimeInterval()
-    @State private var isLoading = false
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
         ZStack{
             Color(red: 0.96, green: 0.96, blue: 0.96)
                 .edgesIgnoringSafeArea(.all)
-            NavigationLink(destination: PlanView(rootIsActive: self.$rootIsActive, planViewModel: planViewModel, width: width, height: height), isActive: self.$planIsActive) {
+            NavigationLink(destination: PlanView(rootIsActive: self.$rootIsActive, width: width, height: height).environmentObject(self.planViewModel), isActive: self.$planIsActive) {
                 Text("")
               }.hidden()
             if(introSlide <= 2){ // Shows the slide show.
@@ -144,47 +143,26 @@ struct PlanIntroView: View {
                             QuestionView(questionResults: self.$questionAnswers, questionNum: self.$questionNum, question: "Pick a trick that you want to learn first:", answerList: ["Power Slide","Manual"], twoChoice: true)
                         default:
                             // Show loading motion
-                            VStack{
-                                Spacer()
-                                ZStack{
-                                    Text("Getting plan ready!")
-                                        .font(.system(size: 20, design: .rounded))
-                                        .bold()
-                                        .offset(x: 0, y: -25)
-                                     
-                                    RoundedRectangle(cornerRadius: 3)
-                                        .stroke(Color(.systemGray5), lineWidth: 3)
-                                        .frame(width: 250, height: 3)
-                                     
-                                    RoundedRectangle(cornerRadius: 3)
-                                        .stroke(Color(red: 0.95, green: 0.32, blue: 0.34), lineWidth: 3)
-                                        .frame(width: 30, height: 3)
-                                        .offset(x: isLoading ? 110 : -110, y: 0)
-                                        .animation(Animation.linear(duration: 1).repeatForever(autoreverses: false))
-                                        .onAppear(perform: {
-                                            self.isLoading = true
-                                            planViewModel.addPlanToDB(plan: planViewModel.createPlanObject(data: questionAnswers)){ res in
-                                                if res {
-                                                    planViewModel.setData()
-                                                    currentUserViewModel.startPlan()
-                                                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                                                        withAnimation {
-                                                            self.planIsActive = true
-                                                        }
-                                                    }
-                                                }else{
-                                                    print("error")
-                                                    //Display alert to restart
+                            LoadingView()
+                                .onAppear(perform: {
+                                    // Here the plan creation happens
+                                    planViewModel.addPlanToDB(plan: planViewModel.createPlanObject(data: questionAnswers)){ res in
+                                        if res {
+                                            planViewModel.setData()
+                                            currentUserViewModel.startPlan()
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                                withAnimation {
+                                                    planViewModel.fetchData()
+                                                    planViewModel.fetchDataTasks()
+                                                    self.rootIsActive = true
                                                 }
                                             }
-                                        })
-                                }
-                                Spacer()
-                                Image("skatePicModed")
-                                    .resizable()
-                                    .frame(width: width, height: height * 0.4, alignment: .bottom)
-                                    .offset(y: height * 0.05)
-                            }
+                                        }else{
+                                            print("error")
+                                            //Display alert to restart
+                                        }
+                                    }
+                                })
                         }
                     }
                 }else{

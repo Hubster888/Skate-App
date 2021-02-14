@@ -44,7 +44,9 @@ struct LearnView: View {
                     .offset(x: width * -0.25)
                 VStack{
                     if(currentUserViewModel.currentUser != nil && currentUserViewModel.currentUser!.planStarted){
-                        NavigationLink(destination: PlanView(rootIsActive: self.$planIsActive, planViewModel: planViewModel, width: width, height: height), isActive: $planIsActive) {
+                        NavigationLink(destination: PlanView(rootIsActive: self.$planIsActive, width: width, height: height)
+                                        .environmentObject(self.planViewModel),
+                                       isActive: $planIsActive) {
                             VStack{
                                 Text("PLAN")
                                     .font(.system(size: width * 0.1, weight: .bold, design: .monospaced))
@@ -59,7 +61,10 @@ struct LearnView: View {
                             }.frame(alignment: .trailing)
                         }.buttonStyle(LearnButtonEffectButtonStyle(image: Image("learnPlanButton"), action: { self.planIsActive.toggle()}))
                     }else{
-                        NavigationLink(destination: PlanIntroView(rootIsActive: self.$planIsActive, planViewModel: planViewModel, currentUserViewModel: currentUserViewModel, width: width, height: height), isActive: $planIntroIsActive) {
+                        NavigationLink(destination: PlanIntroView(rootIsActive: self.$planIsActive, width: width, height: height)
+                                        .environmentObject(self.planViewModel)
+                                        .environmentObject(self.currentUserViewModel),
+                                       isActive: $planIntroIsActive) {
                             VStack{
                                 Text("PLAN")
                                     .font(.system(size: width * 0.1, weight: .bold, design: .monospaced))
@@ -121,6 +126,7 @@ struct LearnView: View {
             .onAppear(perform: {
                 if(Auth.auth().currentUser != nil){
                     self.planViewModel.fetchData()
+                    self.planViewModel.fetchDataTasks()
                     if(currentUserViewModel.currentUser!.planStarted){
                         self.planViewModel.fetchDataTasks()
                     }
