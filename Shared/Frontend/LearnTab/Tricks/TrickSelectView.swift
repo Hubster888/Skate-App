@@ -23,19 +23,11 @@ struct TrickSelectView: View {
     }
     
     var height: CGFloat {
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            return UIScreen.main.bounds.height
-        } else {
-            return UIScreen.main.bounds.height
-        }
+        return UIScreen.main.bounds.height
     }
     
     var width: CGFloat {
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            return UIScreen.main.bounds.width
-        } else {
-            return UIScreen.main.bounds.width
-        }
+        return UIScreen.main.bounds.width
     }
     
     var body: some View {
@@ -110,16 +102,17 @@ struct TrickSelectView: View {
                 .padding(.bottom, height * 0.01)
                 
                 HStack(alignment: .center, spacing: 30) {
-                    TrickSelectTabView(tabName: "Begginer", tabType: trickViewModel.beginnerTricks, width: width, height: height)
-                    TrickSelectTabView(tabName: "Intermidiate", tabType: trickViewModel.doingThisAWhileTricks, width: width, height: height)
-                    TrickSelectTabView(tabName: "Pro", tabType: trickViewModel.proTricks, width: width, height: height)
-                    TrickSelectTabView(tabName: "God Level", tabType: trickViewModel.godlikeTricks, width: width, height: height)
+                    TrickSelectTabView(tabDiff: 1, width: width, height: height).environmentObject(self.trickViewModel)
+                    TrickSelectTabView(tabDiff: 2, width: width, height: height).environmentObject(self.trickViewModel)
+                    TrickSelectTabView(tabDiff: 3, width: width, height: height).environmentObject(self.trickViewModel)
+                    TrickSelectTabView(tabDiff: 4, width: width, height: height).environmentObject(self.trickViewModel)
                 }
                 .modifier(ScrollingHStackModifier(items: 4, itemWidth: width * 0.8, itemSpacing: 30))
                 Spacer()
             }
         }.onAppear(perform: {
-            self.trickViewModel.fetchData()
+            self.trickViewModel.listenCollectionAsObject()
+            self.trickViewModel.getImage(name: "teamLogoMark.png", place: 3)
         })
         
     }

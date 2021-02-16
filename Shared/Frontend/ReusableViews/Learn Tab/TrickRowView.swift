@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct TrickRowView: View {
-    let name : String
+    
+    @EnvironmentObject private var trickViewModel : TrickViewModel
+    
+    let trickName : String
     let trickType : Int
     let trickComplete : [Bool]
     let width : CGFloat
@@ -25,13 +28,13 @@ struct TrickRowView: View {
                 
             HStack{
                 VStack{
-                    Text(name)
+                    Text(trickName)
                         .font(.system(size: width * 0.045, weight: .bold, design: .monospaced))
                         .foregroundColor(Color(red: 0.13, green: 0.15, blue: 0.22))
                         .frame(width: width * 0.35, height: height * 0.03, alignment: .center)
                         .padding(.leading, width * 0.075)
                         .padding(.top, height * 0.005)
-                    Text(String(typeToString(type: trickType)))
+                    Text(String(trickViewModel.typeToString(type: trickType)))
                         .font(.system(size: width * 0.035, weight: .bold, design: .monospaced))
                         .foregroundColor(Color(red: 0.13, green: 0.15, blue: 0.22))
                         .frame(width: width * 0.35, height: height * 0.03, alignment: .center)
@@ -56,25 +59,6 @@ struct TrickRowView: View {
         }
         .padding(.bottom, height * 0.025)
         .frame(width: width * 0.7, height: height * 0.1, alignment: .center)
-    }
-    
-    func typeToString(type: Int) -> String{
-        switch type {
-        case 1:
-            return "Flip trick"
-        case 3:
-            return "Grab and air"
-        case 2:
-            return "Grind and slide"
-        case 4:
-            return "Ramp and foot plant"
-        case 5:
-            return "Other"
-        case 6:
-            return "Wrong"
-        default:
-            return "0"
-        }
     }
 }
 

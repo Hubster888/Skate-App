@@ -17,6 +17,7 @@
 		2C2C5D3125B086D9003B8F64 /* GameSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2C5D3025B086D9003B8F64 /* GameSelectView.swift */; };
 		2C2C5D3725B08A9B003B8F64 /* PlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2C5D3625B08A9B003B8F64 /* PlanView.swift */; };
 		2C2C5D3B25B09BA7003B8F64 /* GameListElm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2C5D3A25B09BA7003B8F64 /* GameListElm.swift */; };
+		2C3F232325DBAD8C000C406F /* TrickListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3F232225DBAD8C000C406F /* TrickListView.swift */; };
 		2C4EC609259A206F000470A1 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4EC608259A206F000470A1 /* AppView.swift */; };
 		2C528F3125D2731800D30BB6 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C528F3025D2731800D30BB6 /* LogInView.swift */; };
 		2C6F17DF25BEE9C0001CE0C9 /* PlanIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6F17DE25BEE9C0001CE0C9 /* PlanIntroView.swift */; };
@@ -72,6 +73,7 @@
 		2C2C5D3025B086D9003B8F64 /* GameSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSelectView.swift; sourceTree = "<group>"; };
 		2C2C5D3625B08A9B003B8F64 /* PlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanView.swift; sourceTree = "<group>"; };
 		2C2C5D3A25B09BA7003B8F64 /* GameListElm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListElm.swift; sourceTree = "<group>"; };
+		2C3F232225DBAD8C000C406F /* TrickListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrickListView.swift; sourceTree = "<group>"; };
 		2C4EC608259A206F000470A1 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		2C528F3025D2731800D30BB6 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		2C6F17DE25BEE9C0001CE0C9 /* PlanIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanIntroView.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				2C7E544C25C4811100AD173F /* WeekPlanRowView.swift */,
 				2C2C5D3A25B09BA7003B8F64 /* GameListElm.swift */,
 				2C9B2F07259105D0006A47DA /* TrickRowView.swift */,
+				2C3F232225DBAD8C000C406F /* TrickListView.swift */,
 			);
 			path = "Learn Tab";
 			sourceTree = "<group>";
@@ -573,6 +576,7 @@
 				2C7E5B6A2581190900B634F5 /* FeedView.swift in Sources */,
 				2C7E544D25C4811100AD173F /* WeekPlanRowView.swift in Sources */,
 				2C2C5D3725B08A9B003B8F64 /* PlanView.swift in Sources */,
+				2C3F232325DBAD8C000C406F /* TrickListView.swift in Sources */,
 				2CD800EF25D6861600A9994D /* LoadingView.swift in Sources */,
 				2C2C5D3125B086D9003B8F64 /* GameSelectView.swift in Sources */,
 				2CC4D32725ACCB4200CE1132 /* Trick.swift in Sources */,

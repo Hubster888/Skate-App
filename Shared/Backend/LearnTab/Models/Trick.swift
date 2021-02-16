@@ -24,6 +24,18 @@ struct Trick : Identifiable, Codable {
     
 }
 
+enum TrickError: Error {
+  case statusCode
+  case decoding
+  case invalidImage
+  case invalidURL
+  case other(Error)
+  
+  static func map(_ error: Error) -> TrickError {
+    return (error as? TrickError) ?? .other(error)
+  }
+}
+
 enum TrickDificulty {
     case beginner
     case doingThisAWhile
