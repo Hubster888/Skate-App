@@ -14,18 +14,24 @@ import CombineFirebase
 class TrickViewModel : ObservableObject {
     var cancelBag = Set<AnyCancellable>()
     
+    //Trick Lists
     @Published var tricks = [Trick]()
     @Published var beginnerTricks = [Trick]()
     @Published var doingThisAWhileTricks = [Trick]()
     @Published var proTricks = [Trick]()
     @Published var godlikeTricks = [Trick]()
     
+    //Current Trick Display
     @Published var currentTrick : Trick? = nil
     @Published var currentHeadImg : UIImage? = nil
     @Published var currentFootImg : UIImage? = nil
     @Published var currentVid : URL? = nil
     @Published var teamLogoImage : UIImage? = nil
+    @Published var currentCompletion : [Bool] = [false,false,false,false]
+    @Published var completionTable : Dictionary<String,[Bool]> = [:]
     
+    //Trick Search
+    @Published var searchText : String = String()
     
     private var db = Firestore.firestore()
     
@@ -33,26 +39,24 @@ class TrickViewModel : ObservableObject {
         let _ = db.collection("Tricks").addDocument(from: trick)
     }
     
-    func getTrickComplete(trick: Trick) -> [Bool]{
-        if(Auth.auth().currentUser == nil){
-            return [false,false,false,false]
-        }
-        var result = [false,false,false,false]
-        // get trick doc id
-        let docId = trick.id
-        // Look at user, look under tricks, look for trick ID that match, if id matches then get the four values
-        db.collection("Users").document(Auth.auth().currentUser?.uid ?? "NO USER")
-            .collection("Tricks").document(docId!).getDocument() { (document,error) in
-                if(error == nil){
-                    for i in 0...3{
-                        result[i] = document?.get(String(i)) as? Bool ?? false
+    func getTrickComplete(){
+        db.collection("Users")
+            .document(Auth.auth().currentUser?.uid ?? "NO USER")
+            .collection("Tricks")
+                .publisher()
+                .sink(receiveCompletion: { completion in
+                    switch completion {
+                    case .finished: print("🏁 finished")
+                    case .failure(let error): print("❗️ failure: \(error)")
                     }
-                }else{
-                    print("Eeerrrrrooorrrrrr")
+                }) { collection in
+                    let docArray = collection.documents
+                    for doc in docArray{
+                        let array : [Bool] = [doc.data()["regular"] as! Bool, doc.data()["nollie"] as! Bool, doc.data()["switch"] as! Bool, doc.data()["fakie"] as! Bool]
+                        self.completionTable[doc.documentID] = array
+                    }
                 }
-        }
-        // If the trick id not found then that means the result is all false.
-        return result
+                .store(in: &cancelBag)
     }
     
     func updateTrickTab(tabDiff: Int) -> [Trick]{
@@ -175,6 +179,59 @@ class TrickViewModel : ObservableObject {
             let array = string.components(separatedBy: "--n--")
             return array
         }
+    }
+    
+    func getCurrentCompletion(id: String){
+        db.collection("Users")
+            .document(Auth.auth().currentUser?.uid ?? "NO USER")
+            .collection("Tricks")
+                .document(id)
+                .publisher()
+                .sink(receiveCompletion: { completion in
+                    switch completion {
+                    case .finished: print("🏁 finished")
+                    case .failure(let error): print("❗️ failure: \(error)")
+                    }
+                }) { document in
+                    if(document.data() != nil){
+                        self.currentCompletion[0] = document.data()!["regular"] as! Bool
+                        self.currentCompletion[1] = document.data()!["nollie"] as! Bool
+                        self.currentCompletion[2] = document.data()!["switch"] as! Bool
+                        self.currentCompletion[3] = document.data()!["fakie"] as! Bool
+                    }else{
+                        for i in 0...3{
+                            self.currentCompletion[i] = false
+                        }
+                    }
+                }
+                .store(in: &cancelBag)
+        
+    }
+    
+    func setTaskComplete(sectionComplete: Int, trickId: String){
+        let ref = db.collection("Users").document(Auth.auth().currentUser?.uid ?? "NO USER").collection("Tricks")
+        ref.document(trickId).getDocument { (document, error) in
+            if document!.exists {
+                switch sectionComplete{
+                case 1:
+                    let _ = ref.document(trickId).updateData(["regular" : !self.currentCompletion[0]]).description
+                case 2:
+                    let _ = ref.document(trickId).updateData(["nollie" : !self.currentCompletion[1]]).description
+                case 3:
+                    let _ = ref.document(trickId).updateData(["switch" : !self.currentCompletion[2]]).description
+                case 4:
+                    let _ = ref.document(trickId).updateData(["fakie" : !self.currentCompletion[3]]).description
+                default:
+                    print("Something went wrong")
+                }
+           } else {
+            let _ = ref.document(trickId).setData(
+                ["regular" : false, "nollie" : false, "switch" : false, "fakie" : false]
+            ).description
+            self.setTaskComplete(sectionComplete: sectionComplete, trickId: trickId)
+           }
+     }
+        //getCurrentCompletion(id: trickId)
     }
     
 }

@@ -42,6 +42,7 @@
 		2C9B2F3225922BFA006A47DA /* TrickVariationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9B2F3125922BFA006A47DA /* TrickVariationView.swift */; };
 		2C9C7C7C25C941FD00319434 /* PlanWeekTaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9C7C7B25C941FC00319434 /* PlanWeekTaskModel.swift */; };
 		2CAD031925D2D48A007601F8 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAD031825D2D48A007601F8 /* UserViewModel.swift */; };
+		2CB6047625DFC42E00210148 /* TrickSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6047525DFC42E00210148 /* TrickSearchView.swift */; };
 		2CC4D30A25AC7BE600CE1132 /* ScrollingHStackModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC4D30925AC7BE600CE1132 /* ScrollingHStackModifier.swift */; };
 		2CC4D32325AC9F1100CE1132 /* ScaleAnimationButtonEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC4D32225AC9F1000CE1132 /* ScaleAnimationButtonEffect.swift */; };
 		2CC4D32725ACCB4200CE1132 /* Trick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC4D32625ACCB4200CE1132 /* Trick.swift */; };
@@ -99,6 +100,7 @@
 		2C9B2F3125922BFA006A47DA /* TrickVariationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrickVariationView.swift; sourceTree = "<group>"; };
 		2C9C7C7B25C941FC00319434 /* PlanWeekTaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanWeekTaskModel.swift; sourceTree = "<group>"; };
 		2CAD031825D2D48A007601F8 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		2CB6047525DFC42E00210148 /* TrickSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrickSearchView.swift; sourceTree = "<group>"; };
 		2CC4D30925AC7BE600CE1132 /* ScrollingHStackModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingHStackModifier.swift; sourceTree = "<group>"; };
 		2CC4D32225AC9F1000CE1132 /* ScaleAnimationButtonEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleAnimationButtonEffect.swift; sourceTree = "<group>"; };
 		2CC4D32625ACCB4200CE1132 /* Trick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trick.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				2C2C5D3A25B09BA7003B8F64 /* GameListElm.swift */,
 				2C9B2F07259105D0006A47DA /* TrickRowView.swift */,
 				2C3F232225DBAD8C000C406F /* TrickListView.swift */,
+				2CB6047525DFC42E00210148 /* TrickSearchView.swift */,
 			);
 			path = "Learn Tab";
 			sourceTree = "<group>";
@@ -581,6 +584,7 @@
 				2C2C5D3125B086D9003B8F64 /* GameSelectView.swift in Sources */,
 				2CC4D32725ACCB4200CE1132 /* Trick.swift in Sources */,
 				2CAD031925D2D48A007601F8 /* UserViewModel.swift in Sources */,
+				2CB6047625DFC42E00210148 /* TrickSearchView.swift in Sources */,
 				2C1B0C0E25C1E85800C0B6F7 /* TrickViewModel.swift in Sources */,
 				2C2C5D2925AEF76F003B8F64 /* LearButtonEffect.swift in Sources */,
 				2C7E5B5E258118D400B634F5 /* LearnView.swift in Sources */,

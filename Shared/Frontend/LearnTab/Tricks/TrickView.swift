@@ -13,8 +13,6 @@ import Combine
 import CombineFirebase
 
 struct TrickView: View {
-    let arr : [String] = ["Tip 1", "Tip 2", "Tip 3"]
-    let trickDocId : String
     @EnvironmentObject private var trickViewModel : TrickViewModel
     
     var height: CGFloat = UIScreen.main.bounds.height
@@ -51,19 +49,29 @@ struct TrickView: View {
                                     
                                 Spacer()
                                 Group{
-                                    TrickVariationView(variationType: "R", isComplete: false, diameter: width * 0.1)
+                                    TrickVariationView(variationType: "R", isComplete: trickViewModel.currentCompletion[0], diameter: width * 0.1)
                                         .onTapGesture {
-                                            print("tapped!!" + trickViewModel.currentHeadImg!.description)
+                                            trickViewModel.setTaskComplete(sectionComplete: 1, trickId: trickViewModel.currentTrick!.id!)
                                         }
+                                        .buttonStyle(ScaleAnimationButtonEffect())
                                     
-                                    TrickVariationView(variationType: "N", isComplete: false, diameter: width * 0.1)
-                                    
-                                    TrickVariationView(variationType: "S", isComplete: false, diameter: width * 0.1)
-                                    
-                                    TrickVariationView(variationType: "F", isComplete: false, diameter: width * 0.1)
+                                    TrickVariationView(variationType: "N", isComplete: trickViewModel.currentCompletion[1], diameter: width * 0.1)
                                         .onTapGesture {
-                                            print("tapped!!" + trickViewModel.currentHeadImg!.description)
+                                            trickViewModel.setTaskComplete(sectionComplete: 2, trickId: trickViewModel.currentTrick!.id!)
                                         }
+                                        .buttonStyle(ScaleAnimationButtonEffect())
+                                    
+                                    TrickVariationView(variationType: "S", isComplete: trickViewModel.currentCompletion[2], diameter: width * 0.1)
+                                        .onTapGesture {
+                                            trickViewModel.setTaskComplete(sectionComplete: 3, trickId: trickViewModel.currentTrick!.id!)
+                                        }
+                                        .buttonStyle(ScaleAnimationButtonEffect())
+                                    
+                                    TrickVariationView(variationType: "F", isComplete: trickViewModel.currentCompletion[3], diameter: width * 0.1)
+                                        .onTapGesture {
+                                            trickViewModel.setTaskComplete(sectionComplete: 4, trickId: trickViewModel.currentTrick!.id!)
+                                        }
+                                        .buttonStyle(ScaleAnimationButtonEffect())
                                         .padding(.trailing, 5)
                                 }.padding(.trailing, 5)
                                 Spacer()

@@ -12,12 +12,14 @@ struct TrickSelectTabView: View {
     let tabDiff : Int
     let width : CGFloat
     let height : CGFloat
+    let segment : Int
+    @Binding var isEditing : Bool
     @State var tabName : String? = nil
     
     var body: some View {
         ZStack{
             Rectangle()
-                .fill(Color(red: 66/255, green: 70/255, blue: 84/255))
+                .fill(Color(red: 66/255, green: 70/255, blue: 84/255).opacity(isEditing ? 0.5 : 1))
             VStack{
                 Text(tabName ?? "NO NAME")
                     .underline()
@@ -26,7 +28,7 @@ struct TrickSelectTabView: View {
                     .padding()
                 ScrollView(.vertical){
                     VStack{
-                        TrickListView(tabDiff: tabDiff).environmentObject(self.trickViewModel)
+                        TrickListView(tabDiff: tabDiff, segment: self.segment).environmentObject(self.trickViewModel).opacity(isEditing ? 0.5 : 1)
                     }
                     .frame(width: width * 0.8, height: height * 0.6, alignment: .top)
                 }
