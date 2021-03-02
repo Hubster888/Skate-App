@@ -20,7 +20,7 @@ class SkateGamePlayLocal{
     
     private let player1 : Player
     private let player2 : Player
-    private var stateOfGame : StateOfGame = .player1Set
+    private var stateOfGame : StateOfGame = .start
     
     init(player1: Player, player2: Player){
         self.player1 = player1
@@ -41,6 +41,10 @@ class SkateGamePlayLocal{
     
     func getPlayer2() -> Player{
         return self.player2
+    }
+    
+    func setState(state: StateOfGame){
+        self.stateOfGame = state
     }
     
     func trickFailed(player: Player){

@@ -9,73 +9,87 @@ import SwiftUI
 import Firebase
 import Combine
 import CombineFirebase
-import GoogleSignIn
+
 
 struct LogInView: View {
-    
+    //@Binding var loginShown : Bool
     @ObservedObject private var userViewModel = UserViewModel()
     @State var presentAlert = false
+    var width: CGFloat = UIScreen.main.bounds.width
+    
+    var height: CGFloat = UIScreen.main.bounds.height
+    
+    init(){
+        //self.loginShown = loginShown
+        UITableView.appearance().backgroundColor = .clear
+    }
     
     var body: some View {
-      /*Form {
-        Section(footer: Text(userViewModel.usernameMessage).foregroundColor(.red)) {
-          TextField("Username", text: $userViewModel.username)
-            .autocapitalization(.none)
-        }
-        Section(footer: Text(userViewModel.passwordMessage).foregroundColor(.red)) {
-          SecureField("Password", text: $userViewModel.password)
-          SecureField("Password again", text: $userViewModel.passwordAgain)
-        }
-        Section {
-          Button(action: { self.signUp() }) {
-            Text("Sign up")
-          }.disabled(!self.userViewModel.isValid)
-        }
-        Section{
-            google().frame(width: 120, height: 50)
-        }
-      }
-      .sheet(isPresented: $presentAlert) {
-        HomeView()
-      }*/
-        google().frame(width: 120, height: 50)
-    }
-    
-    func signUp() {
-        // Run log in code
-        var cancelBag = Set<AnyCancellable>()
-
-        let auth = Auth.auth()
-        print(userViewModel.username)
-        // Sign in a user with an email address and password
-        (auth.signIn(withEmail: userViewModel.username, password: userViewModel.password) as AnyPublisher<AuthDataResult, Error>)
-            .sink(receiveCompletion: { completion in
-                switch completion {
-                case .finished: print("🏁 finished")
-                case .failure(let error): do {print(error)}
+        ZStack{
+            Color(red: 0.13, green: 0.15, blue: 0.22).edgesIgnoringSafeArea(.all)
+            VStack{
+                Text("Hello...")
+                    .font(.system(size: width * 0.125, weight: .bold, design: .monospaced))
+                    .foregroundColor(Color(red: 0.96, green: 0.96, blue: 0.96))
+                    .padding(.bottom, height * 0.005)
+                Form {
+                    
+                      Section(footer: Text(userViewModel.usernameMessage).foregroundColor(.red)) {
+                        TextField("Email", text: $userViewModel.email)
+                          .autocapitalization(.none)
+                        }
+                        Section(footer: Text(userViewModel.passwordMessage).foregroundColor(.red)) {
+                            SecureField("Password", text: $userViewModel.password)
+                            SecureField("Password again", text: $userViewModel.passwordAgain)
+                       }
+                       Section {
+                         Button(action: {
+                            Auth.auth().signIn(withEmail: userViewModel.email, password: userViewModel.password) { authResult, error in
+                                if(error == nil){
+                                    print("Logged In!")
+                                    CurrentUserViewModel().fetchData()
+                                   // loginShown = false
+                                }else{
+                                    print(error!)
+                                }
+                            }
+                         }) {
+                            Text("Log In")
+                                    
+                            
+                         }.disabled(!userViewModel.isValid)
+                        Button(action: {
+                            Auth.auth().createUser(withEmail: userViewModel.email, password: userViewModel.password) { authResult, error in
+                                if(error == nil){
+                                    print("User Created")
+                                    let db = Firestore.firestore()
+                                    db.collection("Users").document(Auth.auth().currentUser?.uid ?? "NO USER").getDocument(){
+                                        (document, error) in
+                                        if document!.exists {
+                                            print("Document data: \(String(describing: document!.data()))")
+                                            CurrentUserViewModel().fetchData()
+                                            //loginShown = false
+                                        } else {
+                                            print("Document does not exist")
+                                            CurrentUserViewModel().initialiseNewUser()
+                                           // loginShown = false
+                                        }
+                                    }
+                                }else{
+                                    print(error!)
+                                }
+                            }
+                        }){
+                            Text("Sign up")
+                        }.disabled(!userViewModel.isValid)
+                       }
                 }
-            }) { _ in
-                // User signed in
-                if(Auth.auth().currentUser != nil){print("!!!!!!!!!!!!!!!!!!!!!!!!!!")}
-                self.presentAlert = true
-            }.store(in: &cancelBag)
-      
-    }
-    
-  }
-//hubertrzeminski16@gmail.com Hubert56
-
-
-struct google: UIViewRepresentable{
-    func updateUIView(_ uiView: GIDSignInButton, context: Context) {
+                .frame(width: width, height: height * 0.5, alignment: .center)
+                .background(Color(red: 0.13, green: 0.15, blue: 0.22))
+                google().frame(width: 120, height: 50)
+                Spacer()
+            }
+        }
         
     }
-    
-    func makeUIView(context: UIViewRepresentableContext<google>) -> GIDSignInButton {
-        let button = GIDSignInButton()
-        button.colorScheme = .dark
-        GIDSignIn.sharedInstance()?.presentingViewController = UIApplication.shared.windows.last?.rootViewController
-        return button
-    }
-
-}
+  }

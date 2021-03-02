@@ -6,12 +6,16 @@
 //
 
 import Foundation
-import Combine
 import Navajo_Swift
+import SwiftUI
+import Firebase
+import Combine
+import GoogleSignIn
+
 
 class UserViewModel: ObservableObject {
   // input
-  @Published var username = ""
+  @Published var email = ""
   @Published var password = ""
   @Published var passwordAgain = ""
   
@@ -23,7 +27,7 @@ class UserViewModel: ObservableObject {
   private var cancellableSet: Set<AnyCancellable> = []
   
   private var isUsernameValidPublisher: AnyPublisher<Bool, Never> {
-    $username
+    $email
       .debounce(for: 0.8, scheduler: RunLoop.main)
       .removeDuplicates()
       .map { input in
@@ -64,7 +68,6 @@ class UserViewModel: ObservableObject {
   private var isPasswordStrongEnoughPublisher: AnyPublisher<Bool, Never> {
     passwordStrengthPublisher
       .map { strength in
-        //print(Navajo.localizedString(forStrength: strength))
         switch strength {
         case .reasonable, .strong, .veryStrong:
           return true
@@ -141,4 +144,17 @@ class UserViewModel: ObservableObject {
       .store(in: &cancellableSet)
   }
 }
-//hubertrzeminski16@gmail.com Hubert56
+
+struct google: UIViewRepresentable{
+    func updateUIView(_ uiView: GIDSignInButton, context: Context) {
+        
+    }
+    
+    func makeUIView(context: UIViewRepresentableContext<google>) -> GIDSignInButton {
+        let button = GIDSignInButton()
+        button.colorScheme = .dark
+        GIDSignIn.sharedInstance()?.presentingViewController = UIApplication.shared.windows.last?.rootViewController
+        return button
+    }
+
+}

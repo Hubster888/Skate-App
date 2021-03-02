@@ -44,7 +44,7 @@ struct LearnView: View {
                     .offset(x: width * -0.25)
                 VStack{
                     if(currentUserViewModel.currentUser != nil && currentUserViewModel.currentUser!.planStarted){
-                        NavigationLink(destination: PlanView(rootIsActive: self.$planIsActive, width: width, height: height)
+                        NavigationLink(destination: PlanView(rootIsActive: self.$planIsActive)
                                         .environmentObject(self.planViewModel),
                                        isActive: $planIsActive) {
                             VStack{
@@ -60,8 +60,12 @@ struct LearnView: View {
                                     
                             }.frame(alignment: .trailing)
                         }.buttonStyle(LearnButtonEffectButtonStyle(image: Image("learnPlanButton"), action: { self.planIsActive.toggle()}))
+                        .onTapGesture {
+                            self.planViewModel.fetchData()
+                            self.planViewModel.fetchDataTasks()
+                        }
                     }else{
-                        NavigationLink(destination: PlanIntroView(rootIsActive: self.$planIsActive, width: width, height: height)
+                        NavigationLink(destination: PlanIntroView(rootIsActive: self.$planIsActive)
                                         .environmentObject(self.planViewModel)
                                         .environmentObject(self.currentUserViewModel),
                                        isActive: $planIntroIsActive) {
@@ -80,6 +84,10 @@ struct LearnView: View {
                         }
                         .isDetailLink(false)
                         .buttonStyle(LearnButtonEffectButtonStyle(image: Image("learnPlanButton"), action: {self.planIntroIsActive.toggle()}))
+                        .onTapGesture {
+                            self.planViewModel.fetchData()
+                            self.planViewModel.fetchDataTasks()
+                        }
                     }
                     
                             

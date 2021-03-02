@@ -15,7 +15,7 @@ struct HomeView: View {
     
     @EnvironmentObject var currentUserViewModel : CurrentUserViewModel
     @ObservedObject private var planViewModel = PlanViewModel()
-    var logInShown : Bool = false
+    @State var logInShown : Bool = false
     
     @State var user : Bool = (Auth.auth().currentUser != nil)
     
@@ -25,14 +25,18 @@ struct HomeView: View {
                 if(currentUserViewModel.currentUser != nil){
                     Button(action: {logout()}){Text("OUT")}
                 }else{
-                    NavigationLink(
-                        destination: LogInView()){
+                    Button(action: {
+                        logInShown = true
+                    }){
                         Text("Log In")
                     }
                     .padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
                     .background(Color.white)
                     .cornerRadius(8.0)
                     .shadow(radius: 4.0)
+                    .sheet(isPresented: $logInShown) {
+                        LogInView()
+                    }
                 }
             }.onAppear{
                 if(Auth.auth().currentUser != nil){

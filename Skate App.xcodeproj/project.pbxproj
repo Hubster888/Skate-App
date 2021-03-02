@@ -8,10 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		021198D583268B70B998E9DE /* Pods_Skate_App__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7E99F2D04CBD4F48EA457EF /* Pods_Skate_App__iOS_.framework */; };
+		2C06DBE125E502D700429E34 /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C06DBE025E502D700429E34 /* GameOverView.swift */; };
+		2C06DBE525E50B6900429E34 /* SkateScoreDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C06DBE425E50B6900429E34 /* SkateScoreDisplay.swift */; };
+		2C06DBEA25E51A6800429E34 /* SkateOptionTry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C06DBE925E51A6800429E34 /* SkateOptionTry.swift */; };
+		2C06DBEC25E51B2200429E34 /* SkateOptionSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C06DBEB25E51B2200429E34 /* SkateOptionSet.swift */; };
 		2C1B0BFE25C1B7EA00C0B6F7 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1B0BFD25C1B7EA00C0B6F7 /* CurrentUser.swift */; };
 		2C1B0C0E25C1E85800C0B6F7 /* TrickViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1B0C0D25C1E85800C0B6F7 /* TrickViewModel.swift */; };
 		2C1B0C1225C2C63D00C0B6F7 /* TrickSelectTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1B0C1125C2C63D00C0B6F7 /* TrickSelectTabView.swift */; };
-		2C1B0C1625C2DAD600C0B6F7 /* Arc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1B0C1525C2DAD600C0B6F7 /* Arc.swift */; };
 		2C2C5D2925AEF76F003B8F64 /* LearButtonEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2C5D2825AEF76F003B8F64 /* LearButtonEffect.swift */; };
 		2C2C5D2D25B0409F003B8F64 /* GradientButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2C5D2C25B0409F003B8F64 /* GradientButtonStyle.swift */; };
 		2C2C5D3125B086D9003B8F64 /* GameSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2C5D3025B086D9003B8F64 /* GameSelectView.swift */; };
@@ -65,10 +68,13 @@
 
 /* Begin PBXFileReference section */
 		0A72CE917C4D8BCCACEC8E45 /* Pods-Skate App (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Skate App (iOS).debug.xcconfig"; path = "Target Support Files/Pods-Skate App (iOS)/Pods-Skate App (iOS).debug.xcconfig"; sourceTree = "<group>"; };
+		2C06DBE025E502D700429E34 /* GameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverView.swift; sourceTree = "<group>"; };
+		2C06DBE425E50B6900429E34 /* SkateScoreDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkateScoreDisplay.swift; sourceTree = "<group>"; };
+		2C06DBE925E51A6800429E34 /* SkateOptionTry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkateOptionTry.swift; sourceTree = "<group>"; };
+		2C06DBEB25E51B2200429E34 /* SkateOptionSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkateOptionSet.swift; sourceTree = "<group>"; };
 		2C1B0BFD25C1B7EA00C0B6F7 /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		2C1B0C0D25C1E85800C0B6F7 /* TrickViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrickViewModel.swift; sourceTree = "<group>"; };
 		2C1B0C1125C2C63D00C0B6F7 /* TrickSelectTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrickSelectTabView.swift; sourceTree = "<group>"; };
-		2C1B0C1525C2DAD600C0B6F7 /* Arc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arc.swift; sourceTree = "<group>"; };
 		2C2C5D2825AEF76F003B8F64 /* LearButtonEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearButtonEffect.swift; sourceTree = "<group>"; };
 		2C2C5D2C25B0409F003B8F64 /* GradientButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButtonStyle.swift; sourceTree = "<group>"; };
 		2C2C5D3025B086D9003B8F64 /* GameSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSelectView.swift; sourceTree = "<group>"; };
@@ -136,6 +142,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C06DBE625E516A200429E34 /* Games */ = {
+			isa = PBXGroup;
+			children = (
+				2C06DBE425E50B6900429E34 /* SkateScoreDisplay.swift */,
+				2C06DBE025E502D700429E34 /* GameOverView.swift */,
+				2C2C5D3A25B09BA7003B8F64 /* GameListElm.swift */,
+				2C06DBE925E51A6800429E34 /* SkateOptionTry.swift */,
+				2C06DBEB25E51B2200429E34 /* SkateOptionSet.swift */,
+			);
+			path = Games;
+			sourceTree = "<group>";
+		};
+		2C06DBE725E516DB00429E34 /* Plan */ = {
+			isa = PBXGroup;
+			children = (
+				2C7E544825C4805700AD173F /* PlanWeekView.swift */,
+				2C7E544C25C4811100AD173F /* WeekPlanRowView.swift */,
+				2C7E540B25C44A5B00AD173F /* QuestionView.swift */,
+			);
+			path = Plan;
+			sourceTree = "<group>";
+		};
+		2C06DBE825E516EF00429E34 /* Tricks */ = {
+			isa = PBXGroup;
+			children = (
+				2C9B2F3125922BFA006A47DA /* TrickVariationView.swift */,
+				2C9B2F07259105D0006A47DA /* TrickRowView.swift */,
+				2C1B0C1125C2C63D00C0B6F7 /* TrickSelectTabView.swift */,
+				2C3F232225DBAD8C000C406F /* TrickListView.swift */,
+				2CB6047525DFC42E00210148 /* TrickSearchView.swift */,
+			);
+			path = Tricks;
+			sourceTree = "<group>";
+		};
 		2C1B0BFC25C1B7D600C0B6F7 /* General */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,7 +219,6 @@
 			isa = PBXGroup;
 			children = (
 				2C1B0BFD25C1B7EA00C0B6F7 /* CurrentUser.swift */,
-				2CAD031825D2D48A007601F8 /* UserViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -187,6 +226,7 @@
 		2C528F3325D27B0E00D30BB6 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				2CAD031825D2D48A007601F8 /* UserViewModel.swift */,
 				2C7E53DF25C339AF00AD173F /* CurrentUserViewModel.swift */,
 			);
 			path = ViewModels;
@@ -216,15 +256,9 @@
 		2C7E545025C7F67800AD173F /* Learn Tab */ = {
 			isa = PBXGroup;
 			children = (
-				2C7E540B25C44A5B00AD173F /* QuestionView.swift */,
-				2C7E544825C4805700AD173F /* PlanWeekView.swift */,
-				2C1B0C1125C2C63D00C0B6F7 /* TrickSelectTabView.swift */,
-				2C9B2F3125922BFA006A47DA /* TrickVariationView.swift */,
-				2C7E544C25C4811100AD173F /* WeekPlanRowView.swift */,
-				2C2C5D3A25B09BA7003B8F64 /* GameListElm.swift */,
-				2C9B2F07259105D0006A47DA /* TrickRowView.swift */,
-				2C3F232225DBAD8C000C406F /* TrickListView.swift */,
-				2CB6047525DFC42E00210148 /* TrickSearchView.swift */,
+				2C06DBE825E516EF00429E34 /* Tricks */,
+				2C06DBE725E516DB00429E34 /* Plan */,
+				2C06DBE625E516A200429E34 /* Games */,
 			);
 			path = "Learn Tab";
 			sourceTree = "<group>";
@@ -232,7 +266,6 @@
 		2C7E545725C7F6A100AD173F /* General */ = {
 			isa = PBXGroup;
 			children = (
-				2C1B0C1525C2DAD600C0B6F7 /* Arc.swift */,
 				2CD800EE25D6861500A9994D /* LoadingView.swift */,
 			);
 			path = General;
@@ -412,8 +445,8 @@
 				2CE57742258106F000B4F204 /* Sources */,
 				2CE57743258106F000B4F204 /* Frameworks */,
 				2CE57744258106F000B4F204 /* Resources */,
-				FE31D50243E23FB871473B8C /* [CP] Embed Pods Frameworks */,
-				DB35CF4A78396A6AF920AF99 /* [CP] Copy Pods Resources */,
+				A8C42F322A9E132C3A1F8978 /* [CP] Embed Pods Frameworks */,
+				B7557E17BD9C78A39C210324 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -521,24 +554,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DB35CF4A78396A6AF920AF99 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Skate App (iOS)/Pods-Skate App (iOS)-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Skate App (iOS)/Pods-Skate App (iOS)-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Skate App (iOS)/Pods-Skate App (iOS)-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FE31D50243E23FB871473B8C /* [CP] Embed Pods Frameworks */ = {
+		A8C42F322A9E132C3A1F8978 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -555,6 +571,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Skate App (iOS)/Pods-Skate App (iOS)-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B7557E17BD9C78A39C210324 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Skate App (iOS)/Pods-Skate App (iOS)-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Skate App (iOS)/Pods-Skate App (iOS)-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Skate App (iOS)/Pods-Skate App (iOS)-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -566,16 +599,17 @@
 				2C8DAAAB25B1D28B00FCD572 /* StartSkateGameView.swift in Sources */,
 				2CC4D32325AC9F1100CE1132 /* ScaleAnimationButtonEffect.swift in Sources */,
 				2C7E5B702581191800B634F5 /* ProfileView.swift in Sources */,
+				2C06DBE525E50B6900429E34 /* SkateScoreDisplay.swift in Sources */,
 				2CC4D30A25AC7BE600CE1132 /* ScrollingHStackModifier.swift in Sources */,
 				2C7E540825C440B200AD173F /* PlanViewModel.swift in Sources */,
 				2C2C5D3B25B09BA7003B8F64 /* GameListElm.swift in Sources */,
 				2C7E540C25C44A5B00AD173F /* QuestionView.swift in Sources */,
 				2C9B2F3225922BFA006A47DA /* TrickVariationView.swift in Sources */,
+				2C06DBE125E502D700429E34 /* GameOverView.swift in Sources */,
 				2C7E544925C4805700AD173F /* PlanWeekView.swift in Sources */,
 				2C1B0C1225C2C63D00C0B6F7 /* TrickSelectTabView.swift in Sources */,
 				2C9B2F08259105D0006A47DA /* TrickRowView.swift in Sources */,
 				2C528F3125D2731800D30BB6 /* LogInView.swift in Sources */,
-				2C1B0C1625C2DAD600C0B6F7 /* Arc.swift in Sources */,
 				2C7E5B6A2581190900B634F5 /* FeedView.swift in Sources */,
 				2C7E544D25C4811100AD173F /* WeekPlanRowView.swift in Sources */,
 				2C2C5D3725B08A9B003B8F64 /* PlanView.swift in Sources */,
@@ -598,9 +632,11 @@
 				2C8DAAA525B1CD4D00FCD572 /* SkateGameView.swift in Sources */,
 				2C4EC609259A206F000470A1 /* AppView.swift in Sources */,
 				2C7E5B64258118F000B634F5 /* ExploreView.swift in Sources */,
+				2C06DBEA25E51A6800429E34 /* SkateOptionTry.swift in Sources */,
 				2C7E540225C43CA200AD173F /* Plan.swift in Sources */,
 				2C9B2F1225922334006A47DA /* TrickView.swift in Sources */,
 				2C8DAAAF25B1E32600FCD572 /* SkateGamePlayLocal.swift in Sources */,
+				2C06DBEC25E51B2200429E34 /* SkateOptionSet.swift in Sources */,
 				2CE57768258106F000B4F204 /* Skate_AppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

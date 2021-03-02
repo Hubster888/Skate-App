@@ -39,6 +39,25 @@ class TrickViewModel : ObservableObject {
         let _ = db.collection("Tricks").addDocument(from: trick)
     }
     
+    func pickFontSize(diameter: CGFloat) -> CGFloat {
+        switch diameter {
+            case 0:
+                return 0
+            case 0..<30:
+                return 10
+            case 30..<40:
+                return 20
+            case 40..<50:
+                return 20
+            case 50..<60:
+                return 30
+            case 60..<70:
+                return 40
+            default:
+                return 0
+        }
+    }
+    
     func getTrickComplete(){
         db.collection("Users")
             .document(Auth.auth().currentUser?.uid ?? "NO USER")
