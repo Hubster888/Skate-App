@@ -19,14 +19,17 @@ struct PlanIntroView: View {
     //Plan data variables
     @EnvironmentObject var planViewModel : PlanViewModel
     @EnvironmentObject var currentUserViewModel : CurrentUserViewModel
-    @State private var introSlide : Int = 0
+    @State private var showingSlides : Bool = true
     @State private var questionNum : Int = 1
+    private let onBoardData : [OnboardingDataModel] = [
+        OnboardingDataModel(image: "PlanOnboard1", heading: "What's the plan?", text: "This here is your personalised skating plan to improve those skills in your own time. Based on a few answers you will provide; the plan plops you into the correct week and adjusts the time spent skating to your free time."),
+        OnboardingDataModel(image: "PlanOnboard2", heading: "Why?", text: "Don’t know what you're doing? The plan lets you improve on your own terms and guides you through the stages of becoming a “good” skater and enjoying yourself more. \"The plan only shows recommendations, you need to go at your own pace!\""),
+        OnboardingDataModel(image: "PlanOnboard3", heading: "How to?", text: "If you feel you struggled during a week, do the week over again. The whole point is to enjoy yourself. Do whatever you enjoy. Don’t be sacred to try new skills, often after a few tries of a new trick you will gain confidence even though you may have not landed it yet.")
+    ]
     
     // Questions and titles
     @State private var image : String = "skatePicModed"
     @State private var buttonText : String = "Next"
-    let descriptionArray : [String] = ["This here is your personalised skating plan to improve those skills in your own time. Based on a few answers you will provide; the plan plops you into the correct week and adjusts the time spent skating to your free time.","Don’t know what you're doing? The plan lets you improve on your own terms and guides you through the stages of becoming a “good” skater and enjoying yourself more. \"The plan only shows recommendations, you need to go at your own pace!\"","If you feel you struggled during a week, do the week over again. The whole point is to enjoy yourself. Do whatever you enjoy. Don’t be sacred to try new skills, often after a few tries of a new trick you will gain confidence even though you may have not landed it yet."]
-    let titleArray : [String] = ["What's the plan?","Why?","How to?"]
     
     //Question Answers
     @State var questionAnswers : Dictionary<Int,Int> = [1:0,2:0,3:0,4:0,5:0,6:0]
@@ -74,85 +77,10 @@ struct PlanIntroView: View {
             NavigationLink(destination: PlanView(rootIsActive: self.$rootIsActive).environmentObject(self.planViewModel), isActive: self.$planIsActive) {
                 Text("")
               }.hidden() // This lets me move directly to plan view after plan creation
-            if(introSlide <= 2){ // Shows the slide show.
-                Ellipse()
-                    .fill(circleColor)
-                    .frame(width: circleWidth, height: circleHeight, alignment: .topLeading)
-                    .offset(x: -circleOffsets, y: -circleOffsets)
-                Image(image)
-                    .resizable()
-                    .frame(width: width, height: imageHeight, alignment: .bottom)
-                    .offset(y: imageHeight)
-                
-                //MARK: Title And Descriptions
-                VStack{ //TODO: Make the text look better
-                    switch(introSlide){
-                    case 0:
-                        Text(titleArray[introSlide])
-                            .font(.system(size: titleFontSize, weight: .bold, design: .monospaced))
-                            .foregroundColor(backgroundColor)
-                            .padding(EdgeInsets(top: titleTopPadding, leading: 0, bottom: titleBottomPadding, trailing: 0))
-                        Text(descriptionArray[introSlide])
-                            .font(.system(size: descriptionFontSize, weight: .bold, design: .default))
-                            .foregroundColor(backgroundColor)
-                            .multilineTextAlignment(.center)
-                    case 1:
-                        Text(titleArray[introSlide])
-                            .font(.system(size: titleFontSize, weight: .bold, design: .monospaced))
-                            .foregroundColor(backgroundColor)
-                            .padding(EdgeInsets(top: titleTopPadding, leading: 0, bottom: titleBottomPadding, trailing: 0))
-                        Text(descriptionArray[introSlide])
-                            .font(.system(size: descriptionFontSize, weight: .bold, design: .default))
-                            .foregroundColor(backgroundColor)
-                            .multilineTextAlignment(.center)
-                    case 2:
-                        Text(titleArray[introSlide])
-                            .font(.system(size: titleFontSize, weight: .bold, design: .monospaced))
-                            .foregroundColor(backgroundColor)
-                            .padding(EdgeInsets(top: titleTopPadding, leading: 0, bottom: titleBottomPadding, trailing: 0))
-                        Text(descriptionArray[introSlide])
-                            .font(.system(size: descriptionFontSize, weight: .bold, design: .default))
-                            .foregroundColor(backgroundColor)
-                            .multilineTextAlignment(.center)
-                    default:
-                        Text("END") //TODO: Set a message to try creating plan again
-                    }
-                    Spacer()
-                    
-                    //MARK: Next Button
-                    Button(action: {
-                        withAnimation(.easeIn(duration: 1)){
-                            //TODO: Make button look better
-                            if(introSlide == 2){ // If on last slide, create plan or log in
-                                if(Auth.auth().currentUser != nil){
-                                    introSlide += 1
-                                }else{
-                                    showingLogIn = true
-                                }
-                            }else{
-                                introSlide += 1
-                            }
-                        }
-                    }){
-                        ZStack{
-                            Rectangle()
-                                .fill(tintColor)
-                                .frame(width: width/4, height: buttonHeight, alignment: .center)
-                                .cornerRadius(cornerRadius)
-                                .shadow(color: circleColor.opacity(0.5), radius: shdowRadiuse, x: cornerRadius, y: cornerRadius)
-                            Text(introSlide == 2 ? "Begin" : "Next")
-                                .font(.system(size: titleFontSize, weight: .bold, design: .monospaced))
-                                .foregroundColor(circleColor)
-                        }
-                    }
-                    .padding(.bottom, buttonHeight)
-                    .sheet(isPresented: $showingLogIn,
-                            content: { //FIXME: Ask to login when creating plan
-                                //LogInView()
-                            })
-                }
-                .frame(width: imageHeight, height: circleWidth, alignment: .topLeading)
-                .offset(x: -buttonHeight, y: -circleOffsets)
+            if(showingSlides){ // Shows the slide show.
+                OnboardingViewPure(data: onBoardData, doneFunction: {
+                    self.showingSlides = false
+                }, backgroundColor: backgroundColor)
             }else{
                 
                 //MARK: Questionare
@@ -174,7 +102,7 @@ struct PlanIntroView: View {
                         default:
                             
                             //MARK: Loading And Plan Creation
-                            LoadingView()
+                            Text("Complete!")
                                 .onAppear(perform: {
                                     planViewModel.addPlanToDB(plan: planViewModel.createPlanObject(data: questionAnswers)){ res in
                                         if res {
@@ -196,9 +124,10 @@ struct PlanIntroView: View {
                         }
                     }
                 }else{
-                    Text("NOT LOGGED IN").onAppear(perform: {introSlide -= 1}) //TODO: Find better way to pass this message
+                    Text("NOT LOGGED IN").onAppear(perform: {showingSlides = true}) //TODO: Find better way to pass this message
                 }
             }
         }
     }
 }
+

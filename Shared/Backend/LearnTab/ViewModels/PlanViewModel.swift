@@ -7,59 +7,24 @@
 
 import Foundation
 import Firebase
+import FirebaseFirestore
 
 class PlanViewModel : ObservableObject{
+    
+    //MARK: Variable declerations
     @Published var plan : Plan? = nil
     @Published var tasks = [PlanWeekTaskModel]()
     var currentPlanId : String? = nil
-    
     private var db = Firestore.firestore()
     
+    //MARK: Modifiers
+    // Uploads the plan to firestore
     func addPlanToDB(plan: Plan, completionHandler: (Bool) -> Void){
         let _ = db.collection("Users").document(Auth.auth().currentUser!.uid).collection("Plan").document("plan").setData(from: plan)
         completionHandler(true)
     }
     
-    func createPlanObject(data: Dictionary<Int,Int>) -> Plan{
-        
-        var daysPerWeek : Int? = nil
-        switch(data[1]!){
-        case 1:
-            daysPerWeek = 3
-        case 2:
-            daysPerWeek = 5
-        case 3:
-            daysPerWeek = 7
-        default:
-            daysPerWeek = 0
-        }
-        
-        var hoursPerDay : Int? = nil
-        switch(data[2]!){
-        case 1:
-            hoursPerDay = 1
-        case 2:
-            hoursPerDay = 2
-        case 3:
-            hoursPerDay = 4
-        default:
-            hoursPerDay = 0
-        }
-        let hoursPerWeek : Int = hoursPerDay! * daysPerWeek!
-        
-        
-        let plan : Plan = Plan(weekOn: data[3]!, trickChoice1: data[4]!, trickChoice2: data[5]!, trickChoice3: data[6]!, hoursPerWeek: hoursPerWeek)
-        return plan
-    }
-    
-    func fetchData(){
-        db.collection("Users").document(Auth.auth().currentUser!.uid).collection("Plan").document("plan").addSnapshotListener { (documentSnapshot, error) in
-            self.plan = documentSnapshot.flatMap { (queryDocumentSnapshot) -> Plan in
-                return try! queryDocumentSnapshot.data(as: Plan.self)!
-            }
-        }
-    }
-    
+    // Changes the current week on plan in firestore
     func moveToNextWeek(forward: Bool){
         let ref = db.collection("Users").document(Auth.auth().currentUser?.uid ?? "NO USER").collection("Plan").document("plan")
         ref.getDocument(){(doc,err) in
@@ -72,6 +37,7 @@ class PlanViewModel : ObservableObject{
         }
     }
     
+    // Sets planstarted to fals in firestore to show a plan is not active
     func endPlan(){
         db.collection("Users").document(Auth.auth().currentUser!.uid).collection("Data").document("data").updateData([
             "planStarted": false
@@ -84,6 +50,31 @@ class PlanViewModel : ObservableObject{
         }
     }
     
+    // Changes the status of a task in firestore
+    func toogleTaskComplete(docId: String){
+        let ref = db.collection("Users").document(Auth.auth().currentUser?.uid ?? "NO USER").collection("Plan").document("plan").collection("Tasks").document(docId)
+        for i in 0...tasks.count - 1{
+            if(tasks[i].id == docId){
+                if(tasks[i].complete){
+                   let _ = ref.updateData(["complete" : false]).description
+                }else{
+                    let _ = ref.updateData(["complete" : true]).description
+                }
+            }
+        }
+    }
+    
+    //MARK: Getters
+    // Fetch the plan data from firestore
+    func fetchData(){
+        db.collection("Users").document(Auth.auth().currentUser!.uid).collection("Plan").document("plan").addSnapshotListener { (documentSnapshot, error) in
+            self.plan = documentSnapshot.flatMap { (queryDocumentSnapshot) -> Plan in
+                return try! queryDocumentSnapshot.data(as: Plan.self)!
+            }
+        }
+    }
+    
+    // Fetch tasks from firestore
     func fetchDataTasks(){
         db.collection("Users").document(Auth.auth().currentUser!.uid).collection("Plan").document("plan").collection("Tasks").addSnapshotListener { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else{
@@ -96,6 +87,8 @@ class PlanViewModel : ObservableObject{
         }
     }
     
+    //MARK: Setters
+    // Sets a new plan for the user based on their answers
     func setData(){
         let dbRef = db.collection("Users").document(Auth.auth().currentUser?.uid ?? "NO USER").collection("Plan").document("plan").collection("Tasks")
         
@@ -133,19 +126,41 @@ class PlanViewModel : ObservableObject{
         }
     }
     
-    func toogleTaskComplete(docId: String){
-        let ref = db.collection("Users").document(Auth.auth().currentUser?.uid ?? "NO USER").collection("Plan").document("plan").collection("Tasks").document(docId)
-        for i in 0...tasks.count - 1{
-            if(tasks[i].id == docId){
-                if(tasks[i].complete){
-                   let _ = ref.updateData(["complete" : false]).description
-                }else{
-                    let _ = ref.updateData(["complete" : true]).description
-                }
-            }
+    //MARK: Other
+    // Transforms a set of answers into a object to be saved in firestore
+    func createPlanObject(data: Dictionary<Int,Int>) -> Plan{
+        
+        var daysPerWeek : Int? = nil
+        switch(data[1]!){
+        case 1:
+            daysPerWeek = 3
+        case 2:
+            daysPerWeek = 5
+        case 3:
+            daysPerWeek = 7
+        default:
+            daysPerWeek = 0
         }
+        
+        var hoursPerDay : Int? = nil
+        switch(data[2]!){
+        case 1:
+            hoursPerDay = 1
+        case 2:
+            hoursPerDay = 2
+        case 3:
+            hoursPerDay = 4
+        default:
+            hoursPerDay = 0
+        }
+        let hoursPerWeek : Int = hoursPerDay! * daysPerWeek!
+        
+        
+        let plan : Plan = Plan(weekOn: data[3]!, trickChoice1: data[4]!, trickChoice2: data[5]!, trickChoice3: data[6]!, hoursPerWeek: hoursPerWeek)
+        return plan
     }
     
+    // Calculates the number of hours a task is to be done for
     func calculateHours(hoursPerWeek: Int, weekFor: Int, task: PlanWeekTaskModel) -> Float{
         var numOfTasks = 0
         for task in tasks{

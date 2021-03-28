@@ -8,12 +8,26 @@
 import Foundation
 import GoogleSignIn
 import Firebase
+import FirebaseFirestore
 
 class CurrentUserViewModel : ObservableObject{
-    @Published var currentUser : CurrentUser? = nil
     
+    //MARK: Variable declerations
+    @Published var currentUser : CurrentUser? = nil
     private var db = Firestore.firestore()
     
+    //MARK: Getters
+    func fetchData(){
+        if(Auth.auth().currentUser != nil){
+            db.collection("Users").document(Auth.auth().currentUser!.uid).collection("Data").document("data").addSnapshotListener {(documentSnapshot, error) in
+                    self.currentUser = documentSnapshot.flatMap { (queryDocumentSnapshot) -> CurrentUser in
+                        return try! (queryDocumentSnapshot.data(as: CurrentUser.self) ?? CurrentUser(planStarted: false, email: "None"))
+                    }
+                }
+        }
+    }
+    
+    //MARK: Modifiers
     func startPlan(){
         db.collection("Users").document(Auth.auth().currentUser!.uid).collection("Data").document("data").updateData([
             "planStarted": true
@@ -26,16 +40,7 @@ class CurrentUserViewModel : ObservableObject{
         }
     }
     
-    func fetchData(){
-        if(Auth.auth().currentUser != nil){
-            db.collection("Users").document(Auth.auth().currentUser!.uid).collection("Data").document("data").addSnapshotListener {(documentSnapshot, error) in
-                    self.currentUser = documentSnapshot.flatMap { (queryDocumentSnapshot) -> CurrentUser in
-                        return try! (queryDocumentSnapshot.data(as: CurrentUser.self) ?? CurrentUser(planStarted: false, email: "None"))
-                    }
-                }
-        }
-    }
-    
+    //MARK: New user initialisers
     func initialiseNewUser(){
         //Add holder data to initialise the user in firestore
         db.collection("Users").document(Auth.auth().currentUser!.uid).setData([

@@ -111,10 +111,10 @@ struct TrickSelectView: View {
                             
                             //MARK: Trick Display
                             HStack(alignment: .center, spacing: trickCardSpacing) {
-                                TrickSelectTabView(tabDiff: 1, width: width, height: height, segment: self.tabSelected, isEditing: self.$isEditing).environmentObject(self.trickViewModel) // Displays begginer tricks
-                                TrickSelectTabView(tabDiff: 2, width: width, height: height, segment: self.tabSelected, isEditing: self.$isEditing).environmentObject(self.trickViewModel) // Displays intremidiate tricks
-                                TrickSelectTabView(tabDiff: 3, width: width, height: height, segment: self.tabSelected, isEditing: self.$isEditing).environmentObject(self.trickViewModel) // Displays pro tricks
-                                TrickSelectTabView(tabDiff: 4, width: width, height: height, segment: self.tabSelected, isEditing: self.$isEditing).environmentObject(self.trickViewModel) // Displays god like tricks
+                                TrickSelectTabView(isEditing: self.$isEditing, tabDiff: 1, segment: self.tabSelected, width: width, height: height).environmentObject(self.trickViewModel) // Displays begginer tricks
+                                TrickSelectTabView(isEditing: self.$isEditing, tabDiff: 2, segment: self.tabSelected, width: width, height: height).environmentObject(self.trickViewModel) // Displays intremidiate tricks
+                                TrickSelectTabView(isEditing: self.$isEditing, tabDiff: 3, segment: self.tabSelected, width: width, height: height).environmentObject(self.trickViewModel) // Displays pro tricks
+                                TrickSelectTabView(isEditing: self.$isEditing, tabDiff: 4, segment: self.tabSelected, width: width, height: height).environmentObject(self.trickViewModel) // Displays god like tricks
                             }
                             .modifier(ScrollingHStackModifier(items: 4, itemWidth: trickCardWidth, itemSpacing: trickCardSpacing))
                             Spacer()
@@ -130,7 +130,7 @@ struct TrickSelectView: View {
                                             trickViewModel.getCurrentCompletion(id: trick.id!)
                                             showingTrick = true
                                         }){
-                                            TrickSearchView(name: trick.name, width: width, height: height)
+                                            TrickSearchView(name: trick.name)
                                         }.sheet(isPresented: $showingTrick) {
                                             TrickView().environmentObject(self.trickViewModel)
                                         }

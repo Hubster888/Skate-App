@@ -16,21 +16,21 @@ enum StateOfGame{
     case end
 }
 
+// The controler class for a local SKATE game
 class SkateGamePlayLocal{
     
+    //MARK: Variable declerations
     private let player1 : Player
     private let player2 : Player
     private var stateOfGame : StateOfGame = .start
     
+    // Initialise variables
     init(player1: Player, player2: Player){
         self.player1 = player1
         self.player2 = player2
     }
     
-    func startGame(){
-        self.stateOfGame = .end
-    }
-    
+    //MARK: Getters
     func getState() -> StateOfGame{
         return self.stateOfGame
     }
@@ -43,6 +43,19 @@ class SkateGamePlayLocal{
         return self.player2
     }
     
+    func startGame(){
+        self.stateOfGame = .end
+    }
+    
+    func getPlayer1Score() -> Int{
+        return self.player1.getScore()
+    }
+    
+    func getPlayer2Score() -> Int{
+        return self.player2.getScore()
+    }
+    
+    //MARK: Modifiers
     func setState(state: StateOfGame){
         self.stateOfGame = state
     }
@@ -88,16 +101,9 @@ class SkateGamePlayLocal{
             self.stateOfGame = .end
         }
     }
-    
-    func getPlayer1Score() -> Int{
-        return self.player1.getScore()
-    }
-    
-    func getPlayer2Score() -> Int{
-        return self.player2.getScore()
-    }
 }
 
+//MARK: Player class
 class Player{
     private let name : String
     private var score : Int = 0

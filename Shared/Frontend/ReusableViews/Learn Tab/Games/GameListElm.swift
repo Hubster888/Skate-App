@@ -8,49 +8,71 @@
 import SwiftUI
 
 struct GameListElm: View {
+    
+    //MARK: Variable declerations
+    //Related data varialbes
     let name : String
     let capabilities : String
-    let width : CGFloat
-    let height : CGFloat
+    let avaliable : Bool
     
-    var body: some View {
+    //View variables
+    var listWidth : CGFloat {
+        return width * 0.9
+    }
+    var listHeight : CGFloat {
+        return height * 0.9
+    }
+    var circleWidth : CGFloat {
+        return width * 0.2
+    }
+    var totalWidth : CGFloat {
+        return width * 0.5
+    }
+    var totalHeight : CGFloat {
+        return height * 0.7
+    }
+    var fontSize : CGFloat {
+        return width * 0.1
+    }
+    let height : CGFloat = UIScreen.main.bounds.height * 0.15
+    let width : CGFloat = UIScreen.main.bounds.width
+    let backgroundColor : Color = Color(red: 0.13, green: 0.15, blue: 0.22, opacity: 0) // White
+    let actionColor : Color = Color(red: 0.95, green: 0.32, blue: 0.34) // Red
+    let fontColor : Color = Color(red: 0.13, green: 0.15, blue: 0.22) // Black
+    let circlePadding : CGFloat = 20
+    let cornerRadius : CGFloat = 16
+    let lineWidth : CGFloat = 6
+    
+    //MARK: Body
+    var body: some View { //FIXME: Make this look good
         ZStack{
             Rectangle()
-                .fill(Color(red: 0.13, green: 0.15, blue: 0.22, opacity: 0))
-                .frame(width: width * 0.9, height: height, alignment: .center)
+                .fill(backgroundColor)
+                .frame(width: listWidth, height: height, alignment: .center)
             HStack{
-                ZStack{
-                    Circle()
-                        .fill(Color(red: 0.13, green: 0.15, blue: 0.22))
-                        .frame(width: width * 0.2, height: height * 0.9, alignment: .center)
-                        .padding(.trailing, 20)
-                    Image(systemName: "play")
-                        .foregroundColor(Color(red: 0.95, green: 0.32, blue: 0.34))
-                        .font(.system(size: 70))
-                        .padding(.trailing)
-                }
                 VStack{
                     Text(name)
                         .font(.system(.largeTitle, design: .rounded))
-                        .foregroundColor(Color(red: 0.13, green: 0.15, blue: 0.22))
+                        .foregroundColor(fontColor.opacity(avaliable ? 1 : 0.5))
                     Text(capabilities)
                         .font(.system(.title3, design: .rounded))
-                        .foregroundColor(Color(red: 0.13, green: 0.15, blue: 0.22))
+                        .foregroundColor(fontColor.opacity(avaliable ? 1 : 0.5))
                 }.overlay(
-                    RoundedRectangle(cornerRadius: 16)
-                        .stroke(Color(red: 0.95, green: 0.32, blue: 0.34), lineWidth: 6)
-                        .frame(width: width * 0.5, height: height * 0.7, alignment: .center)
+                    RoundedRectangle(cornerRadius: cornerRadius)
+                        .stroke(actionColor.opacity(avaliable ? 1 : 0.5), lineWidth: lineWidth)
+                        .frame(width: totalWidth, height: totalHeight, alignment: .center)
                         
                 )
-                .frame(width: width * 0.5, height: height * 0.7, alignment: .center)
+                .frame(width: totalWidth, height: totalHeight, alignment: .center)
+            }
+            if(!avaliable){
+                Rectangle()
+                    .fill(Color.gray.opacity(0.6))
+                    .frame(width: listWidth, height: height, alignment: .center)
+                Text("Avaliable Soon!")
+                    .font(.system(size: fontSize, design: .monospaced))
+                    .foregroundColor(fontColor)
             }
         }
-    }
-}
-
-struct GameListElm_Previews: PreviewProvider {
-    static var previews: some View {
-        GameListElm(name: "SKATE", capabilities: "Online, Local", width: 500, height: 150)
-            .previewLayout(.sizeThatFits)
     }
 }

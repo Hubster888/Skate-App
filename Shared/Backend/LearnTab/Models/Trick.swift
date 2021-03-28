@@ -10,6 +10,7 @@ import FirebaseFirestoreSwift
 
 struct Trick : Identifiable, Codable {
     
+    //MARK: Variable declerations
     @DocumentID var id: String? = UUID().uuidString
     var name : String
     var description : String
@@ -19,11 +20,9 @@ struct Trick : Identifiable, Codable {
     var difficulty : Int
     var type : Int
     var headImg : String
-    
-    
-    
 }
 
+// TODO: Make these mean something
 enum TrickError: Error {
   case statusCode
   case decoding
@@ -36,6 +35,7 @@ enum TrickError: Error {
   }
 }
 
+// The possibilities of trick didiculty
 enum TrickDificulty {
     case beginner
     case doingThisAWhile
@@ -44,6 +44,7 @@ enum TrickDificulty {
     case none
 }
 
+// The trick types
 enum TrickType {
     case flipTrick
     case grindTrick

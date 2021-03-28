@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,9 +12,11 @@
 		2C06DBE525E50B6900429E34 /* SkateScoreDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C06DBE425E50B6900429E34 /* SkateScoreDisplay.swift */; };
 		2C06DBEA25E51A6800429E34 /* SkateOptionTry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C06DBE925E51A6800429E34 /* SkateOptionTry.swift */; };
 		2C06DBEC25E51B2200429E34 /* SkateOptionSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C06DBEB25E51B2200429E34 /* SkateOptionSet.swift */; };
+		2C086CFB25FE76E8003DA5E6 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C086CFA25FE76E8003DA5E6 /* CheckBox.swift */; };
 		2C1B0BFE25C1B7EA00C0B6F7 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1B0BFD25C1B7EA00C0B6F7 /* CurrentUser.swift */; };
 		2C1B0C0E25C1E85800C0B6F7 /* TrickViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1B0C0D25C1E85800C0B6F7 /* TrickViewModel.swift */; };
 		2C1B0C1225C2C63D00C0B6F7 /* TrickSelectTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1B0C1125C2C63D00C0B6F7 /* TrickSelectTabView.swift */; };
+		2C2ADBB726038452009D5040 /* PlanEndView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2ADBB626038452009D5040 /* PlanEndView.swift */; };
 		2C2C5D2925AEF76F003B8F64 /* LearButtonEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2C5D2825AEF76F003B8F64 /* LearButtonEffect.swift */; };
 		2C2C5D2D25B0409F003B8F64 /* GradientButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2C5D2C25B0409F003B8F64 /* GradientButtonStyle.swift */; };
 		2C2C5D3125B086D9003B8F64 /* GameSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2C5D3025B086D9003B8F64 /* GameSelectView.swift */; };
@@ -26,6 +28,8 @@
 		2C6F17DF25BEE9C0001CE0C9 /* PlanIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6F17DE25BEE9C0001CE0C9 /* PlanIntroView.swift */; };
 		2C6F17E925C0AD21001CE0C9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C6F17E825C0AD21001CE0C9 /* GoogleService-Info.plist */; };
 		2C754FAE2587B4E100EF4FB3 /* settingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C754FAD2587B4E100EF4FB3 /* settingsView.swift */; };
+		2C7DD3B42609FD5F007FD860 /* PlanEndGIF.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2C7DD3B32609FD5E007FD860 /* PlanEndGIF.gif */; };
+		2C7DD3B6260A05DC007FD860 /* LoadingPlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7DD3B5260A05DC007FD860 /* LoadingPlaceHolder.swift */; };
 		2C7E53E025C339AF00AD173F /* CurrentUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7E53DF25C339AF00AD173F /* CurrentUserViewModel.swift */; };
 		2C7E540225C43CA200AD173F /* Plan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7E540125C43CA200AD173F /* Plan.swift */; };
 		2C7E540825C440B200AD173F /* PlanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7E540725C440B200AD173F /* PlanViewModel.swift */; };
@@ -44,8 +48,12 @@
 		2C9B2F282592253A006A47DA /* TrickSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9B2F272592253A006A47DA /* TrickSelectView.swift */; };
 		2C9B2F3225922BFA006A47DA /* TrickVariationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9B2F3125922BFA006A47DA /* TrickVariationView.swift */; };
 		2C9C7C7C25C941FD00319434 /* PlanWeekTaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9C7C7B25C941FC00319434 /* PlanWeekTaskModel.swift */; };
+		2CA766E926049508005FEBBF /* OnboardingViewPure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA766E826049508005FEBBF /* OnboardingViewPure.swift */; };
+		2CA766EB26049542005FEBBF /* OnboardingDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA766EA26049542005FEBBF /* OnboardingDataModel.swift */; };
+		2CA766ED2604957E005FEBBF /* OnboardingStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA766EC2604957E005FEBBF /* OnboardingStepView.swift */; };
 		2CAD031925D2D48A007601F8 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAD031825D2D48A007601F8 /* UserViewModel.swift */; };
 		2CB6047625DFC42E00210148 /* TrickSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6047525DFC42E00210148 /* TrickSearchView.swift */; };
+		2CBCE5AE260B4F410041D917 /* ConfettiView in Frameworks */ = {isa = PBXBuildFile; productRef = 2CBCE5AD260B4F410041D917 /* ConfettiView */; };
 		2CC4D30A25AC7BE600CE1132 /* ScrollingHStackModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC4D30925AC7BE600CE1132 /* ScrollingHStackModifier.swift */; };
 		2CC4D32325AC9F1100CE1132 /* ScaleAnimationButtonEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC4D32225AC9F1000CE1132 /* ScaleAnimationButtonEffect.swift */; };
 		2CC4D32725ACCB4200CE1132 /* Trick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC4D32625ACCB4200CE1132 /* Trick.swift */; };
@@ -54,6 +62,7 @@
 		2CE57768258106F000B4F204 /* Skate_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE5773F258106EF00B4F204 /* Skate_AppApp.swift */; };
 		2CE5776C258106F000B4F204 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CE57741258106F000B4F204 /* Assets.xcassets */; };
 		2CE5778125810A3900B4F204 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE5778025810A3900B4F204 /* HomeView.swift */; };
+		2CF9DC1F26038C5100788412 /* AnimatedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF9DC1E26038C5100788412 /* AnimatedImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,9 +81,11 @@
 		2C06DBE425E50B6900429E34 /* SkateScoreDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkateScoreDisplay.swift; sourceTree = "<group>"; };
 		2C06DBE925E51A6800429E34 /* SkateOptionTry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkateOptionTry.swift; sourceTree = "<group>"; };
 		2C06DBEB25E51B2200429E34 /* SkateOptionSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkateOptionSet.swift; sourceTree = "<group>"; };
+		2C086CFA25FE76E8003DA5E6 /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		2C1B0BFD25C1B7EA00C0B6F7 /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		2C1B0C0D25C1E85800C0B6F7 /* TrickViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrickViewModel.swift; sourceTree = "<group>"; };
 		2C1B0C1125C2C63D00C0B6F7 /* TrickSelectTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrickSelectTabView.swift; sourceTree = "<group>"; };
+		2C2ADBB626038452009D5040 /* PlanEndView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanEndView.swift; sourceTree = "<group>"; };
 		2C2C5D2825AEF76F003B8F64 /* LearButtonEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearButtonEffect.swift; sourceTree = "<group>"; };
 		2C2C5D2C25B0409F003B8F64 /* GradientButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButtonStyle.swift; sourceTree = "<group>"; };
 		2C2C5D3025B086D9003B8F64 /* GameSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSelectView.swift; sourceTree = "<group>"; };
@@ -87,6 +98,8 @@
 		2C6F17E825C0AD21001CE0C9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2C754FAD2587B4E100EF4FB3 /* settingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsView.swift; sourceTree = "<group>"; };
 		2C7BF52025D2DC7A00338E2B /* Skate App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Skate App.entitlements"; sourceTree = "<group>"; };
+		2C7DD3B32609FD5E007FD860 /* PlanEndGIF.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = PlanEndGIF.gif; path = AppAssets/PlanEndGIF.gif; sourceTree = "<group>"; };
+		2C7DD3B5260A05DC007FD860 /* LoadingPlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingPlaceHolder.swift; sourceTree = "<group>"; };
 		2C7E53DF25C339AF00AD173F /* CurrentUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserViewModel.swift; sourceTree = "<group>"; };
 		2C7E540125C43CA200AD173F /* Plan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plan.swift; sourceTree = "<group>"; };
 		2C7E540725C440B200AD173F /* PlanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanViewModel.swift; sourceTree = "<group>"; };
@@ -105,6 +118,9 @@
 		2C9B2F272592253A006A47DA /* TrickSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrickSelectView.swift; sourceTree = "<group>"; };
 		2C9B2F3125922BFA006A47DA /* TrickVariationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrickVariationView.swift; sourceTree = "<group>"; };
 		2C9C7C7B25C941FC00319434 /* PlanWeekTaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanWeekTaskModel.swift; sourceTree = "<group>"; };
+		2CA766E826049508005FEBBF /* OnboardingViewPure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewPure.swift; sourceTree = "<group>"; };
+		2CA766EA26049542005FEBBF /* OnboardingDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingDataModel.swift; sourceTree = "<group>"; };
+		2CA766EC2604957E005FEBBF /* OnboardingStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStepView.swift; sourceTree = "<group>"; };
 		2CAD031825D2D48A007601F8 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		2CB6047525DFC42E00210148 /* TrickSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrickSearchView.swift; sourceTree = "<group>"; };
 		2CC4D30925AC7BE600CE1132 /* ScrollingHStackModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingHStackModifier.swift; sourceTree = "<group>"; };
@@ -119,6 +135,7 @@
 		2CE5775A258106F000B4F204 /* Tests_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_iOS.swift; sourceTree = "<group>"; };
 		2CE5775C258106F000B4F204 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2CE5778025810A3900B4F204 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		2CF9DC1E26038C5100788412 /* AnimatedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedImageView.swift; sourceTree = "<group>"; };
 		63FDE1A23667BFCD1F15022E /* Pods-Skate App (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Skate App (iOS).release.xcconfig"; path = "Target Support Files/Pods-Skate App (iOS)/Pods-Skate App (iOS).release.xcconfig"; sourceTree = "<group>"; };
 		B7E99F2D04CBD4F48EA457EF /* Pods_Skate_App__iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Skate_App__iOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -129,6 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				021198D583268B70B998E9DE /* Pods_Skate_App__iOS_.framework in Frameworks */,
+				2CBCE5AE260B4F410041D917 /* ConfettiView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,7 +284,10 @@
 		2C7E545725C7F6A100AD173F /* General */ = {
 			isa = PBXGroup;
 			children = (
+				2CF9DC1E26038C5100788412 /* AnimatedImageView.swift */,
 				2CD800EE25D6861500A9994D /* LoadingView.swift */,
+				2C086CFA25FE76E8003DA5E6 /* CheckBox.swift */,
+				2C7DD3B5260A05DC007FD860 /* LoadingPlaceHolder.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -336,6 +357,10 @@
 			children = (
 				2C6F17DE25BEE9C0001CE0C9 /* PlanIntroView.swift */,
 				2C2C5D3625B08A9B003B8F64 /* PlanView.swift */,
+				2C2ADBB626038452009D5040 /* PlanEndView.swift */,
+				2CA766E826049508005FEBBF /* OnboardingViewPure.swift */,
+				2CA766EA26049542005FEBBF /* OnboardingDataModel.swift */,
+				2CA766EC2604957E005FEBBF /* OnboardingStepView.swift */,
 			);
 			path = Plan;
 			sourceTree = "<group>";
@@ -370,6 +395,7 @@
 		2CE57739258106EF00B4F204 = {
 			isa = PBXGroup;
 			children = (
+				2C7DD3B32609FD5E007FD860 /* PlanEndGIF.gif */,
 				2C7BF52025D2DC7A00338E2B /* Skate App.entitlements */,
 				2C6F17E825C0AD21001CE0C9 /* GoogleService-Info.plist */,
 				2CE5773E258106EF00B4F204 /* Shared */,
@@ -445,14 +471,17 @@
 				2CE57742258106F000B4F204 /* Sources */,
 				2CE57743258106F000B4F204 /* Frameworks */,
 				2CE57744258106F000B4F204 /* Resources */,
-				A8C42F322A9E132C3A1F8978 /* [CP] Embed Pods Frameworks */,
-				B7557E17BD9C78A39C210324 /* [CP] Copy Pods Resources */,
+				219B5777BC2F623B395238EC /* [CP] Embed Pods Frameworks */,
+				72A7521F1E9209710C4D8456 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "Skate App (iOS)";
+			packageProductDependencies = (
+				2CBCE5AD260B4F410041D917 /* ConfettiView */,
+			);
 			productName = "Skate App (iOS)";
 			productReference = 2CE57746258106F000B4F204 /* Skate App.app */;
 			productType = "com.apple.product-type.application";
@@ -502,6 +531,9 @@
 				Base,
 			);
 			mainGroup = 2CE57739258106EF00B4F204;
+			packageReferences = (
+				2CBCE5AC260B4F410041D917 /* XCRemoteSwiftPackageReference "ConfettiView" */,
+			);
 			productRefGroup = 2CE57747258106F000B4F204 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -517,6 +549,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C7DD3B42609FD5F007FD860 /* PlanEndGIF.gif in Resources */,
 				2CE5776C258106F000B4F204 /* Assets.xcassets in Resources */,
 				2C6F17E925C0AD21001CE0C9 /* GoogleService-Info.plist in Resources */,
 			);
@@ -554,7 +587,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A8C42F322A9E132C3A1F8978 /* [CP] Embed Pods Frameworks */ = {
+		219B5777BC2F623B395238EC /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -571,7 +604,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Skate App (iOS)/Pods-Skate App (iOS)-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B7557E17BD9C78A39C210324 /* [CP] Copy Pods Resources */ = {
+		72A7521F1E9209710C4D8456 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -597,6 +630,7 @@
 			files = (
 				2C9B2F282592253A006A47DA /* TrickSelectView.swift in Sources */,
 				2C8DAAAB25B1D28B00FCD572 /* StartSkateGameView.swift in Sources */,
+				2C7DD3B6260A05DC007FD860 /* LoadingPlaceHolder.swift in Sources */,
 				2CC4D32325AC9F1100CE1132 /* ScaleAnimationButtonEffect.swift in Sources */,
 				2C7E5B702581191800B634F5 /* ProfileView.swift in Sources */,
 				2C06DBE525E50B6900429E34 /* SkateScoreDisplay.swift in Sources */,
@@ -613,8 +647,11 @@
 				2C7E5B6A2581190900B634F5 /* FeedView.swift in Sources */,
 				2C7E544D25C4811100AD173F /* WeekPlanRowView.swift in Sources */,
 				2C2C5D3725B08A9B003B8F64 /* PlanView.swift in Sources */,
+				2CA766EB26049542005FEBBF /* OnboardingDataModel.swift in Sources */,
 				2C3F232325DBAD8C000C406F /* TrickListView.swift in Sources */,
+				2CF9DC1F26038C5100788412 /* AnimatedImageView.swift in Sources */,
 				2CD800EF25D6861600A9994D /* LoadingView.swift in Sources */,
+				2CA766E926049508005FEBBF /* OnboardingViewPure.swift in Sources */,
 				2C2C5D3125B086D9003B8F64 /* GameSelectView.swift in Sources */,
 				2CC4D32725ACCB4200CE1132 /* Trick.swift in Sources */,
 				2CAD031925D2D48A007601F8 /* UserViewModel.swift in Sources */,
@@ -628,12 +665,15 @@
 				2C6F17DF25BEE9C0001CE0C9 /* PlanIntroView.swift in Sources */,
 				2C754FAE2587B4E100EF4FB3 /* settingsView.swift in Sources */,
 				2C1B0BFE25C1B7EA00C0B6F7 /* CurrentUser.swift in Sources */,
+				2CA766ED2604957E005FEBBF /* OnboardingStepView.swift in Sources */,
 				2C7E53E025C339AF00AD173F /* CurrentUserViewModel.swift in Sources */,
 				2C8DAAA525B1CD4D00FCD572 /* SkateGameView.swift in Sources */,
 				2C4EC609259A206F000470A1 /* AppView.swift in Sources */,
+				2C086CFB25FE76E8003DA5E6 /* CheckBox.swift in Sources */,
 				2C7E5B64258118F000B634F5 /* ExploreView.swift in Sources */,
 				2C06DBEA25E51A6800429E34 /* SkateOptionTry.swift in Sources */,
 				2C7E540225C43CA200AD173F /* Plan.swift in Sources */,
+				2C2ADBB726038452009D5040 /* PlanEndView.swift in Sources */,
 				2C9B2F1225922334006A47DA /* TrickView.swift in Sources */,
 				2C8DAAAF25B1E32600FCD572 /* SkateGamePlayLocal.swift in Sources */,
 				2C06DBEC25E51B2200429E34 /* SkateOptionSet.swift in Sources */,
@@ -783,6 +823,41 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8CNKYM26M7;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/AppAuth\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/BoringSSL-GRPC\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/CombineFirebase\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/CombineFirebaseAuthentication\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/CombineFirebaseDatabase\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/CombineFirebaseFirestore\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/CombineFirebaseStorage\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FLAnimatedImage\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseAuth\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCore\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCoreDiagnostics\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseDatabase\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestoreSwift\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseInstallations\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseStorage\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GTMAppAuth\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GTMSessionFetcher\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GoogleDataTransport\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GoogleUtilities\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Navajo-Swift\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PromisesObjC\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/URLImage\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/abseil\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/gRPC-C++\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/gRPC-Core\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/leveldb-library\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/nanopb\"",
+					"\"${PODS_ROOT}/FirebaseAnalytics/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleAppMeasurement/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleSignIn/Frameworks\"",
+					"\"$(SRCROOT)\"/**",
+				);
 				INFOPLIST_FILE = iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -807,6 +882,41 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8CNKYM26M7;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/AppAuth\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/BoringSSL-GRPC\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/CombineFirebase\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/CombineFirebaseAuthentication\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/CombineFirebaseDatabase\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/CombineFirebaseFirestore\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/CombineFirebaseStorage\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FLAnimatedImage\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseAuth\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCore\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCoreDiagnostics\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseDatabase\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestoreSwift\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseInstallations\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseStorage\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GTMAppAuth\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GTMSessionFetcher\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GoogleDataTransport\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/GoogleUtilities\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Navajo-Swift\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PromisesObjC\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/URLImage\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/abseil\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/gRPC-C++\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/gRPC-Core\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/leveldb-library\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/nanopb\"",
+					"\"${PODS_ROOT}/FirebaseAnalytics/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleAppMeasurement/Frameworks\"",
+					"\"${PODS_ROOT}/GoogleSignIn/Frameworks\"",
+					"\"$(SRCROOT)\"/**",
+				);
 				INFOPLIST_FILE = iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -898,6 +1008,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2CBCE5AC260B4F410041D917 /* XCRemoteSwiftPackageReference "ConfettiView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ziligy/ConfettiView";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2CBCE5AD260B4F410041D917 /* ConfettiView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2CBCE5AC260B4F410041D917 /* XCRemoteSwiftPackageReference "ConfettiView" */;
+			productName = ConfettiView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2CE5773A258106EF00B4F204 /* Project object */;
 }

@@ -10,6 +10,8 @@ import Firebase
 import FirebaseFirestoreSwift
 
 struct PlanWeekTaskModel: Identifiable, Codable{
+    
+    //MARK: Variable declerations
     @DocumentID var id: String? = UUID().uuidString
     let title : String
     let complete : Bool

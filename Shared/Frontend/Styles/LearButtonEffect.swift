@@ -8,30 +8,25 @@
 import SwiftUI
 
 struct LearnButtonEffectButtonStyle: PrimitiveButtonStyle {
+    
+    //MARK: Variable declerations
+    // Related data variables
     var image: Image
     var action: () -> Void
     
-    func makeBody(configuration: PrimitiveButtonStyle.Configuration) -> some View {
-        ButtonView(configuration: configuration, image: image, action: action)
-    }
-    
+    // Button
     struct ButtonView: View {
         @State private var pressed = false
         
         let configuration: PrimitiveButtonStyle.Configuration
         let image: Image
         var action: () -> Void
+        var width: CGFloat = UIScreen.main.bounds.width
+        var height: CGFloat = UIScreen.main.bounds.height
         
-        var width: CGFloat {
-            return UIScreen.main.bounds.width
-        }
         
-        var height: CGFloat {
-            return UIScreen.main.bounds.height
-        }
-        
-        var body: some View {
-            return
+        var body: some View { //FIXME: Remove comment if working
+            //return
                 ZStack{
                     Rectangle()
                         .fill(self.pressed ? Color.gray.opacity(0.5) : Color(red: 0.95, green: 0.32, blue: 0.34, opacity: 0))
@@ -60,11 +55,11 @@ struct LearnButtonEffectButtonStyle: PrimitiveButtonStyle {
                 }, perform: {
                     print("Perform")
                 })
-                //.background(self.pressed ? Color.green.opacity(0.5) : Color.green)
-                //.shadow(color: Color.gray, radius: 10, x: 0, y: 0)
-                //.scaleEffect(self.pressed ? 0.9 : 1.0)
                 }
                 
         }
+    }
+    func makeBody(configuration: PrimitiveButtonStyle.Configuration) -> some View {
+        ButtonView(configuration: configuration, image: image, action: action)
     }
 }

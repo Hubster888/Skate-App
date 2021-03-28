@@ -8,14 +8,32 @@
 import SwiftUI
 
 struct SkateOptionTry: View {
+    
+    //MARK: Variable declerations
+    //Related data variables
     @Binding var skateGame : SkateGamePlayLocal
     @Binding var stateOfGame : StateOfGame
-    var height: CGFloat = UIScreen.main.bounds.height
-    var width: CGFloat = UIScreen.main.bounds.width
     @Binding var player1LossPressed : Bool
     @Binding var player2LossPressed : Bool
     let playerTurn : Int
     
+    //View variables
+    var buttonWidth : CGFloat {
+        return width * 0.3
+    }
+    var buttonHeight : CGFloat {
+        return height * 0.05
+    }
+    var fontSize : CGFloat {
+        return width * 0.05
+    }
+    let height: CGFloat = UIScreen.main.bounds.height
+    let width: CGFloat = UIScreen.main.bounds.width
+    let defaultColor : Color = Color(red: 0.15, green: 0.72, blue: 0.08) // Black
+    let activeColor : Color = Color(red: 0.65, green: 0.15, blue: 0.03) // Red
+    let cornerRadius : CGFloat = 15
+    
+    //MARK: Body
     var body: some View {
         HStack{
             Button(action: {
@@ -26,11 +44,11 @@ struct SkateOptionTry: View {
             }){
                 ZStack{
                     Rectangle()
-                        .fill(Color(red: 0.15, green: 0.72, blue: 0.08))
-                        .frame(width: width * 0.3, height: height * 0.05, alignment: .center)
-                        .cornerRadius(15)
+                        .fill(defaultColor)
+                        .frame(width: buttonWidth, height: buttonHeight, alignment: .center)
+                        .cornerRadius(cornerRadius)
                     Text("Nailed It!")
-                        .font(.system(size: width * 0.05, weight: .bold, design: .rounded))
+                        .font(.system(size: fontSize, weight: .bold, design: .rounded))
                         .foregroundColor(Color.white)
                 }
             }
@@ -50,11 +68,11 @@ struct SkateOptionTry: View {
             }){
                 ZStack{
                     Rectangle()
-                        .fill(Color(red: 0.65, green: 0.15, blue: 0.03))
-                        .frame(width: width * 0.3, height: height * 0.05, alignment: .center)
-                        .cornerRadius(15)
+                        .fill(activeColor)
+                        .frame(width: buttonWidth, height: buttonHeight, alignment: .center)
+                        .cornerRadius(cornerRadius)
                     Text("FAILED")
-                        .font(.system(size: width * 0.05, weight: .bold, design: .rounded))
+                        .font(.system(size: fontSize, weight: .bold, design: .rounded))
                         .foregroundColor(Color.white)
                 }
             }

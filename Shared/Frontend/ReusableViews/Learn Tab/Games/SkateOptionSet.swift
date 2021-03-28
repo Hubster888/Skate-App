@@ -8,12 +8,29 @@
 import SwiftUI
 
 struct SkateOptionSet: View {
+    
+    //MARK: Variable declerations
+    //Related data variables
     @Binding var skateGame : SkateGamePlayLocal
     @Binding var stateOfGame : StateOfGame
-    var height: CGFloat = UIScreen.main.bounds.height
-    var width: CGFloat = UIScreen.main.bounds.width
     let playerTurn : Int
     
+    //View variables
+    var buttonWidth : CGFloat {
+        return width * 0.3
+    }
+    var buttonHeight : CGFloat {
+        return height * 0.05
+    }
+    var fontSize : CGFloat {
+        return width * 0.05
+    }
+    let height: CGFloat = UIScreen.main.bounds.height
+    let width: CGFloat = UIScreen.main.bounds.width
+    let defaultColor : Color = Color(red: 0.15, green: 0.72, blue: 0.08) // Black
+    let cornerRadius : CGFloat = 15
+    
+    //MARK: Body
     var body: some View {
         Button(action: {
             withAnimation{
@@ -23,11 +40,11 @@ struct SkateOptionSet: View {
         }){
             ZStack{
                 Rectangle()
-                    .fill(Color(red: 0.15, green: 0.72, blue: 0.08))
-                    .frame(width: width * 0.3, height: height * 0.05, alignment: .center)
-                    .cornerRadius(15)
+                    .fill(defaultColor)
+                    .frame(width: buttonWidth, height: buttonHeight, alignment: .center)
+                    .cornerRadius(cornerRadius)
                 Text("Trick Set")
-                    .font(.system(size: width * 0.05, weight: .bold, design: .rounded))
+                    .font(.system(size: fontSize, weight: .bold, design: .rounded))
                     .foregroundColor(Color.white)
             }
         }

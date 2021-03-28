@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 import Firebase
 import GoogleSignIn
+import FirebaseFirestore
 
 class AppDelegate: NSObject, UIApplicationDelegate, GIDSignInDelegate {
     
@@ -44,7 +45,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, GIDSignInDelegate {
             let db = Firestore.firestore()
             db.collection("Users").document(Auth.auth().currentUser?.uid ?? "NO USER").getDocument(){
                 (document, error) in
-                if document!.exists {
+                if document != nil {
                     print("Document data: \(String(describing: document!.data()))")
                     CurrentUserViewModel().fetchData()
                 } else {

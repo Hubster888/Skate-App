@@ -9,61 +9,106 @@ import SwiftUI
 
 struct WeekPlanRowView: View {
     
+    //MARK: Variable declerations
+    //Relevant data variables
+    @EnvironmentObject var planViewModel : PlanViewModel
+    @State var trimVal : CGFloat = 0
+    @State var checked : Bool = false
     var hours : Float
-    var title : String
-    var complete : Bool
+    var task : PlanWeekTaskModel
     
-    var width: CGFloat {
-        return UIScreen.main.bounds.width
+    //View variables
+    var rowWidth : CGFloat {
+        return width * 0.9
     }
-    
-    var height: CGFloat {
-        return UIScreen.main.bounds.height
+    var rowHeight : CGFloat {
+        return height * 0.1
     }
+    var timeWidth : CGFloat {
+        return width * 0.2
+    }
+    var timeFontSize : CGFloat {
+        return width * 0.04
+    }
+    var tickBoxHeight : CGFloat {
+        return height * 0.1
+    }
+    var titleSize : CGFloat {
+        return width * 0.4
+    }
+    var padding : CGFloat {
+        return width * 0.01
+    }
+    var boxLineWidth : CGFloat {
+        return width * 0.015
+    }
+    var boxSize : CGFloat {
+        return height * 0.05
+    }
+    var tickSize : CGFloat {
+        return (height * 0.06) - 10
+    }
+    let tickBoxWidth : CGFloat = 20
+    let cornerRadius : CGFloat = 10
+    var width: CGFloat = UIScreen.main.bounds.width
+    var height: CGFloat = UIScreen.main.bounds.height
+    let rowColor : Color = Color(red: 0.13, green: 0.15, blue: 0.22) // Black
+    let textColor : Color = Color(red: 0.96, green: 0.96, blue: 0.96) // White
+    let boxColor : Color = Color(red: 0.95, green: 0.32, blue: 0.34) // Red
+    let completeColor : Color = Color(red: 0.15, green: 0.72, blue: 0.08) // Green
+    let shadowRadius : CGFloat = 3
+    let shadowDimensions : CGFloat = 10
     
+    init(hours: Float, task: PlanWeekTaskModel){
+        self.task = task
+        self.hours = hours
+    }
+    //MARK:Body
     var body: some View {
         ZStack{
             Rectangle()
-                .fill(Color(red: 0.13, green: 0.15, blue: 0.22))
-                .frame(width: width * 0.9, height: height * 0.1, alignment: .center)
-                .cornerRadius(10)
-                .shadow(color: Color(red: 66/255, green: 70/255, blue: 84/255, opacity: 0.5), radius: 3, x: 10, y: 10)
+                .fill(rowColor)
+                .frame(width: rowWidth, height: rowHeight, alignment: .center)
+                .cornerRadius(cornerRadius)
+                .shadow(color: rowColor.opacity(0.5), radius: shadowRadius, x: shadowDimensions, y: shadowDimensions)
             HStack{
                 Text("\(hours < 1 ? "1/2" : String(Int(hours))) Hours")
-                    .frame(width: width * 0.2, alignment: .center)
-                    .font(.system(size: width * 0.04, weight: .bold, design: .monospaced))
-                    .foregroundColor(Color(red: 0.96, green: 0.96, blue: 0.96))
+                    .frame(width: timeWidth, alignment: .center)
+                    .font(.system(size: timeFontSize, weight: .bold, design: .monospaced))
+                    .foregroundColor(textColor)
                 Rectangle()
-                    .fill(Color(red: 0.96, green: 0.96, blue: 0.96))
-                    .frame(width: 20, height: height * 0.1, alignment: .center)
-                Text(title)
-                    .frame(width: width * 0.4, alignment: .center)
-                    .font(.system(size: width * 0.04, weight: .bold, design: .monospaced))
-                    .foregroundColor(Color(red: 0.96, green: 0.96, blue: 0.96))
+                    .fill(textColor)
+                    .frame(width: tickBoxWidth, height: tickBoxHeight, alignment: .center)
+                Text(task.title)
+                    .frame(width: titleSize, alignment: .center)
+                    .font(.system(size: timeFontSize, weight: .bold, design: .monospaced))
+                    .foregroundColor(textColor)
                     .multilineTextAlignment(.center)
-                    .padding(.trailing, width * 0.01)
-                    .padding(.leading, width * 0.01)
+                    .padding(EdgeInsets(top: 0, leading: padding, bottom: 0, trailing: padding))
+                //MARK: Completion box
                 ZStack{
-                    Rectangle()
-                        .strokeBorder(complete ? Color(red: 0.15, green: 0.72, blue: 0.08) : Color(red: 0.95, green: 0.32, blue: 0.34), lineWidth: width * 0.015)
-                        .frame(width: height * 0.05, height: height * 0.05, alignment: .center)
-                    if complete {
-                        Circle() //Change to green tick
-                            .fill(Color.green)
-                            .frame(width: (height * 0.06) - 10, height: (height * 0.06) - 10, alignment: .center)
-                    }
+                    CheckBox(checked: $checked, trimVal: $trimVal)
                 }
             }
         }
-        .frame(width: width * 0.9, height: height * 0.1, alignment: .center)
-    }
-}
-
-struct WeekPlanRowView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            WeekPlanRowView(hours: 2, title: "Moving Pop Shove It", complete: false)
-                
+        .frame(width: rowWidth, height: tickBoxHeight, alignment: .center)
+        .onAppear(perform: {
+            self.checked = task.complete
+        })
+        .onTapGesture {
+            planViewModel.toogleTaskComplete(docId: task.id!)
+            if(!(self.checked)){
+                withAnimation(Animation.easeIn(duration: 0.8)){
+                    self.trimVal = 1
+                    self.checked.toggle()
+                }
+            }else {
+                withAnimation{
+                    self.trimVal = 0
+                    self.checked.toggle()
+                }
+            }
         }
     }
 }
+

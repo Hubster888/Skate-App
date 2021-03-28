@@ -8,6 +8,7 @@
 import SwiftUI
 import Firebase
 import GoogleSignIn
+import FirebaseFirestore
 
 struct HomeView: View {
     
@@ -16,9 +17,7 @@ struct HomeView: View {
     @EnvironmentObject var currentUserViewModel : CurrentUserViewModel
     @ObservedObject private var planViewModel = PlanViewModel()
     @State var logInShown : Bool = false
-    
-    @State var user : Bool = (Auth.auth().currentUser != nil)
-    
+        
     var body: some View {
         NavigationView {
             VStack {
@@ -35,7 +34,7 @@ struct HomeView: View {
                     .cornerRadius(8.0)
                     .shadow(radius: 4.0)
                     .sheet(isPresented: $logInShown) {
-                        LogInView()
+                        LogInView(loginShown: self.$logInShown).environmentObject(self.currentUserViewModel)
                     }
                 }
             }.onAppear{
@@ -56,10 +55,5 @@ struct HomeView: View {
     }
 }
 
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
-    }
-}
 
 

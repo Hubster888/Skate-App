@@ -10,6 +10,7 @@ import Firebase
 import FirebaseFirestoreSwift
 
 struct CurrentUser: Identifiable, Codable {
+    //MARK: Variable declerations
     @DocumentID var id: String? = UUID().uuidString
     var planStarted : Bool
     var email : String

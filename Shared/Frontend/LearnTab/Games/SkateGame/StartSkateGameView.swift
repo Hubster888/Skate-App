@@ -21,6 +21,9 @@ struct StartSkateGameView: View{
     @State var player1LossPressed = false
     @State var player2LossPressed = false
     let winningScore : Int = 5
+    var userName : String {
+        return (stateOfGame == .player1Set || stateOfGame == .player1Try) ? skateGame.getPlayer1().getName() : skateGame.getPlayer2().getName()
+    }
     
     //Presenting view Booleans
     @Binding var isPresented: Bool
@@ -49,6 +52,9 @@ struct StartSkateGameView: View{
     var endButtonWidth : CGFloat {
         return width * 0.8
     }
+    var smallFont : CGFloat {
+        return width * 0.04
+    }
     let loosingColor : Color = Color(red: 0.96, green: 0.96, blue: 0.96).opacity(1)
     let winingColor : Color = Color(red: 0.15, green: 0.72, blue: 0.08).opacity(0.4)
     let topBoxColor : Color = Color(red: 0.13, green: 0.15, blue: 0.22)
@@ -61,15 +67,15 @@ struct StartSkateGameView: View{
         ZStack{
             if(stateOfGame == .start){
                 //MARK: Loading View
-                LoadingView()
+                LoadingView(isLoading: self.$isLoading)
                     .onAppear(perform: {
-                    self.isLoading = true
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                        withAnimation {
-                            self.stateOfGame = .player1Set
-                            skateGame.setState(state: .player1Set)
+                        self.isLoading = true
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                            withAnimation {
+                                self.stateOfGame = .player1Set
+                                skateGame.setState(state: .player1Set)
+                            }
                         }
-                    }
                 })
             }else if(stateOfGame == .end || skateGame.getPlayer1Score() == 5 || skateGame.getPlayer2Score() == 5){
                 //End Game View
@@ -113,8 +119,8 @@ struct StartSkateGameView: View{
                                 }
                                
                             // Name and button, display whoever's turn it is
-                            Text((stateOfGame == .player1Set || stateOfGame == .player1Try) ? skateGame.getPlayer1().getName() : skateGame.getPlayer2().getName())
-                                .font(.system(size: fontSize, weight: .bold, design: .rounded))
+                            Text(userName)
+                                .font(.system(size: (userName.count < 8) ? fontSize : smallFont, weight: .bold, design: .rounded))
                                 .foregroundColor(Color.white)
                                 .padding(.top, playerNamePadding)
                                 .padding(.bottom, playerNamePadding)

@@ -9,6 +9,7 @@ import Foundation
 import FirebaseFirestoreSwift
 
 struct Plan : Identifiable, Codable{
+    //MARK: Variable declerations
     @DocumentID var id : String? = UUID().uuidString
     var weekOn : Int
     var trickChoice1 : Int
@@ -16,6 +17,7 @@ struct Plan : Identifiable, Codable{
     var trickChoice3 : Int
     var hoursPerWeek : Int
     
+    // Initialise the variables
     init(weekOn: Int, trickChoice1: Int, trickChoice2: Int, trickChoice3: Int, hoursPerWeek: Int){
         self.weekOn = weekOn
         self.trickChoice1 = trickChoice1

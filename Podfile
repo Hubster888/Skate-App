@@ -13,10 +13,11 @@ pod 'URLImage'
 pod 'Firebase/Firestore'
 pod 'FirebaseFirestoreSwift'
 pod 'CombineFirebase/Firestore'
-# pod 'CombineFirebase/Database'
+pod 'CombineFirebase/Database'
 pod 'CombineFirebase/Storage'
 pod 'CombineFirebase/Auth'
 pod 'Navajo-Swift'
+pod ‘FLAnimatedImage’
 
 # add pods for any other desired Firebase products
 # https://firebase.google.com/docs/ios/setup#available-pods

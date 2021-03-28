@@ -25,15 +25,10 @@ struct GameSelectView: View {
             List{
                 Spacer()
                 NavigationLink(destination: SkateGameView()){
-                    GameListElm(name: "SKATE", capabilities: "Online, Local", width: width, height: cellHeight)
+                    GameListElm(name: "SKATE", capabilities: "Online, Local", avaliable: true)
                 }
-                Spacer()
-                GameListElm(name: "SKATE", capabilities: "Online, Local", width: width, height: cellHeight)
-                Spacer()
-                GameListElm(name: "SKATE", capabilities: "Online, Local", width: width, height: cellHeight)
-                Spacer()
-                GameListElm(name: "SKATE", capabilities: "Online, Local", width: width, height: cellHeight)
-                Spacer()
+                GameListElm(name: "Skate Or Dice", capabilities: "Solo ,Online, Local", avaliable: false)
+                GameListElm(name: "Skate Roulette", capabilities: "Solo ,Online, Local", avaliable: false)
             }
         }
     }

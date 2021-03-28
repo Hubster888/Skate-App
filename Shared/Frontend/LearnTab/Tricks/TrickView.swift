@@ -60,7 +60,7 @@ struct TrickView: View {
                                     .blur(radius: cornerRadius)
                             )
                     }else{
-                        Text("NO IMAGE") //TODO: Add place holder image
+                        LoadingPlaceHolder(width: width, height: height/2, backgroundColor: backgroundColor)
                     }
                     Rectangle()
                         .fill(topImageBorderColor)
