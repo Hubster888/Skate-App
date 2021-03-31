@@ -8,7 +8,7 @@
 import SwiftUI
 import Firebase
 import Combine
-import CombineFirebase
+//import CombineFirebase
 import FirebaseFirestore
 
 struct LogInView: View { // TODO: Make this page look nice

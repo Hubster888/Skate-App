@@ -21,7 +21,7 @@ class CurrentUserViewModel : ObservableObject{
         if(Auth.auth().currentUser != nil){
             db.collection("Users").document(Auth.auth().currentUser!.uid).collection("Data").document("data").addSnapshotListener {(documentSnapshot, error) in
                     self.currentUser = documentSnapshot.flatMap { (queryDocumentSnapshot) -> CurrentUser in
-                        return try! (queryDocumentSnapshot.data(as: CurrentUser.self) ?? CurrentUser(planStarted: false, email: "None"))
+                        return try! (queryDocumentSnapshot.data(as: CurrentUser.self) ?? CurrentUser(planStarted: false, email: "None", username: "None"))
                     }
                 }
         }
@@ -55,7 +55,8 @@ class CurrentUserViewModel : ObservableObject{
         //Add user data
         db.collection("Users").document(Auth.auth().currentUser!.uid).collection("Data").document("data").setData([
             "planStarted": false,
-            "email": "email"
+            "email": "email",
+            "username": "username"
         ]) { err in
             if let err = err {
                 print("Error updating document: \(err)")

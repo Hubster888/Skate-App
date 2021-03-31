@@ -45,7 +45,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, GIDSignInDelegate {
             let db = Firestore.firestore()
             db.collection("Users").document(Auth.auth().currentUser?.uid ?? "NO USER").getDocument(){
                 (document, error) in
-                if document != nil {
+                if document!.data() != nil {
                     print("Document data: \(String(describing: document!.data()))")
                     CurrentUserViewModel().fetchData()
                 } else {

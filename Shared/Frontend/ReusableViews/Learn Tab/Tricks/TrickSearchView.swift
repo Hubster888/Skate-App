@@ -30,15 +30,15 @@ struct TrickSearchView: View {
     let cornerRadius : CGFloat = 10
     
     //MARK:Body
-    var body: some View { //FIXME: Make this look good
+    var body: some View {
         ZStack{
             Rectangle()
-                .fill(shapeColor)
-                .frame(width: shapeWidth, height: shapeHeight, alignment: .center)
-                .cornerRadius(cornerRadius)
+                .fill(Color.white)
+                .frame(width: width, height: height * 0.04, alignment: .center)
             Text(name)
                 .font(.system(size: fontSize, weight: .bold, design: .monospaced))
-                .foregroundColor(textColor)
+                .foregroundColor(.black)
         }
+        Divider()
     }
 }

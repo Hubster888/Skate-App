@@ -59,7 +59,7 @@ struct TrickSelectView: View {
         ZStack{
             // Background that fades when search is active
             Rectangle() //FIXME: Improve the background fading
-                .fill((backgroundColor).opacity(isEditing ? 0.5 : 1))
+                .fill(backgroundColor)
                 .frame(width: width, height: height, alignment: .center)
             VStack{
                 
@@ -75,12 +75,16 @@ struct TrickSelectView: View {
                                 Image(systemName: "magnifyingglass")
                                 TextField("search", text: $trickViewModel.searchText) //FIXME: The keyboard make view disapear
                                     .onTapGesture {
-                                        self.isEditing = true
+                                        withAnimation{
+                                            self.isEditing = true
+                                        }
                                     }
                                     .foregroundColor(.primary)
                                 if isEditing { // Cancel button appears during search
                                     Button(action: {
-                                        self.isEditing = false
+                                        withAnimation{
+                                            self.isEditing = false
+                                        }
                                         trickViewModel.searchText = ""
                                     }) {
                                         Text("Cancel")
@@ -119,11 +123,17 @@ struct TrickSelectView: View {
                             .modifier(ScrollingHStackModifier(items: 4, itemWidth: trickCardWidth, itemSpacing: trickCardSpacing))
                             Spacer()
                         }
-                        
+                        // Blur background
+                        if isEditing {
+                            Rectangle()
+                                .fill(Color.white.opacity(0.8))
+                                .edgesIgnoringSafeArea(.all)
+                                .blur(radius: 5)
+                        }
                         //MARK: Search Bar Results
                         if trickViewModel.tricks.filter{$0.name.contains(trickViewModel.searchText)}.count > 0 {
-                            ScrollView(showsIndicators: false) { //TODO: Make the search results look better
-                                LazyVGrid(columns: layout, spacing: searchSpacing) {
+                            ScrollView(showsIndicators: false) {
+                                //LazyVGrid(columns: layout, spacing: searchSpacing) {
                                     ForEach(trickViewModel.tricks.filter{$0.name.contains(trickViewModel.searchText)}) { trick in
                                         Button(action: {
                                             trickViewModel.setCurrentTrick(id: trick.id!)
@@ -134,8 +144,8 @@ struct TrickSelectView: View {
                                         }.sheet(isPresented: $showingTrick) {
                                             TrickView().environmentObject(self.trickViewModel)
                                         }
-                                    }
-                                }
+                                    }.background(Color.white)
+                                //}
                             }
                         }
                 

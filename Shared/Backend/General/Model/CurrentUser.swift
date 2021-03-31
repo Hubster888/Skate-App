@@ -14,4 +14,5 @@ struct CurrentUser: Identifiable, Codable {
     @DocumentID var id: String? = UUID().uuidString
     var planStarted : Bool
     var email : String
+    var username : String
 }

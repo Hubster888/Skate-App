@@ -8,7 +8,7 @@
 import SwiftUI
 import AVKit
 import URLImage
-import FirebaseStorage
+//import FirebaseStorage
 
 struct TrickView: View {
     

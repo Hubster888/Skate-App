@@ -250,7 +250,6 @@ class TrickViewModel : ObservableObject {
             self.setTaskComplete(sectionComplete: sectionComplete, trickId: trickId)
            }
      }
-        //getCurrentCompletion(id: trickId)
     }
     
 }
