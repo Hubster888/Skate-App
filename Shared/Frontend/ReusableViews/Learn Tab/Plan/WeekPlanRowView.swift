@@ -108,7 +108,13 @@ struct WeekPlanRowView: View {
                     self.checked.toggle()
                 }
             }
+            vibration()
         }
+    }
+    
+    func vibration() {
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
     }
 }
 

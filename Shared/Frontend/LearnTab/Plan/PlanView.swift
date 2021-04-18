@@ -14,6 +14,7 @@ struct PlanView: View {
     @Binding var rootIsActive : Bool
     @State private var showingActionSheet = false
     @State private var prevWeekAsk : Bool = false
+    @State private var showingAnimation : Bool = false
     
     //Plan data
     @EnvironmentObject var planViewModel : PlanViewModel
@@ -88,6 +89,12 @@ struct PlanView: View {
                 .onAppear(perform: {
                     planViewModel.fetchDataTasks()
                 })
+            AnimatedImageView(fileName: "skateCompleteGIF") // skateboard GIF
+                .frame(width: width * 0.8, height: height/2, alignment: .center)
+                .cornerRadius(cornerRadius)
+                .scaledToFit()
+                .shadow(radius: 15)
+                .opacity(showingAnimation ? 1 : 0)
             //MARK: Week Plan Display
             if(planViewModel.plan != nil){
                 VStack{
@@ -99,6 +106,7 @@ struct PlanView: View {
                             .environmentObject(self.planViewModel)
                             .transition(.move(edge: .leading))
                             .animation(Animation.linear(duration: animationDuration))
+                            .opacity(showingAnimation ? 0 : 1)
                     case 2:
                         PlanWeekView(weekNum: planViewModel.plan!.weekOn,
                                      weekDescription: "Now you should be semi confident on the board, the next step is to get a little more adventurous and get confident with ollies.",
@@ -106,6 +114,7 @@ struct PlanView: View {
                             .environmentObject(self.planViewModel)
                             .transition(.move(edge: .leading))
                             .animation(Animation.linear(duration: animationDuration))
+                            .opacity(showingAnimation ? 0 : 1)
                     case 3:
                         PlanWeekView(weekNum: planViewModel.plan!.weekOn,
                                      weekDescription: "This week you will be attempting to learn two more tricks and getting more practice on the ollie.",
@@ -113,6 +122,7 @@ struct PlanView: View {
                             .environmentObject(self.planViewModel)
                             .transition(.move(edge: .leading))
                             .animation(Animation.linear(duration: animationDuration))
+                            .opacity(showingAnimation ? 0 : 1)
                     case 4:
                         PlanWeekView(weekNum: planViewModel.plan!.weekOn,
                                      weekDescription: "At this point you should be pretty confident on the board, and so you will be trying more tricks while moving. Start off slow and as you land a few increase your speed.",
@@ -120,6 +130,7 @@ struct PlanView: View {
                             .environmentObject(self.planViewModel)
                             .transition(.move(edge: .leading))
                             .animation(Animation.linear(duration: animationDuration))
+                            .opacity(showingAnimation ? 0 : 1)
                     case 5:
                         PlanWeekView(weekNum: planViewModel.plan!.weekOn,
                                      weekDescription: "This week is where it gets good, you will learn to flip trick over an obstacle and ollie off a curb.",
@@ -127,6 +138,7 @@ struct PlanView: View {
                             .environmentObject(self.planViewModel)
                             .transition(.move(edge: .leading))
                             .animation(Animation.linear(duration: animationDuration))
+                            .opacity(showingAnimation ? 0 : 1)
                     case 6:
                         PlanWeekView(weekNum: planViewModel.plan!.weekOn,
                                      weekDescription: "This week you will be strengthening your flip tricks and you will learn to ollie onto a curb.",
@@ -134,6 +146,7 @@ struct PlanView: View {
                             .environmentObject(self.planViewModel)
                             .transition(.move(edge: .leading))
                             .animation(Animation.linear(duration: animationDuration))
+                            .opacity(showingAnimation ? 0 : 1)
                     case 7:
                         PlanWeekView(weekNum: planViewModel.plan!.weekOn,
                                      weekDescription: "You are almost finished with the plan so its time to take it further, this week your going to attempt to ollie onto and grind a ledge or a rail.",
@@ -141,6 +154,7 @@ struct PlanView: View {
                             .environmentObject(self.planViewModel)
                             .transition(.move(edge: .leading))
                             .animation(Animation.linear(duration: animationDuration))
+                            .opacity(showingAnimation ? 0 : 1)
                     case 8:
                         PlanWeekView(weekNum: planViewModel.plan!.weekOn,
                                      weekDescription: "This is your final week, at this point you can call yourself a skater and start to define your style. Just remember this is only the beginning.",
@@ -148,6 +162,7 @@ struct PlanView: View {
                             .environmentObject(self.planViewModel)
                             .transition(.move(edge: .leading))
                             .animation(Animation.linear(duration: animationDuration))
+                            .opacity(showingAnimation ? 0 : 1)
                     default:
                         PlanEndView(rootIsActive: self.$rootIsActive)
                             .environmentObject(self.planViewModel)
@@ -170,7 +185,18 @@ struct PlanView: View {
                         }
                         .actionSheet(isPresented: $showingActionSheet) { //Confirm user wants to go forward a week
                             ActionSheet(title: Text("Confirm"), message: Text("Be confident with this week before moving on!"), buttons: [
-                                .default(Text("Go to next week")) { withAnimation(.easeIn(duration: 2)){planViewModel.moveToNextWeek(forward: true)}},
+                                .default(Text("Go to next week")) { withAnimation(.easeIn(duration: 1.5)){
+                                    vibration()
+                                    planViewModel.moveToNextWeek(forward: true)
+                                    if(planViewModel.plan!.weekOn < 8){
+                                        self.showingAnimation = true
+                                    }
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                                        withAnimation(.easeOut(duration: 1.5)){
+                                            self.showingAnimation = false
+                                        }
+                                    }
+                                }},
                                 .cancel()
                             ])
                         }
@@ -184,5 +210,10 @@ struct PlanView: View {
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarItems(leading: btnBack, trailing: prevWeek)
+    }
+    
+    func vibration() {
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
     }
 }

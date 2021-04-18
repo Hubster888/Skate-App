@@ -157,8 +157,9 @@ class UserViewModel: ObservableObject {
 
 // The log in with google button
 struct google: UIViewRepresentable{
-    func updateUIView(_ uiView: GIDSignInButton, context: Context) {
     
+    func updateUIView(_ uiView: GIDSignInButton, context: Context) {
+        
     }
     
     func makeUIView(context: UIViewRepresentableContext<google>) -> GIDSignInButton {

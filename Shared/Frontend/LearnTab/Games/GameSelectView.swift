@@ -22,13 +22,36 @@ struct GameSelectView: View {
     var body: some View {
         ZStack{
             backgroundColor.edgesIgnoringSafeArea(.all)
-            List{
+            VStack{
                 Spacer()
-                NavigationLink(destination: SkateGameView()){
-                    GameListElm(name: "SKATE", capabilities: "Online, Local", avaliable: true)
+                Text("Pick One:")
+                    .font(.largeTitle)
+                    .bold()
+                Spacer()
+                HStack{
+                    Spacer()
+                    NavigationLink(destination: SkateGameView()){
+                        GameListElm(name: "SKATE Game", avaliable: true)
+                    }.buttonStyle(ScaleAnimationButtonEffect())
+                    Spacer()
+                    Button(action: {}){
+                        GameListElm(name: "Skate Or Dice", avaliable: false)
+                    }.buttonStyle(ScaleAnimationButtonEffect())
+                    Spacer()
                 }
-                GameListElm(name: "Skate Or Dice", capabilities: "Solo ,Online, Local", avaliable: false)
-                GameListElm(name: "Skate Roulette", capabilities: "Solo ,Online, Local", avaliable: false)
+                Spacer()
+                HStack{
+                    Spacer()
+                    Button(action: {}){
+                        GameListElm(name: "Skate Roulette", avaliable: false)
+                    }.buttonStyle(ScaleAnimationButtonEffect())
+                    Spacer()
+                    Button(action: {}){
+                        GameListElm(name: "First Try Day", avaliable: false)
+                    }.buttonStyle(ScaleAnimationButtonEffect())
+                    Spacer()
+                }
+                Spacer()
             }
         }
     }

@@ -8,13 +8,16 @@
 import SwiftUI
 import AVKit
 import URLImage
+import Firebase
 //import FirebaseStorage
 
 struct TrickView: View {
     
     //MARK: Variable Declerations
     //Data variables
+    @EnvironmentObject var currentUserViewModel : CurrentUserViewModel
     @EnvironmentObject private var trickViewModel : TrickViewModel
+    @State var showingLogIn = false
     
     //View variables
     var titleFrameHeight : CGFloat {
@@ -79,29 +82,52 @@ struct TrickView: View {
                                                diameter: trickVariationWidth)
                                 .buttonStyle(ScaleAnimationButtonEffect())
                                 .onTapGesture {
-                                    trickViewModel.setTaskComplete(sectionComplete: 1, trickId: trickViewModel.currentTrick!.id!)
+                                    if(Auth.auth().currentUser != nil){
+                                        trickViewModel.setTaskComplete(sectionComplete: 1, trickId: trickViewModel.currentTrick!.id!)
+                                    }else {
+                                        self.showingLogIn = true
+                                    }
+                                    vibration()
                                 }
                             TrickVariationView(variationType: "N", isComplete: trickViewModel.currentCompletion[1],
                                                diameter: trickVariationWidth)
                                 .buttonStyle(ScaleAnimationButtonEffect())
                                 .onTapGesture {
-                                    trickViewModel.setTaskComplete(sectionComplete: 2, trickId: trickViewModel.currentTrick!.id!)
+                                    if(Auth.auth().currentUser != nil){
+                                        trickViewModel.setTaskComplete(sectionComplete: 2, trickId: trickViewModel.currentTrick!.id!)
+                                    }else {
+                                        self.showingLogIn = true
+                                    }
+                                    vibration()
                                 }
                             TrickVariationView(variationType: "S", isComplete: trickViewModel.currentCompletion[2],
                                                diameter: trickVariationWidth)
                                 .buttonStyle(ScaleAnimationButtonEffect())
                                 .onTapGesture {
-                                    trickViewModel.setTaskComplete(sectionComplete: 3, trickId: trickViewModel.currentTrick!.id!)
+                                    if(Auth.auth().currentUser != nil){
+                                        trickViewModel.setTaskComplete(sectionComplete: 3, trickId: trickViewModel.currentTrick!.id!)
+                                    }else {
+                                        self.showingLogIn = true
+                                    }
+                                    vibration()
                                 }
                             TrickVariationView(variationType: "F", isComplete: trickViewModel.currentCompletion[3],
                                                diameter: trickVariationWidth)
                                 .buttonStyle(ScaleAnimationButtonEffect())
                                 .padding(.trailing, cornerRadius)
                                 .onTapGesture {
-                                    trickViewModel.setTaskComplete(sectionComplete: 4, trickId: trickViewModel.currentTrick!.id!)
+                                    if(Auth.auth().currentUser != nil){
+                                        trickViewModel.setTaskComplete(sectionComplete: 4, trickId: trickViewModel.currentTrick!.id!)
+                                    }else {
+                                        self.showingLogIn = true
+                                    }
+                                    vibration()
                                 }
                         }
                         .padding(.trailing, cornerRadius)
+                        .sheet(isPresented: $showingLogIn) {
+                            LogInView(loginShown: self.$showingLogIn).environmentObject(self.currentUserViewModel)
+                        }
                         Spacer()
                     }
                     .offset(y: titleFrameOffset)
@@ -182,5 +208,10 @@ struct TrickView: View {
                 }
             }
         }
+    }
+    
+    func vibration() {
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
     }
 }

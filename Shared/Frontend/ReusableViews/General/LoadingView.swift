@@ -30,7 +30,7 @@ struct LoadingView: View {
     let loadingBarOffsetAnimation : CGFloat = 110
     let loadingBarWidth : CGFloat = 30
     let titleOffset : CGFloat = 25
-    let cornerRadius : CGFloat = 3
+    let cornerRadius : CGFloat = 25
     var width: CGFloat = UIScreen.main.bounds.width
     var height: CGFloat = UIScreen.main.bounds.height
     
@@ -38,22 +38,14 @@ struct LoadingView: View {
     var body: some View { //TODO: Make this screen better
         VStack{
             Spacer()
-            VStack{
-                Text("Getting game ready!") // Title
-                    .font(.system(size: fontSize, design: .monospaced))
-                ZStack{
-                    //Loading background
-                    RoundedRectangle(cornerRadius: cornerRadius)
-                        .stroke(Color(.systemGray5), lineWidth: 5)
-                        .frame(width: barWidth, height: barHeight)
-                    //Loading moving bar
-                    RoundedRectangle(cornerRadius: cornerRadius)
-                        .stroke(loadingBarColor, lineWidth: 10)
-                        .frame(width: loadingBarWidth, height: barHeight)
-                        .offset(x: isLoading ? loadingBarOffsetAnimation : -loadingBarOffsetAnimation)
-                        .animation(Animation.linear(duration: 1).repeatForever(autoreverses: false))
-                }
-            }
+            AnimatedImageView(fileName: "skateLoading") // skateboard GIF
+                .frame(width: width * 0.8, height: height/2, alignment: .center)
+                .cornerRadius(cornerRadius)
+                .scaledToFit()
+                .shadow(radius: 15)
+            Spacer()
+            Text("LOADING...")
+                .font(.largeTitle)
             Spacer()
         }
     }

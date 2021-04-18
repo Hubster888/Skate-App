@@ -113,7 +113,6 @@ struct LearnView: View {
                             self.planViewModel.fetchDataTasks()
                         }
                     }
-                            
                     NavigationLink(destination: TrickSelectView(), isActive: $tricksIsActive) {
                         VStack{
                             Text("TRICKS")
@@ -129,8 +128,6 @@ struct LearnView: View {
                         }
                         .frame(alignment: .trailing)
                     }.buttonStyle(LearnButtonEffectButtonStyle(image: Image("learnTricksButton"), action: { self.tricksIsActive.toggle()}))
-                    
-                            
                     NavigationLink(destination: GameSelectView(), isActive: $gamesIsActive) {
                         VStack{
                             Text("GAMES")
@@ -142,7 +139,6 @@ struct LearnView: View {
                                 .foregroundColor(subTextColor)
                                 .frame(width: subTextFrameWidth, alignment: .center)
                                 .multilineTextAlignment(.center)
-                            
                         }.frame(alignment: .trailing)
                     }
                     .buttonStyle(LearnButtonEffectButtonStyle(image: Image("learnGamesButton"), action: { self.gamesIsActive.toggle()}))
@@ -158,7 +154,7 @@ struct LearnView: View {
                 if(Auth.auth().currentUser != nil){
                     self.planViewModel.fetchData()
                     self.planViewModel.fetchDataTasks()
-                    if(currentUserViewModel.currentUser!.planStarted){
+                    if(currentUserViewModel.currentUser != nil && currentUserViewModel.currentUser!.planStarted){
                         self.planViewModel.fetchDataTasks()
                     }
                 }

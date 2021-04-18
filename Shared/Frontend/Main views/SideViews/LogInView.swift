@@ -111,8 +111,20 @@ struct LogInView: View { // TODO: Make this page look nice
                 .frame(width: width, height: frameHeight, alignment: .center)
                 .background(defaultColor)
                 
-                google().frame(width: 120, height: 50)
-                    .offset(y: -titlePadding)
+                
+                    google()
+                        .frame(width: 120, height: 50)
+                        .offset(y: -titlePadding)
+                        .onAppear(){
+                            let _ = Auth.auth().addStateDidChangeListener { (auth, user) in
+                                if (user != nil) {
+                                    self.logInShown  = false
+                                }
+                            }
+                        }
+                
+                
+                
                 Button(action: {
                     logInShown = false
                 }){
@@ -130,3 +142,5 @@ struct LogInView: View { // TODO: Make this page look nice
         }
     }
   }
+
+

@@ -10,7 +10,7 @@ import Firebase
 
 struct AppView: View {
 
-    @State private var selectedTab = 2
+    @State private var selectedTab = 1
     var currentUserViewModel = CurrentUserViewModel()
 
     var body: some View{
@@ -27,16 +27,6 @@ struct AppView: View {
                         }
                     .tag(0)
                 
-                ExploreView().environmentObject(currentUserViewModel)
-                    .tabItem {
-                        Image(systemName: "perspective")
-                        Text("Explore")
-                    }
-                    .onAppear {
-                            self.selectedTab = 1
-                        }
-                    .tag(1)
-                
                 HomeView().environmentObject(currentUserViewModel)
                     .tabItem {
                         Image(systemName: "house.fill")
@@ -45,27 +35,7 @@ struct AppView: View {
                     .onAppear {
                         self.selectedTab = 2
                         }
-                    .tag(2)
-                
-                FeedView().environmentObject(currentUserViewModel)
-                    .tabItem {
-                        Image(systemName: "person.3.fill")
-                        Text("Feed")
-                    }
-                    .onAppear {
-                            self.selectedTab = 3
-                        }
-                    .tag(3)
-                
-                ProfileView().environmentObject(currentUserViewModel)
-                    .tabItem {
-                        Image(systemName: "person.circle.fill")
-                        Text("Profile")
-                    }
-                    .onAppear {
-                            self.selectedTab = 4
-                        }
-                    .tag(4)
+                    .tag(1)
             }
         }
         .accentColor(Color(red: 0.95, green: 0.32, blue: 0.34))

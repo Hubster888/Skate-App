@@ -65,6 +65,7 @@ struct SkateOptionTry: View {
                         }
                     }
                 }
+                vibration()
             }){
                 ZStack{
                     Rectangle()
@@ -78,5 +79,10 @@ struct SkateOptionTry: View {
             }
             .buttonStyle(ScaleAnimationButtonEffect())
         }
+    }
+    
+    func vibration() {
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
     }
 }

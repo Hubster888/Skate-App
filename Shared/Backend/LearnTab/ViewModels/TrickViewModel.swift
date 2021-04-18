@@ -35,6 +35,30 @@ class TrickViewModel : ObservableObject {
     
     private var db = Firestore.firestore()
     
+    /*func getCompleteTricks(diff: Int, segment: Int) -> [Trick] {
+        do{
+            if(segment == 0){
+                switch(diff){
+                case 1:
+                    return self.beginnerTricks
+                case 2:
+                    return self.doingThisAWhileTricks
+                case 3:
+                    return self.proTricks
+                case 4:
+                    return self.godlikeTricks
+                default:
+                    return []
+                }
+            }else {
+                let arrUsed = try self.beginnerTricks.filter{
+                    segment == 1 ? (self.completionTable[$0.id!]?.filter{$0}.count == 1) : (self.completionTable[$0.id!]!.filter{$0}.count > 1)
+            }
+        }catch {
+            return []
+        }
+    }*/
+    
     func addTrickToDB(trick : Trick){
         let _ = db.collection("Tricks").addDocument(from: trick)
     }

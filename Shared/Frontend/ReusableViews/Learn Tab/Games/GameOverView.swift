@@ -18,154 +18,118 @@ struct GameOverView: View {
     //Related data variables
     let skateGame : SkateGamePlayLocal
     var winner : String {
-        return skateGame.getPlayer1Score() > skateGame.getPlayer2Score() ? "The winner is \n" + skateGame.getPlayer2().getName() : "The winner is \n" + skateGame.getPlayer1().getName()
+        return skateGame.getPlayer1Score() > skateGame.getPlayer2Score() ? skateGame.getPlayer2().getName() : skateGame.getPlayer1().getName()
     }
     
     //View variables
-    var lineWidth : CGFloat {
-        return width * 0.05
-    }
-    var circleWidth : CGFloat {
-        return width * 0.5
-    }
-    var circleWidth2 : CGFloat {
-        return width * 0.6
-    }
-    var bottomPadding : CGFloat {
-        return height * 0.1
-    }
     var buttonWidth : CGFloat {
         return width * 0.8
     }
     var buttonHeight : CGFloat {
         return height * 0.08
     }
-    var finishFontSize : CGFloat {
-        return width * 0.08
+    var topRectHeight : CGFloat {
+        return height * 0.4
     }
-    var smallFont : CGFloat {
-        return width * 0.04
+    var congratsOffset : CGFloat {
+        return height * 0.125
     }
-    var bigFont : CGFloat {
-        return width * 0.05
+    var circleSize : CGFloat {
+        return width * 0.6
     }
-    var gifHeight : CGFloat {
-        return height * 0.35
+    var crownSize : CGFloat {
+        return width * 0.35
+    }
+    var circleOffset : CGFloat {
+        return height * 0.1
+    }
+    var winnerPadding : CGFloat {
+        return height * 0.05
     }
     let height : CGFloat = UIScreen.main.bounds.height
     let width : CGFloat = UIScreen.main.bounds.width
-    let ringColor : Color = Color(red: 66/255, green: 70/255, blue: 84/255) // Red
+    let ringColor : Color = Color.red
     let defaultColor : Color = Color(red: 66/255, green: 70/255, blue: 84/255) // Black
     let circleLineWidth : CGFloat = 7
     let cornerRadius : CGFloat = 15
-    
-    //Confetti view
-    @State var isShowingConfetti: Bool = true// true while confetti is displayed
-    
+    let shadowRadius : CGFloat = 10
+    let bigShadowRadius : CGFloat = 25
+    @State var animationOn : Bool = false
     
     //MARK: Body
     var body: some View {
-        ZStack{
-            VStack{
-                AnimatedImageView(fileName: "PlanEndGIF") // Celebration GIF
-                    .frame(width: width, height: gifHeight, alignment: .top)
-                    .padding(.bottom, smallFont)
-                    .shadow(color: defaultColor, radius: circleLineWidth, x: circleLineWidth, y: circleLineWidth)
+        VStack{
+            ZStack{
+                //Top rectangle
+                Rectangle()
+                    .fill(ringColor)
                     .cornerRadius(cornerRadius)
-                Spacer()
-                Text(winner)
-                    .font(.system(size: (winner.count < 20) ? bigFont : smallFont, weight: .bold, design: .monospaced))
-                    .multilineTextAlignment(.center)
-                Spacer()
-                Button(action: {
-                    self.isPresented = false
-                }){
-                    ZStack{
-                        Rectangle()
-                            .fill(ringColor)
-                            .frame(width: buttonWidth, height: buttonHeight, alignment: .center)
-                            .cornerRadius(cornerRadius)
-                        Text("FINISH")
-                            .font(.system(size: finishFontSize, weight: .bold, design: .rounded))
-                            .foregroundColor(Color.white)
-                    }
+                    .frame(width: width, height: topRectHeight, alignment: .top)
+                    .ignoresSafeArea(.all)
+                    .shadow(radius: shadowRadius)
+                //"Congrats"
+                Text("CONGRATS!")
+                    .font(.largeTitle)
+                    .foregroundColor(.white)
+                    .bold()
+                    .offset(y: -congratsOffset)
+                ZStack{
+                    //Circle
+                    Circle()
+                        .overlay(
+                            Circle()
+                                .stroke(ringColor, lineWidth: circleLineWidth)
+                            ).foregroundColor(Color.white)
+                        .frame(width: circleSize, height: circleSize, alignment: .center)
+                    //Trophy
+                    Image("crown")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: crownSize, height: crownSize, alignment: .center)
+                        .scaleEffect(animationOn ? 1 : 0.5)
+                        .animation(Animation.default.repeatCount(5))
+                        .onAppear{
+                            vibration()
+                            withAnimation{
+                                animationOn = true
+                            }
+                        }
                 }
-                .buttonStyle(ScaleAnimationButtonEffect())
-                Spacer()
+                .offset(y: circleOffset)
+                .shadow(radius: bigShadowRadius)
             }
-            let confettiCelebrationView = ConfettiCelebrationView(isShowingConfetti: $isShowingConfetti, timeLimit: 1.0)
-            
-
-            ZStack {
-                if isShowingConfetti { confettiCelebrationView }
-            }.onAppear{
-                NotificationCenter.default.post(name: Notification.Name.playConfettiCelebration, object: Bool.self)
-            }.transition(.slowFadeIn)
+            Spacer()
+            // "Winner is"
+            Text("The Winner Is")
+                .font(.title)
+                .padding(.bottom, winnerPadding)
+            // winner name
+            Text(winner)
+                .font(.largeTitle)
+                .bold()
+            Spacer()
+            //Button
+            Button(action: {
+                self.isPresented = false
+            }){
+                ZStack{
+                    Rectangle()
+                        .fill(ringColor)
+                        .frame(width: buttonWidth, height: buttonHeight, alignment: .center)
+                        .cornerRadius(cornerRadius)
+                    Text("FINISH")
+                        .font(.largeTitle)
+                        .bold()
+                        .foregroundColor(Color.white)
+                }
+            }
+            .buttonStyle(ScaleAnimationButtonEffect())
+            Spacer()
         }
     }
-}
-
-//MARK: Confetti view
-// a timed celebration
-struct ConfettiCelebrationView: View {
-
-    @Binding var isShowingConfetti: Bool // true while confetti is displayed
-    private var timeLimit: TimeInterval // how long to display confetti
-    @State private var timer = Timer.publish(every: 0.0, on: .main, in: .common).autoconnect()
-
-    init(isShowingConfetti: Binding<Bool>, timeLimit: TimeInterval = 4.0) {
-        self.timeLimit = timeLimit
-        _isShowingConfetti = isShowingConfetti
-    }
-
-    var body: some View {
-
-        // define confetti cell elements & fadeout transition
-        let confetti = ConfettiView( confetti: [
-            .text("🎉"),
-            .text("💪"),
-            .shape(.triangle),
-            // if using SF symbols, UIImage takes systemName to build
-            .image(UIImage(systemName: "star.fill")!)
-        ]).transition(.slowFadeOut)
-
-        return ZStack {
-            // show either confetti or nothing
-            if isShowingConfetti { confetti } else { EmptyView() }
-        }.onReceive(timer) { time in
-            // timer beat is one interval then quit the confetti
-            self.timer.upstream.connect().cancel()
-            self.isShowingConfetti = false
-        }.onReceive(NotificationCenter.default.publisher(for: Notification.Name.playConfettiCelebration)) { _ in
-            // got notification so do --> reset & play
-            self.resetTimerAndPlay()
-        }
-    }
-
-    // reset the timer and turn on confetti
-    private func resetTimerAndPlay() {
-        timer = Timer.publish(every: self.timeLimit, on: .main, in: .common).autoconnect()
-        isShowingConfetti = true
-    }
-
-}
-
-// notification to start timer & display the confetti celebration view
-public extension Notification.Name {
-    static let playConfettiCelebration = Notification.Name("play_confetti_celebration")
-}
-
-// fade in & out transitions for ConfettiView and Play button
-extension AnyTransition {
-    static var slowFadeOut: AnyTransition {
-        let insertion = AnyTransition.opacity
-        let removal = AnyTransition.opacity.animation(.easeOut(duration: 1.5))
-        return .asymmetric(insertion: insertion, removal: removal)
-    }
-
-    static var slowFadeIn: AnyTransition {
-        let insertion = AnyTransition.opacity.animation(.easeIn(duration: 1.5))
-        let removal = AnyTransition.opacity
-        return .asymmetric(insertion: insertion, removal: removal)
+    
+    func vibration() {
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
     }
 }

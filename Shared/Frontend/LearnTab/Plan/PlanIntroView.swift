@@ -9,6 +9,8 @@ import SwiftUI
 import Firebase
 
 struct PlanIntroView: View {
+    @State private var showingAlert = false
+    @State private var loginDisplayed = false
     
     //MARK: Variable Declerations
     // Navigation variables
@@ -79,10 +81,16 @@ struct PlanIntroView: View {
               }.hidden() // This lets me move directly to plan view after plan creation
             if(showingSlides){ // Shows the slide show.
                 OnboardingViewPure(data: onBoardData, doneFunction: {
-                    self.showingSlides = false
+                    if(Auth.auth().currentUser != nil){
+                        self.showingSlides = false
+                    }else{
+                        self.showingLogIn = true
+                    }
                 }, backgroundColor: backgroundColor)
+                .sheet(isPresented: $showingLogIn) {
+                    LogInView(loginShown: self.$showingLogIn).environmentObject(self.currentUserViewModel)
+                }
             }else{
-                
                 //MARK: Questionare
                 if(Auth.auth().currentUser != nil){ //FIXME: Make this automaticaly update when user logs in
                     VStack{

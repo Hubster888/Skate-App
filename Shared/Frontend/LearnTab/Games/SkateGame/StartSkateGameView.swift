@@ -117,7 +117,6 @@ struct StartSkateGameView: View{
                                     }
                                     isTimerRunning.toggle()
                                 }
-                               
                             // Name and button, display whoever's turn it is
                             Text(userName)
                                 .font(.system(size: (userName.count < 8) ? fontSize : smallFont, weight: .bold, design: .rounded))

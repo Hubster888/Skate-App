@@ -46,6 +46,7 @@
 		2C9B2F1225922334006A47DA /* TrickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9B2F1125922334006A47DA /* TrickView.swift */; };
 		2C9B2F282592253A006A47DA /* TrickSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9B2F272592253A006A47DA /* TrickSelectView.swift */; };
 		2C9B2F3225922BFA006A47DA /* TrickVariationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9B2F3125922BFA006A47DA /* TrickVariationView.swift */; };
+		2C9C43D5261CD57B00287BD9 /* skateLoading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2C9C43D4261CD57B00287BD9 /* skateLoading.gif */; };
 		2C9C7C7C25C941FD00319434 /* PlanWeekTaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9C7C7B25C941FC00319434 /* PlanWeekTaskModel.swift */; };
 		2CA766E926049508005FEBBF /* OnboardingViewPure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA766E826049508005FEBBF /* OnboardingViewPure.swift */; };
 		2CA766EB26049542005FEBBF /* OnboardingDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA766EA26049542005FEBBF /* OnboardingDataModel.swift */; };
@@ -58,6 +59,7 @@
 		2CC4D32725ACCB4200CE1132 /* Trick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC4D32625ACCB4200CE1132 /* Trick.swift */; };
 		2CD1D7552614E9BC00BF43FF /* PlanEndGIF.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2CD1D7542614E9BC00BF43FF /* PlanEndGIF.gif */; };
 		2CD800EF25D6861600A9994D /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD800EE25D6861500A9994D /* LoadingView.swift */; };
+		2CDBEDFF261E03620000BB6D /* skateCompleteGIF.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2CDBEDFE261E03620000BB6D /* skateCompleteGIF.gif */; };
 		2CE5775B258106F000B4F204 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE5775A258106F000B4F204 /* Tests_iOS.swift */; };
 		2CE57768258106F000B4F204 /* Skate_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE5773F258106EF00B4F204 /* Skate_AppApp.swift */; };
 		2CE5776C258106F000B4F204 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CE57741258106F000B4F204 /* Assets.xcassets */; };
@@ -115,6 +117,7 @@
 		2C9B2F1125922334006A47DA /* TrickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrickView.swift; sourceTree = "<group>"; };
 		2C9B2F272592253A006A47DA /* TrickSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrickSelectView.swift; sourceTree = "<group>"; };
 		2C9B2F3125922BFA006A47DA /* TrickVariationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrickVariationView.swift; sourceTree = "<group>"; };
+		2C9C43D4261CD57B00287BD9 /* skateLoading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = skateLoading.gif; path = AppAssets/skateLoading.gif; sourceTree = "<group>"; };
 		2C9C7C7B25C941FC00319434 /* PlanWeekTaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanWeekTaskModel.swift; sourceTree = "<group>"; };
 		2CA766E826049508005FEBBF /* OnboardingViewPure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewPure.swift; sourceTree = "<group>"; };
 		2CA766EA26049542005FEBBF /* OnboardingDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingDataModel.swift; sourceTree = "<group>"; };
@@ -126,6 +129,7 @@
 		2CC4D32625ACCB4200CE1132 /* Trick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trick.swift; sourceTree = "<group>"; };
 		2CD1D7542614E9BC00BF43FF /* PlanEndGIF.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = PlanEndGIF.gif; path = AppAssets/PlanEndGIF.gif; sourceTree = "<group>"; };
 		2CD800EE25D6861500A9994D /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		2CDBEDFE261E03620000BB6D /* skateCompleteGIF.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = skateCompleteGIF.gif; path = AppAssets/skateCompleteGIF.gif; sourceTree = "<group>"; };
 		2CE5773F258106EF00B4F204 /* Skate_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skate_AppApp.swift; sourceTree = "<group>"; };
 		2CE57741258106F000B4F204 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2CE57746258106F000B4F204 /* Skate App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Skate App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -395,6 +399,8 @@
 		2CE57739258106EF00B4F204 = {
 			isa = PBXGroup;
 			children = (
+				2CDBEDFE261E03620000BB6D /* skateCompleteGIF.gif */,
+				2C9C43D4261CD57B00287BD9 /* skateLoading.gif */,
 				2CD1D7542614E9BC00BF43FF /* PlanEndGIF.gif */,
 				2C7BF52025D2DC7A00338E2B /* Skate App.entitlements */,
 				2C6F17E825C0AD21001CE0C9 /* GoogleService-Info.plist */,
@@ -550,6 +556,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CDBEDFF261E03620000BB6D /* skateCompleteGIF.gif in Resources */,
+				2C9C43D5261CD57B00287BD9 /* skateLoading.gif in Resources */,
 				2CD1D7552614E9BC00BF43FF /* PlanEndGIF.gif in Resources */,
 				2CE5776C258106F000B4F204 /* Assets.xcassets in Resources */,
 				2C6F17E925C0AD21001CE0C9 /* GoogleService-Info.plist in Resources */,
@@ -868,6 +876,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Skate-App";
 				PRODUCT_NAME = "Skate App";
 				SDKROOT = iphoneos;
@@ -928,6 +937,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Skate-App";
 				PRODUCT_NAME = "Skate App";
 				SDKROOT = iphoneos;

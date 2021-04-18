@@ -69,7 +69,7 @@ struct ScrollingHStackModifier: ViewModifier {
                     let newOffset = index * itemWidth + (index - 1) * itemSpacing - (contentWidth / 2.0) + (screenWidth / 2.0) - ((screenWidth - itemWidth) / 2.0) + itemSpacing
                     
                     // Animate snapping
-                    withAnimation {
+                    withAnimation(.spring()) {
                         scrollOffset = newOffset
                     }
                     

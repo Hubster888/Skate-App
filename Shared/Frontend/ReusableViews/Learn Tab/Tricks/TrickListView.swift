@@ -15,6 +15,7 @@ struct TrickListView: View {
     
     //Relevant data variables
     @EnvironmentObject private var trickViewModel : TrickViewModel
+    @EnvironmentObject var currentUserViewModel : CurrentUserViewModel
     let tabDiff : Int
     let segment : Int
     
@@ -30,7 +31,7 @@ struct TrickListView: View {
         switch tabDiff {
         case 1: // Begginer tricks
             ForEach(segment == 0 ? trickViewModel.beginnerTricks : trickViewModel.beginnerTricks.filter{
-                segment == 1 ? (trickViewModel.completionTable[$0.id!]!.filter{$0}.count < 1) : (trickViewModel.completionTable[$0.id!]!.filter{$0}.count >= 1)// 1 or more
+                segment == 1 ? (trickViewModel.completionTable[$0.id!]?.filter{$0}.count == 1) : (trickViewModel.completionTable[$0.id!]?.filter{$0}.count ?? 0 > 1)// 1 or more
             }
             ){ trick in
                 let trickDocId = trick.id
@@ -45,12 +46,12 @@ struct TrickListView: View {
                 }
                 .buttonStyle(ScaleAnimationButtonEffect())
                 .sheet(isPresented: $showingTrick) {
-                    TrickView()
+                    TrickView().environmentObject(self.currentUserViewModel)
                 }
             }
         case 2: // Intermidiate tricks
             ForEach(segment == 0 ? trickViewModel.doingThisAWhileTricks : trickViewModel.doingThisAWhileTricks.filter{
-                segment == 1 ? (trickViewModel.completionTable[$0.id!]!.filter{$0}.count < 1) : (trickViewModel.completionTable[$0.id!]!.filter{$0}.count >= 1)// 1 or more
+                segment == 1 ? (trickViewModel.completionTable[$0.id!]?.filter{$0}.count == 1) : (trickViewModel.completionTable[$0.id!]?.filter{$0}.count ?? 0 > 1)// 1 or more
             }
             ){ trick in
                 let trickDocId = trick.id
@@ -65,12 +66,12 @@ struct TrickListView: View {
                 }
                 .buttonStyle(ScaleAnimationButtonEffect())
                 .sheet(isPresented: $showingTrick) {
-                    TrickView()
+                    TrickView().environmentObject(self.currentUserViewModel)
                 }
             }
         case 3: // Pro tricks
             ForEach(segment == 0 ? trickViewModel.proTricks : trickViewModel.proTricks.filter{
-                segment == 1 ? (trickViewModel.completionTable[$0.id!]!.filter{$0}.count < 1) : (trickViewModel.completionTable[$0.id!]!.filter{$0}.count >= 1)// 1 or more
+                segment == 1 ? (trickViewModel.completionTable[$0.id!]?.filter{$0}.count == 1) : (trickViewModel.completionTable[$0.id!]?.filter{$0}.count ?? 0 > 1)// 1 or more
             }
             ){ trick in
                 let trickDocId = trick.id
@@ -85,12 +86,12 @@ struct TrickListView: View {
                 }
                 .buttonStyle(ScaleAnimationButtonEffect())
                 .sheet(isPresented: $showingTrick) {
-                    TrickView()
+                    TrickView().environmentObject(self.currentUserViewModel)
                 }
             }
         case 4: // God like tricks
             ForEach(segment == 0 ? trickViewModel.godlikeTricks : trickViewModel.godlikeTricks.filter{
-                segment == 1 ? (trickViewModel.completionTable[$0.id!]!.filter{$0}.count < 1) : (trickViewModel.completionTable[$0.id!]!.filter{$0}.count >= 1)// 1 or more
+                segment == 1 ? (trickViewModel.completionTable[$0.id!]?.filter{$0}.count == 1) : (trickViewModel.completionTable[$0.id!]?.filter{$0}.count ?? 0 > 1)// 1 or more
             }
             ){ trick in
                 let trickDocId = trick.id
@@ -105,7 +106,7 @@ struct TrickListView: View {
                 }
                 .buttonStyle(ScaleAnimationButtonEffect())
                 .sheet(isPresented: $showingTrick) {
-                    TrickView()
+                    TrickView().environmentObject(self.currentUserViewModel)
                 }
             }
         default: //TODO: Add error handling
